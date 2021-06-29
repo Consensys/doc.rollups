@@ -49,10 +49,22 @@ theme:
   logo: 'Images/logo.svg'
   favicon: 'Images/favicon.svg'
 nav:
-    - How to: HowTo/overview.md
-    - Concepts: Concepts/overview.md
-    - Tutorials: Tutorials/overview.md
-    - Reference: Reference/overview.md
+  - Get started:
+      - Quickstart: Get-Started/Quickstart.md
+  - How to:
+      - Configure:
+          - Configuration file: HowTo/Configure/Config-Files.md
+          - Database: HowTo/Configure/Database.md
+      - Smart contracts: HowTo/Smart-Contracts.md
+  - Concepts:
+      - Architecture: Concepts/ArchitectureOverview.md
+      - Consensus (PoA) rollups: Concepts/Consensus.md
+      - Partially Anonymous Rollups: Concepts/Partially-Anonymous-Rollups.md
+  - Tutorials:
+      - Partial anonymity token transfers: Tutorials/Token-Transfer.md
+  - Reference:
+      - JSON-RPC API methods: Reference/JSON-RPC.md
+      - Configuration file: Reference/Configuration-File.md
 
 markdown_extensions:
   - toc:
