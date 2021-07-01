@@ -21,7 +21,6 @@ For example, in a network of 21 nodes:
   This enforces safety: if 5 nodes disagree, the system stops.
 - If the system is configured to roll back a batch at 15 rejecting votes, 7 confirming votes are required to finalize a batch.
   This makes the system faster and less likely to stop.
-  But 7 operators can collude to create an invalid rollup that they will accept.
-  This forces the 14 other validators out.
+  But 7 operators can collude to create an invalid rollup that they will accept, forcing the 14 other validators out.
 
 In other words, the consensus is on who voted what, and the rollup-finality threshold is a deployment parameter.
