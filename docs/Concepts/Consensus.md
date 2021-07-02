@@ -9,7 +9,7 @@ In consensus-rollups, operators take turns creating a *batch* of smart contracts
 
 Consensus-rollups use the consensus established at the blockchain level.
 Finality of consensus-rollups (rollup-finality) is achieved when the votes finalizing the consensus are included in a
-blockchain-final block.
+blockchain block.
 
 Rollup-finality does not require a majority of votes.
 Rather, the proportion of nodes required to achieve rollup-finality is a configurable threshold, and is a trade-off between the expected proportion of
@@ -22,5 +22,3 @@ For example, in a network of 21 nodes:
 - If the system is configured to roll back a batch at 15 rejecting votes, 7 confirming votes are required to finalize a batch.
   This makes the system faster and less likely to stop.
   But 7 operators can collude to create an invalid rollup that they will accept, forcing the 14 other validators out.
-
-In other words, the consensus is on who voted what, and the rollup-finality threshold is a deployment parameter.
