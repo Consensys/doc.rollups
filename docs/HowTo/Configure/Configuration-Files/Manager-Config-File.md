@@ -1,5 +1,5 @@
 ---
-Description: The engine's configuration file.
+Description: The manager's configuration file.
 ---
 
 # Configuration files
