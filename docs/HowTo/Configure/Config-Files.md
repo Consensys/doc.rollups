@@ -165,7 +165,12 @@ Database name.
 
 ### `database_type`
 
-Database type. Sumo rollups support `Postgres`.
+Database type. Valid options are `Postgres` and `Dummy`. Defaults to `Postgres`.
+
+!!! warning
+
+    The `Dummy` option is used for testing to start the operator without the database dependency.
+    This option must not be used in production.
 
 ### `host`
 
@@ -198,6 +203,11 @@ Address of the Kafka brokers. Defaults to `localhost:9092`.
 ### `kafka_type`
 
 Kafka type options are `Real` and `Dummy`. Defaults to `Real`.
+
+!!! warning
+
+    The `Dummy` option is used for testing to start the operator without the Kafka dependency.
+    This option must not be used in production.
 
 ### `timeout_ms`
 
