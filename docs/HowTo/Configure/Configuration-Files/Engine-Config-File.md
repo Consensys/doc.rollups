@@ -1,11 +1,14 @@
 ---
-Description: The Sumo rollup configuration file.
+Description: The engine's configuration file.
 ---
 
 # Configuration files
 
-Supply a valid TOML configuration file when starting the operator. The file contains the settings
-to manage the rollup, and connect to the blockchain client and database.
+Supply a valid TOML configuration file when starting the operator's engine. The engine builds a
+batch and sends to it to the blockchain.
+
+The file contains the settings to manage the engine, and connect to the blockchain client and
+database.
 
 !!!example "Sample TOML configuration file"
 
@@ -61,7 +64,7 @@ to manage the rollup, and connect to the blockchain client and database.
         batch_updates_topic = "sumo-state-updates"
     ```
 
-The operator supports the following settings.
+The engine supports the following settings.
 
 ## `crypto_suite`
 
@@ -157,7 +160,7 @@ URL of the blockchain client. Defaults to `http://localhost:8545`.
 
 ## `database`
 
-The database section contains the details to connect to the opertor's database.
+The database section contains the details to connect to the engines's database.
 
 ### `database`
 
@@ -198,7 +201,7 @@ Topic used by Kafka. Defaults to `sumo-state-updates`.
 
 ### `brokers`
 
-Address of the Kafka brokers. Defaults to `localhost:9092`.
+Address of the [Kafka brokers]. Defaults to `localhost:9092`.
 
 ### `kafka_type`
 
@@ -274,3 +277,6 @@ of the structure with every write. Defaults to `100`.
 Number of batches that can be simultaneously stored in processing. Ensure you set this value
 high enough since exceeding this capacity involves a full copy of the structure with every write.
 Defaults to `100`
+
+<!-- links -->
+[Kafka brokers]: https://jaceklaskowski.gitbooks.io/apache-kafka/content/kafka-properties-bootstrap-servers.html
