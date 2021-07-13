@@ -16,4 +16,4 @@ The available quickstart deployments are:
 
 ## Obtain access
 
-[Contact support](https://consensys.net/rollup/) to obtain access the quickstart deployments.
+[Contact support](https://consensys.net/contact/) to obtain access the quickstart deployments.
