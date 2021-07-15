@@ -11,7 +11,7 @@ generate recursive proofs.
 Partial anonymity makes communication between users and operators transparent, allowing operators
 to know what transactions they are performing, but transactions are obfuscated on the blockchain.
 
-|                                | User and Operator communication | Operator and blockchain communication |
+| Rollup type                    | User and Operator communication | Operator and blockchain communication |
 |--------------------------------|---------------------------------|---------------------------------------|
 | Standard (transparent) rollups | Transparent                     | Transparent                           |
 | Anonymous rollups              | Obfuscated                      | Obfuscated                            |
@@ -37,4 +37,10 @@ Disadvantages of partially anonymous rollups are:
 * The operator performing a transaction can view the full transaction details.
 * Participants in a transaction learn their counterparty ID.
 
+!!! information
+
+    The [document about partially anonymous rollups] contains in-depth information about the rollup
+    type.
+
 [anonymous rollups]: https://ethresear.ch/t/account-based-anonymous-rollup/6657
+[document about partially anonymous rollups]: ../Assets/partially_anonymous_rollups_with_encryption-v1.4-June.pdf
