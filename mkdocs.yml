@@ -57,6 +57,7 @@ nav:
               - Engine configuration file: HowTo/Configure/Configuration-Files/Engine-Config-File.md
               - Manager configuration file: HowTo/Configure/Configuration-Files/Manager-Config-File.md
           - Database: HowTo/Configure/Database.md
+          - Kafka: HowTo/Configure/Kafka.md
       - Smart contracts: HowTo/Smart-Contracts.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
