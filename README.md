@@ -1,8 +1,5 @@
 # ConsenSys Rollup documentation
 
- #Latest: [![Documentation Status](https://readthedocs.com/projects/pegasys-sumo/badge/?version=latest)](https://docs.rollup.consensys.net/en/latest/?badge=latest)
- #Stable: [![Documentation Status](https://readthedocs.com/projects/pegasys-sumo/badge/?version=stable)](https://docs.rollup.consensys.net/en/stable/?badge=stable)
-
 ConsenSys Rollup is a solution for scalability and privacy on the Ethereum ecosystem.
 
 This repository only contains the sources for [ConsenSys Rollup documentation website hosted by ReadTheDocs.com].
