@@ -7,7 +7,7 @@ In consensus-rollups, operators take turns creating a *batch* of transactions (a
 
 While consensus-rollups rely on a trust assumption, it can achieve:
 
-- Very high throughput, as verification is performed off-chain.
+- High throughput, as verification is performed off-chain.
 - Instant finality.
 
 ## Consensus and consensus-rollups
