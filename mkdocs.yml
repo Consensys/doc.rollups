@@ -61,6 +61,7 @@ nav:
       - Architecture: Concepts/ArchitectureOverview.md
       - Consensus (PoA) rollups: Concepts/Consensus.md
       - Partially Anonymous Rollups: Concepts/Partially-Anonymous-Rollups.md
+      - Money orders: Concepts/Money-Order.md
   - Tutorials:
       - Partial anonymity token transfers: Tutorials/Token-Transfer.md
   - Reference:
