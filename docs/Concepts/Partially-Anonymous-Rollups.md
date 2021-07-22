@@ -24,7 +24,7 @@ without impacting performance.
 Benefits of partially anonymous rollups over anonymous rollups are:
 
 * Simpler proving schemes.
-* Higher transaction throughput due to fewer contraints for user transactions.
+* Higher transaction throughput due to fewer constraints for user transactions.
 * Simpler account management since all account information (except the secret key) can be recovered
     from a user's operator.
 * Simplified user experience since users' who have their account information stored with an
