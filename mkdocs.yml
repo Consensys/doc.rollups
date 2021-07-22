@@ -55,11 +55,13 @@ nav:
       - Configure:
           - Configuration file: HowTo/Configure/Config-Files.md
           - Database: HowTo/Configure/Database.md
+          - Kafka: HowTo/Configure/Kafka.md
       - Smart contracts: HowTo/Smart-Contracts.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
       - Consensus (PoA) rollups: Concepts/Consensus.md
       - Partially anonymous rollups: Concepts/Partially-Anonymous-Rollups.md
+      - Money orders: Concepts/Money-Order.md
   - Tutorials:
       - Partial anonymity token transfers: Tutorials/Token-Transfer.md
   - Reference:
