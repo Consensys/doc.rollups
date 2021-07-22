@@ -55,6 +55,7 @@ nav:
       - Configure:
           - Configuration file: HowTo/Configure/Config-Files.md
           - Database: HowTo/Configure/Database.md
+          - Kafka: HowTo/Configure/Kafka.md
       - Smart contracts: HowTo/Smart-Contracts.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
