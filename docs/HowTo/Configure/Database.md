@@ -6,9 +6,10 @@ Description: How to configure the database
 
 The operator supports [PostgreSQL](https://www.postgresql.org/) as the database management system.
 
-Configure access to the database in the [configuration file](Config-Files.md).
+Configure access to the database for the [engine](Configuration-Files/Engine-Config-File.md) and
+[manager](Configuration-Files/Manager-Config-File.md) components.
 
-!!! example "Kafka configuration example"
+!!! example "Database configuration example"
 
     ```toml
     [database]

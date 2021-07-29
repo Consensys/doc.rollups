@@ -53,7 +53,9 @@ nav:
       - Quickstart: Get-Started/Quickstart.md
   - How to:
       - Configure:
-          - Configuration file: HowTo/Configure/Config-Files.md
+          - Configuration files:
+              - Engine configuration file: HowTo/Configure/Configuration-Files/Engine-Config-File.md
+              - Manager configuration file: HowTo/Configure/Configuration-Files/Manager-Config-File.md
           - Database: HowTo/Configure/Database.md
           - Kafka: HowTo/Configure/Kafka.md
       - Smart contracts: HowTo/Smart-Contracts.md
