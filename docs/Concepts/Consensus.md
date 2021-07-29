@@ -17,13 +17,15 @@ Finality of consensus-rollups (rollup-finality) is achieved when enough votes fi
 blockchain block.
 
 Rollup-finality does not require a majority of votes.
-Rather, the proportion of nodes required to achieve rollup-finality is a configurable threshold, and is a trade-off between the expected proportion of
-Byzantine nodes (nodes that may present invalid information) and the target performance.
+Rather, the proportion of nodes required to achieve rollup-finality is a configurable threshold, and is a trade-off between
+the expected proportion of Byzantine nodes (nodes that may present invalid information) and the target performance.
 
-For example, in a network of 21 nodes:
+For example, in a network of 10 nodes:
 
-- If the system is configured to roll back (reject) a batch at 5 rejecting votes, 17 confirming votes are required to finalize a batch.
-  This enforces safety: if 5 nodes disagree, the system stops.
-- If the system is configured to roll back a batch at 15 rejecting votes, 7 confirming votes are required to finalize a batch.
+- If the system is configured to roll back (reject) a batch at 3 rejecting votes, 8 confirming votes are required to
+  finalize a batch.
+  This enforces safety: if 3 nodes disagree, the system stops.
+- If the system is configured to roll back a batch at 8 rejecting votes, 3 confirming votes are required to finalize a batch.
   This makes the system faster and less likely to stop.
-  But 7 operators can collude to create an invalid rollup that they will accept, forcing the 14 other validators out.
+  However, if 3 operators are malicious, they can collude to create an invalid rollup that they will accept, forcing the
+  7 other validators out.
