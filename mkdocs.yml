@@ -53,14 +53,17 @@ nav:
       - Quickstart: Get-Started/Quickstart.md
   - How to:
       - Configure:
-          - Configuration file: HowTo/Configure/Config-Files.md
+          - Configuration files:
+              - Engine configuration file: HowTo/Configure/Configuration-Files/Engine-Config-File.md
+              - Manager configuration file: HowTo/Configure/Configuration-Files/Manager-Config-File.md
           - Database: HowTo/Configure/Database.md
           - Kafka: HowTo/Configure/Kafka.md
       - Smart contracts: HowTo/Smart-Contracts.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
       - Consensus (PoA) rollups: Concepts/Consensus.md
-      - Partially Anonymous Rollups: Concepts/Partially-Anonymous-Rollups.md
+      - Partially anonymous rollups: Concepts/Partially-Anonymous-Rollups.md
+      - Money orders: Concepts/Money-Order.md
   - Tutorials:
       - Partial anonymity token transfers: Tutorials/Token-Transfer.md
   - Reference:

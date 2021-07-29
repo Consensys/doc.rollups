@@ -10,7 +10,8 @@ platform to submit and listen for requests, and get information about batches.
 Information about batches is accumulated asynchronously, and notifies the user when a request is
 submitted and finalized onchain.
 
-Configure the operator to use Kafka in the [configuration file](Config-Files.md).
+Configure Kafka access for the [engine](Configuration-Files/Engine-Config-File.md) and
+[manager](Configuration-Files/Manager-Config-File.md) components.
 
 !!! example "Kafka configuration example"
 
