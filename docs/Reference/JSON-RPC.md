@@ -45,6 +45,7 @@ whether the account is ready to use.
             }
         }
         ```
+
 ## createMoneyOrder
 
 Create a money order to transfer an amount between two accounts. Both accounts must be in the
@@ -296,7 +297,6 @@ List all money orders for which you are the issuer.
 List money orders available to redeem that are already finalized on the blockchain.
 
 ### Parameters
-
 
 * `nonce`: *integer* - nonce of the account operation
 
@@ -555,7 +555,6 @@ Open a money order and claim the funds locked within.
 * `signature`: *string* - signature of sender's account
 
 * `merkleProof`: *string* - Merkle Proof connecting the money order hash to the batch root hash
-
 
 ### Returns
 
