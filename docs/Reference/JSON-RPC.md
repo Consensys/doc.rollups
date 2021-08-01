@@ -57,13 +57,13 @@ rollup.
 
 * `toAccountId`: *integer* - 32-byte account ID of the receiver
 
-* `nonce`: *integer* - nonce of the most recent account operation
-
 * `tokenId`: *integer* - token type ID
 
 * `amount`: *integer* - token amount for the transaction
 
 * `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
+
+* `nonce`: *integer* - nonce of the most recent account operation
 
 * `signature`: *string* - signature of sender's account
 
@@ -232,19 +232,23 @@ List all money orders for which you are the issuer.
 
 ### Parameters
 
+!!! important
+
+    Use `null` if you don't want to specify a value for an optional parameter.
+
 * `nonce`: *integer* - nonce of the account operation
 
 * `softLimit`: *integer* - maximum number of results to return
 
 * `fromAccountId`: *integer* - 32-byte account ID of the sender
 
-* `toAccountId`: *integer* - 32-byte account ID of the receiver
+* `toAccountId`: *integer* - (optional) 32-byte account ID of the receiver
 
-* `status`: *string* - status of the money order
+* `status`: *string* - (optional) status of the money order
 
-* `minAmount`: *integer* - filter results by the minimum transaction value
+* `minAmount`: *integer* - (optional) filter results by the minimum transaction value
 
-* `maxAmount`: *integer* - filter results by the maximum transaction value
+* `maxAmount`: *integer* - (optional) filter results by the maximum transaction value
 
 ### Returns
 
@@ -298,19 +302,23 @@ List money orders available to redeem that are already finalized on the blockcha
 
 ### Parameters
 
-* `nonce`: *integer* - nonce of the account operation
+!!! important
+
+    Use `null` if you don't want to specify a value for an optional parameter.
+
+* `fromMoneyOrderTotalIndex`: *integer* - starting index for the money order batch
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - 32-byte account ID of the sender
+* `fromAccountId`: *integer* - (optional) 32-byte account ID of the sender
 
 * `toAccountId`: *integer* - 32-byte account ID of the receiver
 
 * `status`: *string* - status of the money order
 
-* `minAmount`: *integer* - filter results by the minimum transaction value
+* `minAmount`: *integer* - (optional) filter results by the minimum transaction value
 
-* `maxAmount`: *integer* - filter results by the maximum transaction value
+* `maxAmount`: *integer* - (optional) filter results by the maximum transaction value
 
 ### Returns
 
@@ -326,7 +334,8 @@ List money orders available to redeem that are already finalized on the blockcha
     * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
         money order batch, and 2 bytes are for the index of the money order in the batch.
     * `merkleProof`: *array* - merkle proof of the account in the merkle tree
-    * `batchStateRootHash`: *string* -
+    * `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
+        was included
 
 !!! example
 
@@ -416,19 +425,23 @@ List money orders submitted for redemption.
 
 ### Parameters
 
+!!! important
+
+    Use `null` if you don't want to specify a value for an optional parameter.
+
 * `nonce`: *integer* - nonce of the account operation
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - 32-byte account ID of the sender
+* `fromAccountId`: *integer* - (optional) 32-byte account ID of the sender
 
-* `toAccountId`: *integer* - 32-byte account ID of the receiver
+* `toAccountId`: *integer* - (optional) 32-byte account ID of the receiver
 
-* `status`: *string* - status of the money order
+* `status`: *string* - (optional) status of the money order
 
-* `minAmount`: *integer* - filter results by the minimum transaction value
+* `minAmount`: *integer* - (optional) filter results by the minimum transaction value
 
-* `maxAmount`: *integer* - filter results by the maximum transaction value
+* `maxAmount`: *integer* - (optional) filter results by the maximum transaction value
 
 ### Returns
 
