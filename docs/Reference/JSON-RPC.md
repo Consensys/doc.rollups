@@ -314,8 +314,9 @@ List money orders available to redeem that are already finalized on the blockcha
 
 * `toAccountId`: *integer* - 32-byte account ID of the receiver
 
-* `status`: *string* - status of the money order
-
+* `status`: *string* - (optional) status of the money order. Valid options are `AVAILABLE_TO_REDEEM` and
+    `REDEEMED`
+.
 * `minAmount`: *integer* - (optional) filter results by the minimum transaction value
 
 * `maxAmount`: *integer* - (optional) filter results by the maximum transaction value
