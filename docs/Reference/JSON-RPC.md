@@ -6,25 +6,28 @@ Description: JSON-RPC API methods
 
 ## `createAccount`
 
-Creates an account on the rollup. You need to wait for the account to finalized on the blockchain
-before creating money orders.
+Creates an account on the rollup.
 
-Use [`findAccountId`](#findaccountid) to obtain the account ID and determine
-whether the account is ready to use.
+!!! tip
+
+    You need to wait for the account to finalized on the blockchain before creating money orders.
+
+    Use [`findAccountId`](#findaccountid) to obtain the account ID and determine whether the account is ready to use.
 
 ### Parameters
 
-* `publicKey`: *string* - 64-bytes account public key
+* `publicKey`: *string* - 64-byte account public key
 
-* `encryptionKey`: *string* - 64-bytes encryption key associated with the supplied public key
+* `encryptionKey`: *string* - 64-byte encryption key associated with the supplied public key
 
-* `blindingFactor`: *string* - 32-bytes blinding factor for obfuscation
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
 
-* `signature`: *string* - 96-bytes account signature
+* `signature`: *string* - 96-byte account signature
 
 ### Returns
 
-`result`: *string* - status of the account creation, for example `PENDING`, `REGISTERED`, or an error.
+`result`: *string* - status of the account creation, for example `REGISTERED`; otherwise an error, for example
+`PUBLIC_KEY_ALREADY_EXISTS`.
 
 !!! example
 
@@ -53,15 +56,15 @@ rollup.
 
 ### Parameters
 
-* `fromAccountId`: *integer* - 32-bytes account ID of the sender
+* `fromAccountId`: *integer* - 32-byte account ID of the sender
 
-* `toAccountId`: *integer* - 32-bytes account ID of the receiver
+* `toAccountId`: *integer* - 32-byte account ID of the receiver
 
 * `tokenId`: *integer* - token type ID
 
 * `amount`: *integer* - token amount for the transaction
 
-* `blindingFactor`: *string* - 32-bytes blinding factor for obfuscation
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
 
 * `nonce`: *integer* - nonce of the most recent account operation
 
@@ -102,13 +105,13 @@ order.
 
 ### Parameters
 
-* `publicKey`: *string* - 64-bytes account public key
+* `publicKey`: *string* - 64-byte account public key
 
 ### Returns
 
 `result`: *object* - account details with the following fields:
 
-* `status`: *string* - account status. Status types are `PENDING`, `ACTIVE`, or an error.
+* `status`: *string* - account status. Status types are `PENDING`, `ACTIVE`, or an error (for example: `PUBLIC_KEY_NOT_FOUND`).
 * `id`: *integer* - account ID.
 
 !!! example
@@ -148,9 +151,9 @@ Returns the latest finalized account state on the blockchain.
 
 * `publicKey`: *string* - account public key
 
-* `encryptionKey`: *string* - 64-bytes encryption key associated with the public key
+* `encryptionKey`: *string* - 64-byte encryption key associated with the public key
 
-* `blindingFactor`: *string* - 32-bytes blinding factor for obfuscation
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
 
 * `nonce`: *integer* - nonce of the most recent account operation
 
@@ -240,9 +243,9 @@ List all money orders for which you are the issuer.
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - 32-bytes account ID of the sender
+* `fromAccountId`: *integer* - 32-byte account ID of the sender
 
-* `toAccountId`: *integer* - (optional) 32-bytes account ID of the receiver
+* `toAccountId`: *integer* - (optional) 32-byte account ID of the receiver
 
 * `status`: *string* - (optional) status of the money order
 
@@ -310,9 +313,9 @@ List money orders available to redeem that are already finalized on the blockcha
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - (optional) 32-bytes account ID of the sender
+* `fromAccountId`: *integer* - (optional) 32-byte account ID of the sender
 
-* `toAccountId`: *integer* - 32-bytes account ID of the receiver
+* `toAccountId`: *integer* - 32-byte account ID of the receiver
 
 * `status`: *string* - (optional) status of the money order. Valid options are `AVAILABLE_TO_REDEEM` and
     `REDEEMED`
@@ -332,7 +335,7 @@ List money orders available to redeem that are already finalized on the blockcha
     * `moneyOrder`: *object* - object containing the `fromAccountId`, `toAccountId`, `tokenId`, `amount`, and
         `blindingFactor`
     * `moneyOrderHash`: *string* - money order hash
-    * `moneyOrderTotalIndex`: *integer* - 6 bytes integer where 4 bytes contain the money order batch ID of the
+    * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
         money order batch, and 2 bytes are for the index of the money order in the batch.
     * `merkleProof`: *array* - merkle proof of the account in the merkle tree
     * `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
@@ -434,9 +437,9 @@ List money orders submitted for redemption.
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - (optional) 32-bytes account ID of the sender
+* `fromAccountId`: *integer* - (optional) 32-byte account ID of the sender
 
-* `toAccountId`: *integer* - (optional) 32-bytes account ID of the receiver
+* `toAccountId`: *integer* - (optional) 32-byte account ID of the receiver
 
 * `status`: *string* - (optional) status of the money order
 
@@ -455,7 +458,7 @@ List money orders submitted for redemption.
     * `moneyOrder`: *object* - object containing the `fromAccountId`, `toAccountId`, `tokenId`, `amount`, and
         `blindingFactor`
     * `nonce`: *integer* - transaction nonce
-    * `moneyOrderTotalIndex`: *integer* - 6 bytes integer where 4 bytes contain the money order batch ID of the
+    * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
         money order batch, and 2 bytes are for the index of the money order in the batch.
     * `merkleProof`: *array* - merkle proof of the account in the merkle tree
     * `status`: *string* - status of the redemption, for example `EXECUTED` or `PENDING`
@@ -551,17 +554,17 @@ Open a money order and claim the funds locked within.
 
 ### Parameters
 
-* `fromAccountId`: *integer* - 32-bytes account ID of the sender
+* `fromAccountId`: *integer* - 32-byte account ID of the sender
 
-* `toAccountId`: *integer* - 32-bytes account ID of the receiver
+* `toAccountId`: *integer* - 32-byte account ID of the receiver
 
 * `tokenId`: *integer* - token type ID
 
 * `amount`: *integer* - token amount for the transaction
 
-* `blindingFactor`: *string* - 32-bytes blinding factor for obfuscation
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
 
-* `moneyOrderTotalIndex`: *integer* - 6 bytes integer where 4 bytes contain the money order batch ID of the
+* `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
     money order batch, and 2 bytes are for the index of the money order in the batch.
 
 * `nonce`: *integer* - nonce of the most recent account operation
