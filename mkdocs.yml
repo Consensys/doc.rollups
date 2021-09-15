@@ -62,6 +62,7 @@ nav:
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
       - Consensus (PoA) rollups: Concepts/Consensus.md
+      - ZK-rollups: Concepts/ZK-Rollups.md
       - Partially anonymous rollups: Concepts/Partially-Anonymous-Rollups.md
       - Money orders: Concepts/Money-Order.md
   - Tutorials:
