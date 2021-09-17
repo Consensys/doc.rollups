@@ -1,22 +1,22 @@
 ---
-title: Sumo rollups
+title: ConsenSys Rollups
 ---
 
-# Sumo rollup framework
+# ConsenSys Rollups
 
-## What is Sumo?
+## What is ConsenSys Rollups?
 
-Sumo is a framework for implementing multiple types of rollups for the Ethereum
+ConsenSys Rollups is a framework for implementing multiple types of rollups for the Ethereum
 blockchain. Rollups are layer 2 scaling solutions that improve the scalability of Ethereum
-networks by performing mass transaction validation off-chain. Sumo supports any EVM-based protocol,
+networks by performing mass transaction validation off-chain. ConsenSys Rollups supports any EVM-based protocol,
 including Proof of Work (PoW) and Proof of Authority (PoA) protocols.
 
-Sumo currently implements Consensus rollups. Support for two additional types of rollups
-(ZK-Rollups and Optimistic Rollups) will be added later.
+ConsenSys Rollups currently implements Consensus-rollups and ZK-rollups, with support for an additional type of
+rollup (Optimistic-rollups) being added later.
 
 ![Architecture](Images/Sumo-rollup-overview.png)
 
-Sumo introduces a centralized actor called an Operator which consists of a Manager and Engine.
+ConsenSys Rollups introduces a centralized actor called an Operator which consists of a Manager and Engine.
 The operator receives and executes transactions, manages the state, and submits batch transactions
 to the Ethereum network.
 
@@ -24,8 +24,8 @@ Blockchain nodes do not re-execute the transactions; they wait until the operato
 
 ![Sumo workflow](Images/Operator_Flow.png)
 
-## Why use Sumo?
+## Why use ConsenSys Rollups?
 
-Using Consensus rollups, Sumo provides approximate speeds of 10,000 transactions per second (TPS)
+Using rollups, ConsenSys Rollups provides approximate speeds of 10,000 transactions per second (TPS)
 with 100 million accounts, on a private blockchain with immediate finality producing 1 block per
 second.
