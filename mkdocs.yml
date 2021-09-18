@@ -61,8 +61,10 @@ nav:
       - Smart contracts: HowTo/Smart-Contracts.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
-      - Consensus (PoA) rollups: Concepts/Consensus.md
-      - Partially anonymous rollups: Concepts/Partially-Anonymous-Rollups.md
+      - Rollups:
+          - Overview: Concepts/Rollups/Overview.md
+          - Consensus (PoA) rollups: Concepts/Rollups/Consensus.md
+          - Partially anonymous rollups: Concepts/Rollups/Partially-Anonymous-Rollups.md
       - Money orders: Concepts/Money-Order.md
   - Tutorials:
       - Partial anonymity token transfers: Tutorials/Token-Transfer.md
