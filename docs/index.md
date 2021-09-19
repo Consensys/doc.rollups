@@ -11,8 +11,8 @@ blockchain. Rollups are layer 2 scaling solutions that improve the scalability o
 networks by performing mass transaction validation off-chain. ConsenSys Rollups supports any EVM-based protocol,
 including Proof of Work (PoW) and Proof of Authority (PoA) protocols.
 
-ConsenSys Rollups currently implements Consensus-rollups and ZK-rollups, with support for an additional type of
-rollup (Optimistic-rollups) being added later.
+ConsenSys Rollups currently implements [consensus-rollups](Concepts/Rollups/Consensus.md) and [partially anonymous rollups](Concepts/Rollups/Partially-Anonymous-Rollups.md), with support for an additional type of
+rollup (optimistic-rollups) being added later.
 
 ![Architecture](Images/Sumo-rollup-overview.png)
 
