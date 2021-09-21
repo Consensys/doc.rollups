@@ -3,14 +3,10 @@
 Consensus-rollups, or proof of authority (PoA) rollups, rely on the assumption that there are
 enough honest operators to establish a consensus, without relying on a proof of correctness.
 
-In consensus-rollups, operators take turns creating a *batch* of transactions (a rollup) to be voted on by the other operators.
+In consensus-rollups, operators take turns creating a *batch* of users' transactions (a rollup) to be voted on by the
+other operators.
 
-While consensus-rollups rely on a trust assumption, it can achieve:
-
-- High throughput, as verification is performed off-chain.
-- Instant finality.
-
-## Consensus and consensus-rollups
+## Finality
 
 Consensus-rollups use the consensus established at the blockchain level.
 Finality of consensus-rollups (rollup-finality) is achieved when enough votes finalizing the consensus are included in a
