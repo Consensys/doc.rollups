@@ -1,6 +1,6 @@
-# Consensus (PoA) rollups
+# Consensus-rollups (PoA)
 
-Sumo implements consensus-rollups, or proof of authority (PoA) rollups, which rely on the assumption that there are
+Consensus-rollups, or proof of authority (PoA) rollups, rely on the assumption that there are
 enough honest operators to establish a consensus, without relying on a proof of correctness.
 
 In consensus-rollups, operators take turns creating a *batch* of transactions (a rollup) to be voted on by the other operators.
