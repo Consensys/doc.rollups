@@ -12,21 +12,21 @@ networks by performing mass transaction validation off-chain. ConsenSys Rollups 
 including Proof of Work (PoW) and Proof of Authority (PoA) protocols.
 
 ConsenSys Rollups currently implements [consensus-rollups](Concepts/Rollups/Consensus.md) and
-[partially anonymous rollups](Concepts/Rollups/Partially-Anonymous-Rollups.md), with support for an additional type of
-rollup (optimistic-rollups) being added later.
+[partially anonymous rollups](Concepts/Rollups/Partially-Anonymous-Rollups.md), with support for an additional type
+of rollup (optimistic-rollups) being added later.
 
-![Architecture](Images/Sumo-rollup-overview.png)
+![Architecture](Images/ConsenSys-Rollups-Overview.png)
 
-ConsenSys Rollups introduces a centralized actor called an Operator which consists of a Manager and Engine.
+ConsenSys Rollups introduces a centralized actor called an operator which consists of a manager and engine.
 The operator receives and executes transactions, manages the state, and submits batch transactions
 to the Ethereum network.
 
 Blockchain nodes do not re-execute the transactions; they wait until the operators reach consensus.
 
-![Sumo workflow](Images/Operator_Flow.png)
+![ConsenSys Rollups workflow](Images/Operator_Flow.png)
 
 ## Why use ConsenSys Rollups?
 
-Using rollups, ConsenSys Rollups provides approximate speeds of 10,000 transactions per second (TPS)
+ConsenSys Rollups provides approximate speeds of 10,000 transactions per second (TPS)
 with 100 million accounts, on a private blockchain with immediate finality producing 1 block per
 second.

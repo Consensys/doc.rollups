@@ -1,15 +1,15 @@
 ---
-description: Rollups overview
+description: ConsenSys Rollups overview
 ---
 
-# Rollups
+# ConsenSys Rollups
 
-ConsenSys Rollup implements two types of rollups:
+ConsenSys Rollups implements two types of rollups:
 
-- [Consensus (PoA) rollups](Consensus.md)
+- [Consensus-rollups](Consensus.md)
 - [Partially anonymous rollups](Partially-Anonymous-Rollups.md)
 
-Rollups can achieve high throughput, as verification is performed off-chain, and instant finality.
+ConsenSys Rollups can achieve high throughput, as verification is performed off-chain with instant finality.
 
 Benefits of consensus-rollups over partially anonymous rollups include:
 

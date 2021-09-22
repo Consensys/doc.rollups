@@ -4,10 +4,10 @@ Description: How to configure the database
 
 # Database
 
-The operator supports [PostgreSQL](https://www.postgresql.org/) as the database management system.
+ConsenSys Rollups support [PostgreSQL](https://www.postgresql.org/) as the database management system.
 
-Configure access to the database for the [engine](Configuration-Files/Engine-Config-File.md) and
-[manager](Configuration-Files/Manager-Config-File.md) components.
+Configure access to the database for the [engine](Configuration-File.md#engine-configuration-file) and
+[manager](Configuration-File.md#manager-configuration-file) components separately.
 
 !!! example "Database configuration example"
 
