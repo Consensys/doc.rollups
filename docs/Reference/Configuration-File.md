@@ -4,7 +4,7 @@ Description: ConsenSys Rollups configuration file options.
 
 # Configuration file
 
-Configuration files are TOML file used to configure the manager and engine components of ConsenSys Rollups.
+Configuration uses [TOML files](https://toml.io/) to configure the manager and engine components of ConsenSys Rollups.
 Each component requires its own configuration file.
 
 The following section describes the configuration file options for the [manager](#manager) and [engine](#engine).
@@ -61,7 +61,7 @@ The  HTTP JSON-RPC listening port to access the manager's APIs.
 
 #### `websocket_port`
 
-The Websockets JSON-RPC listening port to access the manager's APIs.
+The WebSocket JSON-RPC listening port to access the manager's APIs.
 
 ### `engine`
 
@@ -184,6 +184,7 @@ Database type. Valid options are `Postgres` and `Dummy`. Defaults to `Postgres`.
 !!! warning
 
     The `Dummy` option is used for testing to start the operator without the database dependency.
+
     This option must not be used in production.
 
 #### `host`
@@ -221,6 +222,7 @@ Kafka type options are `Real` and `Dummy`. Defaults to `Real`.
 !!! warning
 
     The `Dummy` option is used for testing to start the operator without the Kafka dependency.
+
     This option must not be used in production.
 
 #### `timeout_ms`
@@ -237,12 +239,12 @@ The arity of the rollup. Defaults to `2`.
 
 #### `capacity`
 
-Targeted capacity of the rollup to ensure  memory is immediately allocated correctly. Can be changed
+Targeted capacity of the rollup to ensure memory is immediately allocated correctly. Can be changed
 after the rollup's creation.
 
 #### `depth`
 
-The depth of the rollup's merkle tree. The rollup's maximum capacity is 2<sup>depth</sup>.
+The depth of the rollup's Merkle tree. The rollup's maximum capacity is $2^\text{depth}$.
 The parameter cannot be changed after the rollup's creation.
 
 #### `thread_count`

@@ -16,8 +16,8 @@ allow you to specify the address of the engine and manager APIs.
 
 ## Engine configuration file
 
-The engine builds a batch of transactions and sends to it to the blockchain. The
+The engine builds a batch of transactions and sends it to the blockchain. The
 [configuration file options](../../Reference/Configuration-File.md#engine) allow you to configure the rollup details,
-and access to the blockchain.
+and access the blockchain.
 
 {!global/Engine-Configuration-File.md!}
