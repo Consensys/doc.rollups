@@ -50,7 +50,7 @@ theme:
   favicon: 'Images/favicon.svg'
 nav:
   - Get started:
-      - Quickstart: Get-Started/Quickstart.md
+      - Deploy ConsenSys Rollups: Get-Started/Quickstart.md
   - How to:
       - Configure:
           - Configuration file: HowTo/Configure/Configuration-File.md
