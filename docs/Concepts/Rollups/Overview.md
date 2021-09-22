@@ -4,10 +4,16 @@ description: Rollups overview
 
 # Rollups
 
-ConsenSys Rollup implements two types of rollups:
+ConsenSys Rollups implements two types of rollups:
 
 - [Consensus (PoA) rollups](Consensus.md)
 - [Partially anonymous rollups](Partially-Anonymous-Rollups.md)
+
+A rollup is a *batch* of user transactions.
+
+In a rollup, users create transactions that [interact with the rollup smart contract](../../HowTo/Smart-Contracts.md).
+Operators create and manage the rollup off chain.
+The batch is published on chain by updating the rollup's state root hash stored in the rollup smart contract.
 
 Rollups can achieve high throughput, as verification is performed off-chain, and instant finality.
 
