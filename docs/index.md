@@ -12,8 +12,8 @@ networks by performing mass transaction validation off-chain. ConsenSys Rollups 
 including Proof of Work (PoW) and Proof of Authority (PoA) protocols.
 
 ConsenSys Rollups currently implements [consensus-rollups](Concepts/Rollups/Consensus.md) and
-[partially anonymous rollups](Concepts/Rollups/Partially-Anonymous-Rollups.md), with support for an additional type of
-rollup (optimistic-rollups) being added later.
+[partially anonymous rollups](Concepts/Rollups/Partially-Anonymous-Rollups.md), with support for an additional type
+of rollup (optimistic-rollups) being added later.
 
 ![Architecture](Images/ConsenSys-Rollups-Overview.png)
 
