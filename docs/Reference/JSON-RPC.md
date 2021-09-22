@@ -2,7 +2,7 @@
 Description: JSON-RPC API methods
 ---
 
-# Sumo rollup API methods
+# ConsenSys Rollups API methods
 
 ## `createAccount`
 

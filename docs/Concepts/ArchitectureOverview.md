@@ -1,11 +1,11 @@
 ---
-description: Sumo rollup architecture
+description: ConsenSys Rollups architecture
 ---
 
-# Sumo rollup architecture
+# ConsenSys Rollups architecture
 
-The following diagram outlines the Sumo rollup high-level architecture.
+The following diagram outlines the ConsenSys Rollups high-level architecture.
 
 ![Architecture](../Images/Architecture.png)
 
-For more information about the Sumo architecture, contact us on [Sumo Discord channel](https://discord.gg/9mCVSY6).
+For more information about the ConsenSys Rollups architecture, contact us on [ConsenSys Rollups Discord channel](https://discord.gg/9mCVSY6).

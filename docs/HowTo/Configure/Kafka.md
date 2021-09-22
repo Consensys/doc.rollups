@@ -4,14 +4,14 @@ Description: How to configure Kafka
 
 # Apache Kafka
 
-The operator uses [Apache Kafka](https://kafka.apache.org/) as the message broker and streaming
+ConsenSys Rollups uses [Apache Kafka](https://kafka.apache.org/) as the message broker and streaming
 platform to submit and listen for requests, and get information about batches.
 
 Information about batches is accumulated asynchronously, and notifies the user when a request is
 submitted and finalized onchain.
 
 Configure Kafka access for the [engine](Configuration-Files/Engine-Config-File.md) and
-[manager](Configuration-Files/Manager-Config-File.md) components.
+[manager](Configuration-Files/Manager-Config-File.md) components separately.
 
 !!! example "Kafka configuration example"
 
