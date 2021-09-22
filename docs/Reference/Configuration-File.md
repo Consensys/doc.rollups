@@ -4,10 +4,10 @@ Description: ConsenSys Rollups configuration file options.
 
 # Configuration file
 
-Configuration files are TOML file used to configure the Manager and Engine components of ConsenSys Rollups.
+Configuration files are TOML file used to configure the manager and engine components of ConsenSys Rollups.
 Each component requires its own configuration file.
 
-The following section describes the configuration file options for the [Manager](#manager) and [Engine](#engine).
+The following section describes the configuration file options for the [manager](#manager) and [mngine](#engine).
 
 ## Manager
 

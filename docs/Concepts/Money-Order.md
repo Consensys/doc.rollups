@@ -11,5 +11,6 @@ A money order can only be redeemed once stored onchain.
 An operator stores money order batches in memory as a sparse Merkle tree (SMT) before sending the
 batch onchain. An SMT contains the money order batch root hashes that have been added to the rollup.
 
-A money order can be created using the `createMoneyOrder` API, and redeemed using
-`redeemMoneyOrder` API. Both sender and recipient accounts must belong in the rollup.
+A money order can be created using the [`createMoneyOrder`](../Reference/JSON-RPC.md#createmoneyorder) API, and
+redeemed using the [`redeemMoneyOrder`](../Reference/JSON-RPC.md#redeemmoneyorder) API. Both sender and recipient
+accounts must belong in the rollup.
