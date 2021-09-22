@@ -45,11 +45,11 @@ This section contains the [Kafka](https://kafka.apache.org/) settings:
 
 #### `batch_updates_topic`
 
-Topic used by Kafka. Defaults to `sumo-state-updates`.
+Topic used by Kafka. The default is `sumo-state-updates`.
 
 #### `brokers`
 
-Address of the [Kafka brokers]. Defaults to `localhost:9092`.
+Address of the [Kafka brokers]. The default is `localhost:9092`.
 
 ### `api`
 
@@ -57,11 +57,11 @@ The details to access the manager's APIs.
 
 #### `http_port`
 
-The  HTTP JSON-RPC listening port to access the manager's APIs.
+HTTP JSON-RPC listening port to access the manager's APIs.
 
 #### `websocket_port`
 
-The WebSocket JSON-RPC listening port to access the manager's APIs.
+WebSocket JSON-RPC listening port to access the manager's APIs.
 
 ### `engine`
 
@@ -69,7 +69,7 @@ Details of the operator's engine component.
 
 #### `uri`
 
-The address (host and port) of the engine.
+Address (host and port) of the engine.
 
 ## Engine
 
@@ -79,48 +79,48 @@ The engine supports the following settings.
 
 ### `crypto_suite`
 
-The rollup's cryptographic schema. Options are `Native` and `Bn`. Defaults to `Bn`.
+Rollup's cryptographic schema. Options are `Native` and `Bn`. The default is `Bn`.
 
 ### `outbound_transfer_batch_size`
 
-Number of outbound transfers in a batch. Defaults to `0`.
+Number of outbound transfers in a batch. The default is `0`.
 
 ### `rollup_type`
 
-Type of rollup to implement. This option cannot be changed after the rollup's creation. Defaults to
+Type of rollup to implement. This option cannot be changed after the rollup's creation. The default is
 `PaZkp`.
 
 ### `server_addr`
 
-Operator's API address. Defaults to `0.0.0.0:5000`.
+Operator's API address. The default is `0.0.0.0:5000`.
 
 ### `sig_check_thread_count`
 
 Number of threads to use for verifying signatures. Must be less than the number of cores available.
-Defaults to `2`.
+The default is `2`.
 
 ### `smc_max_offset`
 
 Maximum number of snapshots pending finalization, must be smaller or equal to the `max_offset`
-value in the rollup smart contract. Defaults to `32`.
+value in the rollup smart contract. The default is `32`.
 
 ### `smc_transaction_batch_size`
 
 Number of smart contract transactions in a batch. Includes inbound and outbound transfers.
-Defaults to `3000`.
+The default is `3000`.
 
 ### `transaction_batch_size`
 
-Number of transactions in a batch. Defaults to `2000`.
+Number of transactions in a batch. The default is `2000`.
 
 ### `transaction_fetch_wait_time_in_ms`
 
-Time to wait for new transactions or blocks. Defaults to `100`.
+Time to wait for new transactions or blocks. The default is `100`.
 
 ### `trust_origin`
 
 Specify whether to trust the origin of the request. If `true`, then the operator skips signature
-verification. Defaults to `false`.
+verification. The default is `false`.
 
 ### `blockchain_connector`
 
@@ -133,21 +133,21 @@ Number of confirmations for an Ethereum transaction. For example, calls to `subm
 
 #### `connector_type`
 
-Connector type used to connect to the blockchain client. Defaults to `Web3`.
+Connector type used to connect to the blockchain client. The default is `Web3`.
 
 #### `forced_transaction_timeout`
 
 Forced transaction timeout (in Ethereum blocks). The rollup will freeze if there is an unprocessed
 forced transaction exists that is older than the current block number minus the timeout value.
-Defaults to `86400`.
+The default is `86400`.
 
 #### `gas_limit_batch`
 
-Gas limit for a call to `submitTransactions` in the rollup smart contract. Defaults to `100000000`.
+Gas limit for a call to `submitTransactions` in the rollup smart contract. The default is `100000000`.
 
 #### `gas_limit_vote`
 
-Gas limit for a call to 'voteFor' in the rollup smart contract. Defaults to `100000000`.
+Gas limit for a call to 'voteFor' in the rollup smart contract. The default is `100000000`.
 
 #### `lookahead`
 
@@ -167,7 +167,7 @@ Path to the file containing the rollup smart contract ABI.
 
 #### `url`
 
-URL of the blockchain client. Defaults to `http://localhost:8545`.
+URL of the blockchain client. The default is `http://localhost:8545`.
 
 ### `database`
 
@@ -179,7 +179,7 @@ Database name.
 
 #### `database_type`
 
-Database type. Valid options are `Postgres` and `Dummy`. Defaults to `Postgres`.
+Database type. Valid options are `Postgres` and `Dummy`. The default is `Postgres`.
 
 !!! warning
 
@@ -209,15 +209,15 @@ This section contains the [Kafka](https://kafka.apache.org/) settings:
 
 #### `batch_updates_topic`
 
-Topic used by Kafka. Defaults to `sumo-state-updates`.
+Topic used by Kafka. The default is `sumo-state-updates`.
 
 #### `brokers`
 
-Address of the [Kafka brokers]. Defaults to `localhost:9092`.
+Address of the [Kafka brokers]. The default is `localhost:9092`.
 
 #### `kafka_type`
 
-Kafka type options are `Real` and `Dummy`. Defaults to `Real`.
+Kafka type options are `Real` and `Dummy`. The default is `Real`.
 
 !!! warning
 
@@ -227,7 +227,7 @@ Kafka type options are `Real` and `Dummy`. Defaults to `Real`.
 
 #### `timeout_ms`
 
-Timeout period for Kafka streams. Defaults to `5000`.
+Timeout period for Kafka streams. The default is `5000`.
 
 ### `state_manager`
 
@@ -235,7 +235,7 @@ This section manages contains settings that manage the state details of the roll
 
 #### `arity`
 
-The arity of the rollup. Defaults to `2`.
+The arity of the rollup. The default is `2`.
 
 #### `capacity`
 
@@ -258,7 +258,7 @@ This section contains parameters to manage the transaction queue.
 
 #### `completeds_length`
 
-Number of historical batches kept in memory. Defaults to `100`.
+Number of historical batches kept in memory. The default is `100`.
 
 #### `dynamic_batch_interval_ms`
 
@@ -273,23 +273,23 @@ functionality is disabled.
 
 Number of transactions that can be processed by the insert poller at once. Setting this parameter to
 `1000` means the limit is 1000 transactions. Exceeding this capacity means the transactions are
-rejected until the poller empties the buffer. Defaults to `100`.
+rejected until the poller empties the buffer. The default is `100`.
 
 #### `insert_poller_epoch_ms`
 
-Interval at which transactions are moved from incoming to pending state. Defaults to `100`.
+Interval at which transactions are moved from incoming to pending state. The default is `100`.
 
 #### `pending_capacity`
 
 Number of pending transactions that can be stored. Different types of transactions are stored
 separately. Ensure you set this value high enough since exceeding this capacity involves a full copy
-of the structure with every write. Defaults to `100`.
+of the structure with every write. The default is `100`.
 
 #### `processing_capacity`
 
 Number of batches that can be simultaneously stored in processing. Ensure you set this value
 high enough since exceeding this capacity involves a full copy of the structure with every write.
-Defaults to `100`
+The default is `100`
 
 <!-- links -->
 [Kafka brokers]: https://jaceklaskowski.gitbooks.io/apache-kafka/content/kafka-properties-bootstrap-servers.html
