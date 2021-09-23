@@ -15,6 +15,11 @@ In a rollup, users create transactions that [interact with the rollup smart cont
 Operators create and manage the rollup off chain.
 The batch is published on chain by updating the rollup's state root hash stored in the rollup smart contract.
 
+When configuring ConsenSys Rollups, you can set the [`rollup_type`](../../HowTo/Configure/Configuration-Files/Engine-Config-File.md#rollup_type)
+in the engine configuration file to one of the two types.
+
+## Rollup advantages
+
 Rollups can achieve high throughput, as verification is performed off-chain, and instant finality.
 
 Benefits of consensus-rollups over partially anonymous rollups include:

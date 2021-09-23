@@ -23,20 +23,20 @@ database.
     transaction_fetch_wait_time_in_ms = 100
     smc_max_offset = 32
     sig_check_thread_count = 2
-    
+
     [state_manager]
         arity = 2
         depth = 28
         capacity = 10_000_000
         thread_count = 4
-    
+
     [transaction_manager]
         incoming_capacity = 1_000_000
         pending_capacity = 1_000_000
         processing_capacity = 100_000
         completeds_length = 20
         insert_poller_epoch_ms = 50
-    
+
     [database]
         database_type = "Postgres"
         username = "postgres"
@@ -44,7 +44,7 @@ database.
         host = "localhost"
         port = "5432"
         database = "engine_operator_1"
-    
+
     [blockchain_connector]
         connector_type = "Web3"
         url = "http://localhost:8545"
@@ -56,7 +56,7 @@ database.
         gas_limit_vote = 100_000_000
         confirmations = 3
         forced_transaction_timeout = 86400
-    
+
     [kafka]
         kafka_type = "Dummy"
         brokers = "localhost:9092"
@@ -76,8 +76,10 @@ Number of outbound transfers in a batch. Defaults to `0`.
 
 ## `rollup_type`
 
-Type of rollup to implement. This option cannot be changed after the rollup's creation. Defaults to
-`PaZkp`.
+Type of rollup to implement. This option cannot be changed after the rollup's creation.
+Use `Consensus` for [consensus-rollups](../../../Concepts/Rollups/Consensus.md) and `PaZkp` for
+[partially anonymous rollups](../../../Concepts/Rollups/Partially-Anonymous-Rollups.md)
+Defaults to `PaZkp`.
 
 ## `server_addr`
 
