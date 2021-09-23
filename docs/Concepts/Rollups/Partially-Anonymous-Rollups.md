@@ -4,8 +4,10 @@ Description: Describe partially anonymous rollups.
 
 # Partially anonymous rollups
 
-ConsenSys Rollups implements a type of [zero knowledge rollup (ZK-rollup)] called a partially anonymous rollup, which
-is a [rollup](Overview.md) that makes no assumptions about operators' honesty and achieves [partial anonymity](#partial-anonymity).
+A partially anonymous rollup is a type of [rollup](Overview.md) that makes no assumptions about operators' honesty and
+achieves [partial anonymity](#partial-anonymity).
+
+Partially anonymous rollups are a type of [zero knowledge rollup (ZK-rollup)].
 
 In partially anonymous rollups, operators must provide a proof of correctness of each batch it creates, in the form of a ZK-SNARK.
 Blockchain nodes verify the proof before adding the batch to a block.
@@ -13,7 +15,7 @@ Blockchain nodes verify the proof before adding the batch to a block.
 ## Partial anonymity
 
 Partially anonymous rollups preserve some of the privacy properties of [fully anonymous ZK-rollups (anonymous rollups)],
-which obfuscate communication between users and operators and between operators and the blockchain.
+which obfuscate communication between users and operators, and between operators and the blockchain.
 
 Partial anonymity makes communication between users and operators transparent, allowing operators to know what
 transactions they are performing, but transactions are obfuscated on the blockchain.
@@ -49,7 +51,7 @@ Disadvantages over anonymous rollups are:
 ## Finality
 
 Partially anonymous rollups use the consensus established at the blockchain level.
-Finality of partially anonymous rollups (rollup-finality) equals the blockchain-finality: the rollup's batch is final
+Finality of partially anonymous rollups equals the blockchain-finality; the rollup's batch is final
 once the block that includes it becomes final.
 
 [zero knowledge rollup (ZK-rollup)]: https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477

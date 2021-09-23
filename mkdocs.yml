@@ -10,11 +10,11 @@
 # specific language governing permissions and limitations under the License.
 
 # Project information
-site_name: ConsenSys Rollup
+site_name: ConsenSys Rollups
 site_url: https://doc.rollup.consensys.net/
-site_description: ConsenSys Rollup documentation.
+site_description: ConsenSys Rollups documentation.
 site_author: Consensys
-copyright: ConsenSys Rollup documentation is licensed under Apache 2.0 license
+copyright: ConsenSys Rollups documentation is licensed under Apache 2.0 license
 
 #extra project info and template customisation
 extra:
@@ -50,20 +50,18 @@ theme:
   favicon: 'Images/favicon.svg'
 nav:
   - Get started:
-      - Quickstart: Get-Started/Quickstart.md
+      - Deploy ConsenSys Rollups: Get-Started/Quickstart.md
   - How to:
       - Configure:
-          - Configuration files:
-              - Engine configuration file: HowTo/Configure/Configuration-Files/Engine-Config-File.md
-              - Manager configuration file: HowTo/Configure/Configuration-Files/Manager-Config-File.md
+          - Configuration file: HowTo/Configure/Configuration-File.md
           - Database: HowTo/Configure/Database.md
           - Kafka: HowTo/Configure/Kafka.md
       - Interact with the smart contract: HowTo/Smart-Contracts.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
-      - Rollups:
+      - Rollup types:
           - Overview: Concepts/Rollups/Overview.md
-          - Consensus (PoA) rollups: Concepts/Rollups/Consensus.md
+          - Consensus-rollups: Concepts/Rollups/Consensus.md
           - Partially anonymous rollups: Concepts/Rollups/Partially-Anonymous-Rollups.md
       - Money orders: Concepts/Money-Order.md
   - Tutorials:

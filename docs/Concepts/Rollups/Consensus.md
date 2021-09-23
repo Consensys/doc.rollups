@@ -1,8 +1,7 @@
-# Consensus (PoA) rollups
+# Consensus-rollups (PoA)
 
-ConsenSys Rollups implements a type of [rollup](Overview.md) called a consensus-rollup, or proof of authority (PoA) rollup,
-which relies on the assumption that there are enough honest operators to establish a consensus, and doesn't rely on a
-proof of correctness.
+A consensus-rollup, or proof of authority (PoA) rollup, is a type of [rollup](Overview.md) that relies on the assumption
+that there are enough honest operators to establish a consensus, without relying on a proof of correctness.
 
 In consensus-rollups, operators take turns creating batches to be voted on by the other operators.
 
