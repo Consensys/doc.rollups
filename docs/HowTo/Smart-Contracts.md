@@ -8,16 +8,12 @@ ConsenSys Rollups provides smart contracts for users to interact with [consensus
 and [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 The [rollup type specified at configuration](../Reference/Configuration-File.md#rollup_type) determines which contract is used.
-You can view the [consensus-rollup smart contract](https://github.com/ConsenSys/sumo/blob/main/smart_contract/contracts/Consensus.sol)
-and the [partially anonymous rollup contract](https://github.com/ConsenSys/sumo/blob/main/smart_contract/contracts/PartiallyAnonymous.sol)
-in the ConsenSys Rollups repository.
+You can view the consensus-rollup smart contract and the partially anonymous rollup contract in the ConsenSys Rollups repository.
 
 Users can [send inbound transfers to the smart contract](#send-inbound-transfers-to-smart-contract) to have the smart
-contract to manage their tokens, and users can
-[send tokens between accounts](#send-erc-20-tokens-between-accounts).
+contract to manage their tokens, and users can [send tokens between accounts](#send-erc-20-tokens-between-accounts).
 
-ConsenSys Rollups provides [accounts with test ether](https://github.com/ConsenSys/sumo/tree/main/node-data/test/keys)
-with which you can test the smart contracts.
+ConsenSys Rollups provides accounts with test ether with which you can test the smart contracts.
 
 !!! critical "Security warning"
 
