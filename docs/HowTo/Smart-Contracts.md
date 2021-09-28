@@ -19,13 +19,13 @@ ConsenSys Rollups provides accounts with test ether with which you can test the 
 
     **Do not use the test accounts on Ethereum mainnet or any production network.**
 
-    The accounts provided in the ConsenSys Rollups repository are test accounts and their private keys are publicly
-    visible in the source code. They are not secure and everyone can use them.
+    **The test accounts provided in the ConsenSys Rollups repository are not secure; their private keys are publicly
+    visible in the source code.**
 
-    **Using test accounts on Ethereum mainnet and production networks can lead to loss of funds and identity fraud.**
+    Using test accounts on Ethereum mainnet and production networks can lead to loss of funds and identity fraud.
 
-    Always secure your Ethereum mainnet and any production account properly.
-    For instance, see [MyCrypto "Protecting Yourself and Your Funds" guide](https://support.mycrypto.com/staying-safe/protecting-yourself-and-your-funds).
+    Always secure your Ethereum mainnet and production accounts properly.
+    For example, see [MyCrypto "Protecting Yourself and Your Funds" guide](https://support.mycrypto.com/staying-safe/protecting-yourself-and-your-funds).
 
 ## Prerequisites
 
