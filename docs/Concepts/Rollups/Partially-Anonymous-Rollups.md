@@ -4,11 +4,12 @@ Description: Describe partially anonymous rollups.
 
 # Partially anonymous rollups
 
-ConsenSys Rollups implements a type of [zero knowledge rollup (ZK-rollup)] called a partially anonymous rollup, which
-makes no assumptions about operators' honesty and achieves [partial anonymity](#partial-anonymity).
+A partially anonymous rollup is a type of [rollup](Overview.md) that makes no assumptions about operators' honesty and
+achieves [partial anonymity](#partial-anonymity).
 
-In partially anonymous rollups, operators create a *batch* of users' transactions (a rollup), and must provide a proof
-of correctness of the batch in the form of a ZK-SNARK.
+Partially anonymous rollups are a type of [zero knowledge rollup (ZK-rollup)].
+
+In partially anonymous rollups, operators must provide a proof of correctness of each batch it creates, in the form of a ZK-SNARK.
 Blockchain nodes verify the proof before adding the batch to a block.
 
 ## Partial anonymity
