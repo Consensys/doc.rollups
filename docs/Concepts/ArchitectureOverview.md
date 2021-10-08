@@ -13,7 +13,7 @@ Communication between manager and engine is asynchronous due to the nature of in
 The steps are as follows.
 
 1. The manager accepts a request from a dapp and does some preliminary validation.
-1. The manager computes a hash of an operation using a crypto library.
+1. The manager computes a hash of an operation using a cryptographic library.
 1. The engine registers the request from the manager if it passes some initial validation.
 1. After executing operations, the engine submits the batch to the blockchain.
 1. When a request is submitted to a blockchain, and a "Batch Submitted" event is received, the engine sends batch
