@@ -5,12 +5,11 @@ description: ConsenSys Rollups architecture
 # ConsenSys Rollups architecture
 
 The following diagram outlines the ConsenSys Rollups high-level architecture.
-In particular, it highlights the communication between the manager and engine components.
 
 ![Architecture](../Images/Architecture.png)
 
-Communication between manager and engine is asynchronous due to the nature of interactions with the blockchain.
-The steps are as follows.
+The following steps describe the communication between the manager and engine components, which is asynchronous due to
+the nature of interactions with the blockchain:
 
 1. The manager accepts a request from a dapp and does some preliminary validation.
 1. The manager computes the operation hash using a cryptographic library.
