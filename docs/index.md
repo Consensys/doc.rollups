@@ -19,9 +19,7 @@ of rollup (optimistic-rollups) being added later.
 
 ConsenSys Rollups introduces a centralized actor called an operator which consists of a manager and engine.
 The operator receives and executes transactions, manages the state, and submits batch transactions
-to the Ethereum network.
-
-Blockchain nodes do not re-execute the transactions; they wait until the operators reach consensus.
+to the Ethereum network. The blockchain nodes do not re-execute the transactions.
 
 ![ConsenSys Rollups workflow](Images/Operator_Flow.png)
 
