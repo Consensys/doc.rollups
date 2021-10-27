@@ -1,0 +1,13 @@
+fontawesome f007 User
+fontawesome f233 Operator
+
+fontawesome f1c9 Rollups smart contract
+fontawesome f233 Operator 2
+
+
+
+==List money orders==
+User->Operator:listMoneyOrderCreation(..)\nlistMoneyOrderRedemption(..)\nlistMoneyOrdersReceived(..)
+Operator->Operator:Verify, authenticate,\n and authorize
+Operator->Operator:Fetch data locally
+User<-Operator:Money orders list

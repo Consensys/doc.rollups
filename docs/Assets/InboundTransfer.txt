@@ -1,0 +1,23 @@
+fontawesome f007 User
+fontawesome f233 Operator 1
+fontawesome f1c9 Rollups smart contract
+fontawesome f1c9 ERC20
+fontawesome f233 Operator 2
+
+
+==Inbound transfer==
+User->ERC20:approve(rollupAddress, amount)
+User<-ERC20:ok
+User->Rollups smart contract:registerInboundTransferERC20(accountId, tokenId, \namount)
+Rollups smart contract->ERC20:transferFrom(userAddress, rollupAddress,\namount)
+Rollups smart contract<-ERC20:ok
+note left of Rollups smart contract:ERC20 tokens locked on\nthe rollup smart contract
+User<-Rollups smart contract:ok
+Rollups smart contract->Operator 2:ForcedInboundTransferReceived(accountId, amount,\nindex, tokenId, expireAt)
+Operator 1<-Rollups smart contract:ForcedInboundTransferReceived(accountId, amount,\nindex, tokenId, expireAt)
+Operator 1->Operator 1:Create the money order for\nthe inbound transfer
+Operator 1->Operator 1:Batch transactions and\ngenerate the ZK Proof
+Operator 1->Rollups smart contract:submitTransactions(prevStateRootHash,  nextStateRootHash, \ntransactions,forcedTransactionType, startIndex, endIndex, \ninvalidTransactionIndexes, zkproof)
+Rollups smart contract->Rollups smart contract:Verify the ZK Proof
+Rollups smart contract->ERC20:TransactionBatchAccepted(nextStateRootHash)
+Operator 1<-Rollups smart contract:TransactionBatchAccepted(nextStateRootHash)

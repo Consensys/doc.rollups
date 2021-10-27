@@ -1,0 +1,13 @@
+fontawesome f007 User
+fontawesome f233 Operator
+fontawesome f007 Rollup administrator
+fontawesome f1c9 Rollups smart contract
+fontawesome f1c9 ERC20
+fontawesome f233 Operator 2
+fontawesome f007 User 2
+
+==Register an ERC20 token==
+Rollup administrator->Rollups smart contract:registerToken(erc20Address)
+Rollup administrator<-Rollups smart contract:ok
+Operator<-Rollups smart contract:ERC20TokenRegistered(tokenId, tokenAddress)
+Operator 2<-Rollups smart contract:ERC20TokenRegistered(tokenId, tokenAddress)

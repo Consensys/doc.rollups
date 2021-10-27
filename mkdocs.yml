@@ -64,6 +64,7 @@ nav:
           - Consensus-rollups: Concepts/Rollups/Consensus.md
           - Partially anonymous rollups: Concepts/Rollups/Partially-Anonymous-Rollups.md
       - Money orders: Concepts/Money-Order.md
+      - Common workflow sequences: Concepts/Workflow-Sequence.md
   - Tutorials:
       - Partial anonymity token transfers: Tutorials/Token-Transfer.md
   - Reference:
