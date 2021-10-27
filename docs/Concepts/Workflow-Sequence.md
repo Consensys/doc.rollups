@@ -4,7 +4,8 @@ Description: Describe the workflow sequence for common rollup operations
 
 # Workflow sequence for common operations
 
-This topic illustrates the event sequence for common rollup operations across the network.
+This topic illustrates the event sequence for common rollup operations across the network and the interaction
+between the various components of the rollup.
 
 ## Create an account
 
