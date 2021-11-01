@@ -18,11 +18,19 @@ Creates an account on the rollup.
 
 * `publicKey`: *string* - 64-byte account public key
 
-* `encryptionKey`: *string* - 64-byte encryption key associated with the supplied public key
+* `jointEncryptionKey`: *string* - 64-byte encryption key based on user's rollup encryption key and
+    operator's rollup public key. Can be created using the `SumoCryto` library.
 
-* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
+* `encryptionKey`: *string* - 64-byte encryption key associated with the supplied public key.
 
-* `signature`: *string* - 96-byte account signature
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation.
+
+* `encryptedBlindingFactor`: *string* - blinding factor encrypted using `jointEncryptionKey`.
+
+* `randomizationFactor: *string* - value produced during encryption used to check whether data has been
+    encrypted correctly.
+
+* `signature`: *string* - 96-byte account signature.
 
 ### Returns
 
@@ -65,6 +73,11 @@ rollup.
 * `amount`: *integer* - token amount for the transaction
 
 * `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
+
+* `encryptedMoneyOrder`: *string* - money order redemption encrypted using the receiver's `jointEncryptionKey`
+
+* `randomizationFactor`: *string* - value produced during encryption used to check whether data has been
+    encrypted correctly
 
 * `nonce`: *integer* - nonce of the most recent account operation
 
@@ -554,24 +567,29 @@ Open a money order and claim the funds locked within.
 
 ### Parameters
 
-* `fromAccountId`: *integer* - 32-byte account ID of the sender
+* `fromAccountId`: *integer* - 32-byte account ID of the sender.
 
-* `toAccountId`: *integer* - 32-byte account ID of the receiver
+* `toAccountId`: *integer* - 32-byte account ID of the receiver.
 
-* `tokenId`: *integer* - token type ID
+* `tokenId`: *integer* - token type ID.
 
-* `amount`: *integer* - token amount for the transaction
+* `amount`: *integer* - token amount for the transaction.
 
-* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation.
 
 * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
     money order batch, and 2 bytes are for the index of the money order in the batch.
 
-* `nonce`: *integer* - nonce of the most recent account operation
+* `nonce`: *integer* - nonce of the most recent account operation.
 
-* `signature`: *string* - signature of sender's account
+* `encryptedMoneyOrderRedeem`: *string* - money order redemption encrypted, using the receiver's `jointEncryptionKey`.
 
-* `merkleProof`: *string* - Merkle Proof connecting the money order hash to the batch root hash
+* `randomizationFactor`: *string* - value produced during encryption used to check whether data has been
+    encrypted correctly.
+
+* `signature`: *string* - signature of sender's account.
+
+* `merkleProof`: *string* - Merkle Proof connecting the money order hash to the batch root hash.
 
 ### Returns
 
