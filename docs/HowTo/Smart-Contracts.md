@@ -4,16 +4,19 @@ description: How to interact with the ConsenSys Rollup smart contract.
 
 # Interact with the rollup smart contract
 
-ConsenSys Rollups provides smart contracts for users to interact with [consensus-rollups](../Concepts/Rollups/Consensus.md)
-and [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+ConsenSys Rollups provides a smart contract for users to interact with
+[partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
+<!--
 The [rollup type specified at configuration](../Reference/Configuration-File.md#rollup_type) determines which contract is used.
-The consensus-rollup smart contract and the partially anonymous rollup contract are available in the ConsenSys Rollups repository.
+-->
+
+The partially anonymous rollup smart contract is available in the ConsenSys Rollups repository.
 
 Users can interact with the smart contract by [sending inbound transfers to the smart contract](#send-inbound-transfers-to-smart-contract) to have the smart
 contract to manage their tokens, and by [sending tokens between accounts](#send-erc-20-tokens-between-accounts).
 
-ConsenSys Rollups provides accounts with test ether with which you can test the smart contracts.
+ConsenSys Rollups provides accounts with test ether with which you can test the smart contract.
 
 !!! critical "Security warning"
 
