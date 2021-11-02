@@ -11,7 +11,7 @@
 
 # Project information
 site_name: ConsenSys Rollups
-site_url: https://docs.rollups.consensys.net/
+site_url: https://consensys.net/quorum/rollups/
 site_description: ConsenSys Rollups documentation.
 site_author: Consensys
 copyright: Copyright 2021 (c) ConsenSys. All rights reserved.
@@ -27,8 +27,7 @@ extra:
   support:
     tool: Discord
     channel: https://discord.gg/WRumvkY
-    form: https://consensys.net/rollup/
-    website: https://consensys.net/rollup/
+    website: https://consensys.net/quorum/rollups/
     company: ConsenSys
   google:
     tag_manager: 'GTM-PP95NTP' # Google tag manager code
