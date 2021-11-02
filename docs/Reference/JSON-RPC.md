@@ -19,7 +19,7 @@ Creates an account on the rollup.
 * `publicKey`: *string* - 64-byte account public key
 
 * `jointEncryptionKey`: *string* - 64-byte encryption key based on user's rollup encryption key and
-    operator's rollup public key. Can be created using the `SumoCryto` library.
+    operator's rollup public key.
 
 * `encryptionKey`: *string* - 64-byte encryption key associated with the supplied public key.
 
@@ -27,7 +27,7 @@ Creates an account on the rollup.
 
 * `encryptedBlindingFactor`: *string* - blinding factor encrypted using `jointEncryptionKey`.
 
-* `randomizationFactor: *string* - value produced during encryption used to check whether data has been
+* `randomizationFactor`: *string* - value produced during encryption used to check whether data has been
     encrypted correctly.
 
 * `signature`: *string* - 96-byte account signature.
