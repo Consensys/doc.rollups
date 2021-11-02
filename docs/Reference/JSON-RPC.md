@@ -18,10 +18,8 @@ Creates an account on the rollup.
 
 * `publicKey`: *string* - 64-byte account public key
 
-* `jointEncryptionKey`: *string* - 64-byte encryption key based on user's rollup encryption key and
-    operator's rollup public key.
-
-* `encryptionKey`: *string* - 64-byte encryption key associated with the supplied public key.
+* `jointEncryptionKey`: *string* - 128-bytes encryption key based on the user's public key and
+    operator's public key assembled using the ConsenSys Rollups cryptographic library.
 
 * `blindingFactor`: *string* - 32-byte blinding factor for obfuscation.
 
@@ -64,9 +62,9 @@ rollup.
 
 ### Parameters
 
-* `fromAccountId`: *integer* - 32-byte account ID of the sender
+* `fromAccountId`: *integer* - 32-bit account ID of the sender
 
-* `toAccountId`: *integer* - 32-byte account ID of the receiver
+* `toAccountId`: *integer* - 32-bit account ID of the receiver
 
 * `tokenId`: *integer* - token type ID
 
@@ -164,7 +162,8 @@ Returns the latest finalized account state on the blockchain.
 
 * `publicKey`: *string* - account public key
 
-* `encryptionKey`: *string* - 64-byte encryption key associated with the public key
+* `jointEncryptionKey`: *string* - 128-bytes encryption key based on the user's public key and
+    operator's public key assembled using the ConsenSys Rollups cryptographic library
 
 * `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
 
@@ -197,7 +196,7 @@ Returns the latest finalized account state on the blockchain.
             "result": {
                 "id": 32,
                 "publicKey": "0xd30fcb74638294dce12e113d4aeeba4a4270e3519b85cb2890e6904bde54a72a8289d97215cd827788cde39736ddd9980909d90dbba1a0f7dde5aa758d98951e",
-                "encryptionKey": "0x19b8a46446480f5ec2234bb7a3d50eeed10c002d046bf9000984985bd6d883d86adfe49ffff8756c00ecda4dcbed4838281072b621e1ef6f1770404e9bb8f21170e2b71343da962a1c3970e9fd365304d2a293dbe2aabc61e1c39d3e1f3109cd482991de12b892d91cf79d77b8635541bfbbeb32b20fbd8f8d339d545eb74f76d7145cfce061cf1c66c26385141968bae792f96aaf9d1b5ae645087127c8c3fc43d35029172581ab4610c648392dc136c03d325b2ccc6624d984a7bd9d8ef99d",
+                "jointEncryptionKey": "0x19b8a46446480f5ec2234bb7a3d50eeed10c002d046bf9000984985bd6d883d86adfe49ffff8756c00ecda4dcbed4838281072b621e1ef6f1770404e9bb8f21170e2b71343da962a1c3970e9fd365304d2a293dbe2aabc61e1c39d3e1f3109cd482991de12b892d91cf79d77b8635541bfbbeb32b20fbd8f8d339d545eb74f76d7145cfce061cf1c66c26385141968bae792f96aaf9d1b5ae645087127c8c3fc43d35029172581ab4610c648392dc136c03d325b2ccc6624d984a7bd9d8ef99d",
                 "blindingFactor": "0x177c429fd0b4b976fe46874ce33308e879f395463dfb88ae70795ed8dada5bab",
                 "nonce": 0,
                 "redemptionIndex": 0,
@@ -256,9 +255,9 @@ List all money orders for which you are the issuer.
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - 32-byte account ID of the sender
+* `fromAccountId`: *integer* - 32-bit account ID of the sender
 
-* `toAccountId`: *integer* - (optional) 32-byte account ID of the receiver
+* `toAccountId`: *integer* - (optional) 32-bit account ID of the receiver
 
 * `status`: *string* - (optional) status of the money order
 
@@ -326,9 +325,9 @@ List money orders available to redeem that are already finalized on the blockcha
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - (optional) 32-byte account ID of the sender
+* `fromAccountId`: *integer* - (optional) 32-bit account ID of the sender
 
-* `toAccountId`: *integer* - 32-byte account ID of the receiver
+* `toAccountId`: *integer* - 32-bit account ID of the receiver
 
 * `status`: *string* - (optional) status of the money order. Valid options are `AVAILABLE_TO_REDEEM` and
     `REDEEMED`
@@ -450,9 +449,9 @@ List money orders submitted for redemption.
 
 * `softLimit`: *integer* - maximum number of results to return
 
-* `fromAccountId`: *integer* - (optional) 32-byte account ID of the sender
+* `fromAccountId`: *integer* - (optional) 32-bit account ID of the sender
 
-* `toAccountId`: *integer* - (optional) 32-byte account ID of the receiver
+* `toAccountId`: *integer* - (optional) 32-bit account ID of the receiver
 
 * `status`: *string* - (optional) status of the money order
 
@@ -567,9 +566,9 @@ Open a money order and claim the funds locked within.
 
 ### Parameters
 
-* `fromAccountId`: *integer* - 32-byte account ID of the sender.
+* `fromAccountId`: *integer* - 32-bit account ID of the sender.
 
-* `toAccountId`: *integer* - 32-byte account ID of the receiver.
+* `toAccountId`: *integer* - 32-bit account ID of the receiver.
 
 * `tokenId`: *integer* - token type ID.
 
