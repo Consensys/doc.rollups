@@ -8,4 +8,4 @@ This repository uses a Git submodule. Please refer to the [common tools wiki] fo
 how to build and contribute to this documentation.
 
 [common tools wiki]: https://github.com/Consensys/doc.common/wiki
-[ConsenSys Rollups documentation website hosted by ReadTheDocs.com]: https://docs.sumo.consensys.net/
+[ConsenSys Rollups documentation website hosted by ReadTheDocs.com]: https://docs.rollups.consensys.net/
