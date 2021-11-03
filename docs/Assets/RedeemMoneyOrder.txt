@@ -7,8 +7,8 @@ fontawesome f007 User 2
 
 
 ==Redeem a money order (from an inbound transfer)==
-User->User:Encrypt the money order\nredemption for Operator and User
-User->Operator:RedeemMoneyOrder(moneyOrder,\nmoneyOrderTotalIndex, nonce, \nencryptedMoneyOrderRedeem, \nrandomizationFactor, signature,\nmerkleProof)
+User->User:Encrypt the money order\nredemption for the Operator\nand User
+User->Operator:redeemMoneyOrder(...)
 Operator->Operator:Verify signature, Merkle Proof, \n and encrypted money order
 Operator->Operator:Batch transactions and generate ZK Proof
 Operator->Rollups smart contract:submitTransactions(...)

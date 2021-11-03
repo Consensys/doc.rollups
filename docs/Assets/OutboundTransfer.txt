@@ -6,7 +6,7 @@ fontawesome f233 Operator 2
 fontawesome f007 User 2
 
 ==Outbound transfer==
-User 2->Operator 2:OutboundTransferCreation(fromAccountId,\ntoEthAddress, tokenId, amount, nonce,\nsignature)
+User 2->Operator 2:createOutboundTransfer(..)
 Operator 2->Operator 2:Verify the signature
 Operator 2->Operator 2:Batch transactions and generate\nthe ZK Proof
 Operator 2->Rollups smart contract:submitTransactions(prevStateRootHash,\nnextStateRootHash, transactions,\nforcedTransactionType, startIndex, endIndex,\ninvalidTransactionIndexes, zkproof)

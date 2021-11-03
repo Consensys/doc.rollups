@@ -7,7 +7,7 @@ fontawesome f007 User 2
 
 ==Create a money order==
 User->User:Encrypt the money order\nfor users and operators
-User->Operator:CreateMoneyOrder(moneyOrder,\nencryptedMoneyOrder, randomizationFactor,\nnonce, signature)
+User->Operator:createMoneyOrder(...)
 Operator->Operator:Verify signature and\nencryptedMoneyOrder
 Operator->Operator:Batch transactions and\ngenerate the ZK Proof
 Operator->Rollups smart contract:submitTransactions(...)

@@ -7,28 +7,26 @@ Description: Describe the workflow sequence for common rollup operations
 This topic illustrates the event sequence for common rollup operations across the network and the interaction
 between the various components of the rollup.
 
+## Register a token
+
+A rollup administrator can call the rollup smart contract to register an ERC20 token.
+
+![Register a token](../Images/registerToken.png)
+
 ## Create an account
 
 Create an account with the [`createAccount`](../Reference/JSON-RPC.md#createaccount) JSON RPC API.
 
 ![Create an account](../Images/createAccount.png)
 
-## Create a money order
+## Register an inbound transfer
 
-Create a money order with the [`createMoneyOrder`](../Reference/JSON-RPC.md#createmoneyorder) JSON RPC API.
+Inbound transfers are when funds are transferred from an Ethereum address to the rollup. That means funds
+enter the rollup, and existing rollup accounts can later be credited with the external funds.
 
-The money order is encrypted before being sent to the operator.
+An inbound transfer sends funds directly from an Ethereum address to the rollup smart contract
 
-![Create a money order](../Images/CreateMoneyOrder.png)
-
-## Create an outbound transfer
-
-An outbound transfer is when funds are transferred from a rollup account to an Ethereum address.
-
-Operators receive outbound transfer requests, check them for validity, create batches of them and batch
-proofs.
-
-![Create an outbound transfer](../Images/OutboundTransfer.png)
+![Inbound transfers](../Images/InboundTransfer.png)
 
 ## List money orders
 
@@ -53,20 +51,23 @@ The following example redeems a money order from an inbound transfer.
 
 ![Redeem a money order](../Images/RedeemMoneyOrder.png)
 
-## Register an inbound transfer
+## Create a money order
 
-Inbound transfers are when funds are transferred from an Ethereum address to the rollup. That means funds
-enter the rollup, and existing rollup accounts can later be credited with the external funds.
+Create a money order with the [`createMoneyOrder`](../Reference/JSON-RPC.md#createmoneyorder) JSON RPC API.
 
-An inbound transfer sends funds directly from an Ethereum address to the rollup smart contract
+The money order is encrypted before being sent to the operator.
 
-![Inbound transfers](../Images/InboundTransfer.png)
+![Create a money order](../Images/CreateMoneyOrder.png)
 
-## Register a token
+## Create an outbound transfer
 
-A rollup administrator can call the rollup smart contract to register an ERC20 token.
+An outbound transfer is when funds are transferred from a rollup account to an Ethereum address. You can use
+the `createOutboundTransfer` API to create the transfer.
 
-![Register a token](../Images/registerToken.png)
+Operators receive outbound transfer requests, check them for validity, create batches of them and batch
+proofs.
+
+![Create an outbound transfer](../Images/OutboundTransfer.png)
 
 ## Submit a forced outbound transfer
 
