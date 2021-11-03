@@ -11,7 +11,7 @@
 
 # Project information
 site_name: ConsenSys Rollups
-site_url: https://consensys.net/quorum/rollups/
+site_url: https://docs.rollups.consensys.net/
 site_description: ConsenSys Rollups documentation.
 site_author: Consensys
 copyright: Copyright 2021 (c) ConsenSys. All rights reserved.
@@ -19,6 +19,7 @@ copyright: Copyright 2021 (c) ConsenSys. All rights reserved.
 #extra project info and template customisation
 extra:
   logo_is_text: false
+  inverted_logo: images/inverted_logo.svg
   latest_version_warning:
     url_contains: /latest/
     text: 'You are reading ConsenSys Rollups development version documentation and
@@ -26,7 +27,7 @@ extra:
     You can switch to stable version using the version box at screen bottom.'
   support:
     tool: Discord
-    channel: https://discord.gg/WRumvkY
+    channel: https://discord.gg/bZwrf3x4Vs
     website: https://consensys.net/quorum/rollups/
     company: ConsenSys
   google:
