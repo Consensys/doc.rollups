@@ -11,31 +11,31 @@
 
 # Project information
 site_name: ConsenSys Rollups
-site_url: https://doc.rollup.consensys.net/
+site_url: https://docs.rollups.consensys.net/
 site_description: ConsenSys Rollups documentation.
 site_author: Consensys
-copyright: ConsenSys Rollups documentation is licensed under Apache 2.0 license
+copyright: Copyright 2021 (c) ConsenSys. All rights reserved.
 
 #extra project info and template customisation
 extra:
   logo_is_text: false
+  inverted_logo: images/inverted_logo.svg
   latest_version_warning:
     url_contains: /latest/
-    text: 'You are reading Sumo development version documentation and
+    text: 'You are reading ConsenSys Rollups development version documentation and
     some displayed features may not be available in the stable release.
     You can switch to stable version using the version box at screen bottom.'
   support:
     tool: Discord
-    channel: https://discord.gg/WRumvkY
-    form: https://consensys.net/rollup/
-    website: https://consensys.net/rollup/
-    company: Consensys
+    channel: https://discord.gg/bZwrf3x4Vs
+    website: https://consensys.net/quorum/rollups/
+    company: ConsenSys
   google:
-    tag_manager: 'TODO' # Google tag manager code
+    tag_manager: 'GTM-PP95NTP' # Google tag manager code
 
 # Software Repository
-repo_name: ConsenSys/sumo
-repo_url: https://github.com/ConsenSys/sumo
+#repo_name: ConsenSys/sumo
+#repo_url: https://github.com/ConsenSys/sumo
 
 theme:
   name: material
