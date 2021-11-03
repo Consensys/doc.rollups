@@ -14,7 +14,7 @@ site_name: ConsenSys Rollups
 site_url: https://docs.rollups.consensys.net/
 site_description: ConsenSys Rollups documentation.
 site_author: Consensys
-copyright: Copyright 2021 (c) ConsenSys. All rights reserved.
+copyright: ConsenSys Rollups documentation is licensed under Apache 2.0 license
 
 #extra project info and template customisation
 extra:
