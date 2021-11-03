@@ -19,7 +19,7 @@ copyright: ConsenSys Rollups documentation is licensed under Apache 2.0 license
 #extra project info and template customisation
 extra:
   logo_is_text: false
-  inverted_logo: images/inverted_logo.svg
+  inverted_logo: Images/inverted_logo.svg
   latest_version_warning:
     url_contains: /latest/
     text: 'You are reading ConsenSys Rollups development version documentation and
