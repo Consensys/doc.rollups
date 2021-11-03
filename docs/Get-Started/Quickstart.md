@@ -18,4 +18,4 @@ Deployments are available for:
 
 ## Obtain access
 
-[Contact support](https://consensys.net/contact/) to obtain access the quickstart deployments.
+[Contact support](https://consensys.net/contact/) to obtain access to the quickstart deployments.

@@ -59,14 +59,11 @@ nav:
       - Interact with the smart contract: HowTo/Smart-Contracts.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
-      - Rollup types:
+      - Rollups:
           - Overview: Concepts/Rollups/Overview.md
-          - Consensus-rollups: Concepts/Rollups/Consensus.md
           - Partially anonymous rollups: Concepts/Rollups/Partially-Anonymous-Rollups.md
       - Money orders: Concepts/Money-Order.md
       - Common workflow sequences: Concepts/Workflow-Sequence.md
-  - Tutorials:
-      - Partial anonymity token transfers: Tutorials/Token-Transfer.md
   - Reference:
       - JSON-RPC API methods: Reference/JSON-RPC.md
       - Configuration file: Reference/Configuration-File.md

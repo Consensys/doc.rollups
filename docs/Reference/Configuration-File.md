@@ -88,8 +88,7 @@ Number of outbound transfers in a batch. The default is `0`.
 ### `rollup_type`
 
 Type of rollup to implement. This option cannot be changed after the rollup's creation.
-Use `Consensus` for [consensus-rollups](../Concepts/Rollups/Consensus.md) and `PaZkp` for
-[partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md)
+Use `PaZkp` for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 The default is `PaZkp`.
 
 ### `server_addr`
