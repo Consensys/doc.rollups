@@ -1,0 +1,21 @@
+fontawesome f007 User
+fontawesome f233 Operator
+fontawesome f1c9 Rollups smart contract
+fontawesome f233 Operator 2
+fontawesome f007 User 2
+
+
+==Create a money order==
+User->User:Encrypt the money order\nfor users and operators
+User->Operator:createMoneyOrder(...)
+Operator->Operator:Verify signature and\nencryptedMoneyOrder
+Operator->Operator:Batch transactions and\ngenerate the ZK Proof
+Operator->Rollups smart contract:submitTransactions(...)
+Rollups smart contract->Rollups smart contract:Verify the ZK Proof
+Rollups smart contract->Operator 2:TransactionBatchAccepted(...)
+Operator 2->Operator 2:Decrypt the received\nmoney order
+Operator 2->Operator 2:Update the account state
+note left of Operator 2:Adds the money order\nto the local database\nfor further redemption.\n\nDoes not change the balance.
+Operator<-Rollups smart contract:TransactionBatchAccepted(...)
+Operator->Operator:Decrypt the money order
+Operator->Operator:Update the account\nstate (decrease balance)

@@ -1,0 +1,21 @@
+fontawesome f007 User
+fontawesome f233 Operator
+fontawesome f1c9 Rollups smart contract
+fontawesome f1c9 ERC20
+fontawesome f233 Operator 2
+fontawesome f007 User 2
+
+
+==Redeem a money order (from an inbound transfer)==
+User->User:Encrypt the money order\nredemption for the Operator\nand User
+User->Operator:redeemMoneyOrder(...)
+Operator->Operator:Verify signature, Merkle Proof, \n and encrypted money order
+Operator->Operator:Batch transactions and generate ZK Proof
+Operator->Rollups smart contract:submitTransactions(...)
+Rollups smart contract->Rollups smart contract:Verify ZK Proof
+Rollups smart contract->Operator 2:TransactionBatchAccepted(nextStateRootHash)
+Operator 2->Operator 2:Update account state
+note left of Operator 2:Root hash only,\nno visibility on\nthe account state.
+Operator<-Rollups smart contract:TransactionBatchAccepted(nextStateRootHash)
+Operator->Operator:Decrypt the money order
+Operator->Operator:Update the account state by increasing\nthe balance

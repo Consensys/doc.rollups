@@ -1,0 +1,16 @@
+fontawesome f007 User
+fontawesome f233 Operator
+fontawesome f1c9 Rollups smart contract
+fontawesome f233 Operator 2
+fontawesome f007 User 2
+
+==Create an account==
+User->Operator:createAccount(...)
+Operator->Operator:Verify signature
+Operator->Operator:Batch transactions and \ngenerate ZK Proof
+Operator->Rollups smart contract:submitTransactions(prevStateRootHash,\nnextStateRootHash,transactions,\nforcedTransactionType, startIndex, endIndex,\ninvalidTransactionIndexes, zkproof)
+Rollups smart contract->Rollups smart contract:Verify the ZK Proof
+Rollups smart contract->Operator 2:TransactionBatchAccepted(nextStateRootHash)
+Operator<-Rollups smart contract:TransactionBatchAccepted(nextStateRootHash)
+User->Operator:GetAccountID(rollupPublicKey)
+User<-Operator:accountID

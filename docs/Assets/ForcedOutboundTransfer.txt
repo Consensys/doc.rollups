@@ -1,0 +1,15 @@
+fontawesome f007 User
+fontawesome f233 Operator
+fontawesome f1c9 Rollups smart contract
+fontawesome f1c9 ERC20
+fontawesome f233 Operator 2
+fontawesome f007 User 2
+
+==Forced outbound transfer==
+User 2->Rollups smart contract:submitForcedOutboundTransfer(merklePath)
+Rollups smart contract->Rollups smart contract:Verify the Merkle path
+Rollups smart contract->ERC20:approve(spender, amount)
+note left of Rollups smart contract:ERC20 tokens unlocked on\nthe Rollup smart contract
+Rollups smart contract<-ERC20:ok
+User 2->ERC20:transferFrom(rollupAddress, userAddress, amount)
+User 2<-ERC20:ok

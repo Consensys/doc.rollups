@@ -63,6 +63,7 @@ nav:
           - Overview: Concepts/Rollups/Overview.md
           - Partially anonymous rollups: Concepts/Rollups/Partially-Anonymous-Rollups.md
       - Money orders: Concepts/Money-Order.md
+      - Common workflow sequences: Concepts/Workflow-Sequence.md
   - Reference:
       - JSON-RPC API methods: Reference/JSON-RPC.md
       - Configuration file: Reference/Configuration-File.md
