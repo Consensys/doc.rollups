@@ -21,7 +21,7 @@ Creates an account on the rollup.
 * `jointEncryptionKey`: *string* - 128-byte encryption key based on the user's public key and
     operator's public key assembled using the ConsenSys Rollups cryptographic library
 
-* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation.
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
 
 * `encryptedBlindingFactor`: *string* - blinding factor encrypted using `jointEncryptionKey`
 
