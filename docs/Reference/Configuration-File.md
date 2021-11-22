@@ -108,8 +108,8 @@ reasons, the Manager is shut down.
 
 Name of the Kafka consumer group for this operator instance. Used for offset tracking. It must:
 
-* Never change during the operator lifetime
-* Be unique for each operator instance
+* Never change during the operator lifetime.
+* Be unique for each operator instance.
 
 #### `pending_operations_replication_topics_to_copy`
 

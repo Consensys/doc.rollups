@@ -15,13 +15,13 @@ operations from the accounts managed by the operator.
 
 ## Overview
 
-In the following high availablity example, an operator has multiple instances, with each
+In the following high availability example, an operator has multiple instances, with each
 instance in a separate data center.
 
 ![High availability](../Images/HighAvailability.png)
 
-All incoming operations such as money order creations, money order redemptions, and account redemptions
-are replicated to all operator instances. Operations are replicated using Kafka streams;. The
+Incoming operations such as creating money orders, and redeeming money orders and accounts are replicated
+to all operator instances. Operations are replicated using Kafka streams. The
 operator's manager saves incoming operations to a Kafka topic (`pending-operations`) before forwarding
 to the engine.
 
