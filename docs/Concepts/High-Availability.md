@@ -26,8 +26,8 @@ operator's manager saves incoming operations to a Kafka topic (`pending-operatio
 to the engine.
 
 Each instance saves the incoming operation in its own Kafka topic, and the other instance replays the
-the operation from the other instance. This ensures that every instance will have all the operations
-submitted to the operator, and they will eventually be executed regardless of the instance that submits
+the operation from the other instance. This ensures that every instance has all the operations
+submitted to the operator, and the operations will eventually be executed, regardless of the instance that submits
 the batch to the rollup smart contract.
 
 Each engine instance listens to the rollup smart contract events and populates the Kafka `batch-updates`
@@ -48,8 +48,8 @@ The active-passive mode may prove to be more efficient due to:
 
 !!! note
 
-   A blockchain is asynchronous, meaning active-passive can still lead to multiple batch creations
-   at the same time.
+    A blockchain is asynchronous, meaning active-passive can still lead to multiple batch creations
+    at the same time.
 
 ## Multi-site configuration
 
