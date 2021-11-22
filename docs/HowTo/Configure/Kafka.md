@@ -22,3 +22,6 @@ Configure Kafka access for the [engine](Configuration-File.md#engine-configurati
         timeout_ms = 5000
         batch_updates_topic = "sumo-state-updates"
     ```
+
+If using [high availability (HA)](../../Concepts/High-Availability.md), configure the additional Kafka HA settings in the
+[`[ha.kafka]`](../../Reference/Configuration-File.md#hakafka) section of the configuration file.

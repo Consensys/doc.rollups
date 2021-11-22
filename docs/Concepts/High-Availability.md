@@ -21,8 +21,8 @@ instance in a separate data center.
 ![High availability](../Images/HighAvailability.png)
 
 All incoming operations such as money order creations, money order redemptions, and account redemptions
-are replicated to all operator instances. Operations are replicated using Kafka streams, the
-operator's manager saves incoming operations to a Kafka topic (`pending-operations) `before forwarding
+are replicated to all operator instances. Operations are replicated using Kafka streams;. The
+operator's manager saves incoming operations to a Kafka topic (`pending-operations`) before forwarding
 to the engine.
 
 Each instance saves the incoming operation in its own Kafka topic, and the other instance replays the
@@ -35,15 +35,16 @@ topic, meaning all manager instances are up to date. The manager detects when th
 reports the operators as failing. This way the API load balancer or gateway can forward the request
 to another instance.
 
+Configure the Kafka high availability settings in the [configuration file](../Reference/Configuration-File.md#hakafka).
 
 ## High availability modes
 
-Highly available operator instances acn run in either active-active mode, or active-passive mode.
+Highly available operator instances can run in either active-active mode, or active-passive mode.
 
-The active-passive mode may prove to be more effecient due to:
+The active-passive mode may prove to be more efficient due to:
 
 * Not wasting CPU cycles keeping multiple provers running.
-* Not spending gas fees by submitting concurrent batches (when only one will succeed).
+* Not spending gas fees by submitting concurrent batches when only one batch will succeed.
 
 !!! note
 
