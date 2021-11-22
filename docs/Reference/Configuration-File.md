@@ -93,12 +93,12 @@ Address of the highly available [Kafka brokers].
 
 #### `pending_operations_replication_topic`
 
-Topic name used for replication. This instance will replicate the operations requests served by the JSON-RPC APIs.
+Topic name used for replication. This instance replicates the operation requests served by the JSON-RPC APIs.
 
 #### `pending_operations_replication_partitions`
 
 Number of partitions used to load balance messages. If the values do not match, then for safety
-reasons the Manager is shut down.
+reasons, the Manager is shut down.
 
 !!! important
 
@@ -108,8 +108,8 @@ reasons the Manager is shut down.
 
 Name of the Kafka consumer group for this operator instance. Used for offset tracking. It must:
 
-1. Never change during the operator lifetime
-1. Be unique for each operator instance
+* Never change during the operator lifetime
+* Be unique for each operator instance
 
 #### `pending_operations_replication_topics_to_copy`
 
