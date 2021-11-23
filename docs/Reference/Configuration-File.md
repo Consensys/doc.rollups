@@ -106,7 +106,6 @@ Topic name used for replication. This instance replicates the operation requests
     * Instance 0 writes to `operator1_i0_pending_operations`
     * Instance 1 writes to `operator1_i1_pending_operations`
 
-
 #### `pending_operations_replication_partitions`
 
 Number of partitions used to load balance messages. If the values do not match, then for safety
