@@ -10,7 +10,7 @@ operations from the accounts managed by the operator.
 
 !!! note
 
-    Multiple operators in a rollup due not offer high availability because operators can manage different
+    Multiple operators in a rollup do not offer high availability because operators can manage different
     accounts.
 
 ## Overview
@@ -41,7 +41,7 @@ Configure the Kafka high availability settings in the [configuration file](../Re
 
 Highly available operator instances can run in either active-active mode, or active-passive mode.
 
-The active-passive mode may prove to be more efficient due to:
+The active-passive mode may be more efficient due to:
 
 * Not wasting CPU cycles keeping multiple provers running.
 * Not spending gas fees by submitting concurrent batches when only one batch will succeed.
@@ -56,7 +56,7 @@ The active-passive mode may prove to be more efficient due to:
 Multi-site high availability configuration allows the system to remain available in the case of
 site-wide failures.
 
-To ensure zero data loss, leverage Kafka to replicate data across multiple sites. Each site must have
+To ensure zero data loss, use Kafka to replicate data across multiple sites. Each site must have
 its own independent Kafka cluster to save the pending operations. The `pending-operations` topics must
 have a replication factor of 2 or more, and each cluster must have at least one replica located in
 another site.

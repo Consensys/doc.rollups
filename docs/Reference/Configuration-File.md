@@ -57,11 +57,11 @@ Kafka topic used to publish invalid operations.
 
 #### `invalid_operations_consumer_group_id`
 
-Id of the Kafka consumer group for the invalid operations topic.
+ID of the Kafka consumer group for the invalid operations topic.
 
 !!! important
 
-    We recommend you use a different Id for each operator instance.
+    We recommend you use a different ID for each operator instance.
 
 ### `api`
 
@@ -103,8 +103,8 @@ Topic name used for replication. This instance replicates the operation requests
 
     Each operator instance must write to a different topic, For example:
 
-    * Instance 0 writes to `operator1_i0_pending_operations`
-    * Instance 1 writes to `operator1_i1_pending_operations`
+    * Instance 0 writes to `operator1_i0_pending_operations`.
+    * Instance 1 writes to `operator1_i1_pending_operations`.
 
 #### `pending_operations_replication_partitions`
 
