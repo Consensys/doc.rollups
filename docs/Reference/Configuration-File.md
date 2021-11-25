@@ -51,6 +51,18 @@ Topic used by Kafka. The default is `sumo-state-updates`.
 
 Address of the [Kafka brokers]. The default is `localhost:9092`.
 
+#### `invalid_operations_topic`
+
+Kafka topic used to publish invalid operations.
+
+#### `invalid_operations_consumer_group_id`
+
+ID of the Kafka consumer group for the invalid operations topic.
+
+!!! important
+
+    We recommend you use a different ID for each operator instance.
+
 ### `api`
 
 The details to access the manager's APIs.
@@ -70,6 +82,50 @@ Details of the operator's engine component.
 #### `uri`
 
 Address (host and port) of the engine.
+
+### `ha`
+
+Configure ConsenSys Rollups to be [highly available](../Concepts/High-Availability.md).
+
+### `ha.kafka`
+
+Configure the [highly available](../Concepts/High-Availability.md) Kafka settings.
+
+#### `brokers`
+
+Address of the highly available [Kafka brokers].
+
+#### `pending_operations_replication_topic`
+
+Topic name used for replication. This instance replicates the operation requests served by the JSON-RPC APIs.
+
+!!! important
+
+    Each operator instance must write to a different topic, For example:
+
+    * Instance 0 writes to `operator1_i0_pending_operations`.
+    * Instance 1 writes to `operator1_i1_pending_operations`.
+
+#### `pending_operations_replication_partitions`
+
+Number of partitions used to load balance messages. If the values do not match, then for safety
+reasons the Manager shuts down.
+
+!!! important
+
+    This number should never change once messages start to be written, otherwise the correct order won't be preserved.
+
+#### `consumer_group_name`
+
+Name of the Kafka consumer group for this operator instance. Used for offset tracking. It must:
+
+* Never change during the operator lifetime.
+* Be unique for each operator instance.
+
+#### `pending_operations_replication_topics_to_copy`
+
+List of topics where other instances publish pending operations. The operations are replicated to
+the local database and engine.
 
 ## Engine
 
