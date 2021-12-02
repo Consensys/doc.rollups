@@ -301,8 +301,8 @@ This is required only when using a `Qkm` [manager type](#manager_type).
 Key manager type.
 Possible values are:
 
-- `Filesystem` - Private keys are kept in the filesystem.
-- `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
+* `Filesystem` - Private keys are kept in the filesystem.
+* `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
 
 #### `operator_key_path`
 
@@ -339,8 +339,8 @@ This is required only when using a `Qkm` [manager type](#manager_type).
 Key manager type.
 Possible values are:
 
-- `Filesystem` - Private keys are kept in the filesystem.
-- `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
+* `Filesystem` - Private keys are kept in the filesystem.
+* `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
 
 #### `qkm_url`
 

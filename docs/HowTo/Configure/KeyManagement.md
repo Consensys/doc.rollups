@@ -27,7 +27,6 @@ encryption keys as in the following example:
     }
     ```
 
-
 Then, set the
 [key management configuration options](../../Reference/Configuration-File.md#key_managementaccount_key) in the engine
 configuration file as in the following example.
@@ -69,7 +68,6 @@ following example:
         }
     }
     ```
-
 
 Then, set the
 [key management configuration options](../../Reference/Configuration-File.md#key_managementaccount_key) in the engine
