@@ -7,9 +7,10 @@ Description: ConsenSys Rollups configuration file options.
 Configuration uses [TOML files](https://toml.io/) to configure the manager and engine components of ConsenSys Rollups.
 Each component requires its own configuration file.
 
-The following section describes the configuration file options for the [manager](#manager) and [engine](#engine).
+The following section describes the configuration file options for the [manager](#manager-configuration) and
+[engine](#engine-configuration).
 
-## Manager
+## Manager configuration
 
 {!global/Manager-Configuration-File.md!}
 
@@ -127,7 +128,7 @@ Name of the Kafka consumer group for this operator instance. Used for offset tra
 List of topics where other instances publish pending operations. The operations are replicated to
 the local database and engine.
 
-## Engine
+## Engine configuration
 
 {!global/Engine-Configuration-File.md!}
 
@@ -285,6 +286,72 @@ Kafka type options are `Real` and `Dummy`. The default is `Real`.
 #### `timeout_ms`
 
 Timeout period for Kafka streams. The default is `5000`.
+
+### `key_management.account_key`
+
+This section contains [key management](../HowTo/Configure/KeyManagement.md) account key settings:
+
+#### `address_path`
+
+Path to the file containing the operator's Ethereum address.
+This is required only when using a `Qkm` [manager type](#manager_type).
+
+#### `manager_type`
+
+Key manager type.
+Possible values are:
+
+- `Filesystem` - Private keys are kept in the filesystem.
+- `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
+
+#### `operator_key_path`
+
+Path to the file containing the operator's private key.
+This is required only when using a `Filesystem` [manager type](#manager_type).
+
+#### `qkm_url`
+
+URL to the Quorum Key Manager service.
+This is required only when using a `Qkm` [manager type](#manager_type).
+
+#### `store_name`
+
+Name of the [store](https://docs.quorum-key-manager.consensys.net/en/stable/Concepts/Stores/) where Ethereum private
+keys are stored.
+This is required only when using a `Qkm` [manager type](#manager_type).
+
+### `key_management.encryption_key`
+
+This section contains [key management](../HowTo/Configure/KeyManagement.md) encryption key settings:
+
+#### `encryption_key_path`
+
+Path to the file containing the operator's encryption key.
+This is required only when using a `Filesystem` [manager type](#manager_type).
+
+#### `key_id_path`
+
+Path to the file containing the ID of the operator's encryption key.
+This is required only when using a `Qkm` [manager type](#manager_type).
+
+#### `manager_type`
+
+Key manager type.
+Possible values are:
+
+- `Filesystem` - Private keys are kept in the filesystem.
+- `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
+
+#### `qkm_url`
+
+URL to the Quorum Key Manager service.
+This is required only when using a `Qkm` [manager type](#manager_type).
+
+#### `store_name`
+
+Name of the [store](https://docs.quorum-key-manager.consensys.net/en/stable/Concepts/Stores/) where encryption keys are
+stored.
+This is required only when using a `Qkm` [manager type](#manager_type).
 
 ### `state_manager`
 
