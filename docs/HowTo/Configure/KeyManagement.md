@@ -53,6 +53,21 @@ To configure QKM to manage Rollups operator keys, first
 [configure QKM key stores](https://docs.quorum-key-manager.consensys.net/en/stable/HowTo/Use-Manifest-File/Store/) to
 store the operator's private and encryption keys.
 
+Use the QKM [`/keys`](https://consensys.github.io/quorum-key-manager/#tag/Keys) REST API endpoint to add the operator's
+keys to a QKM key store, or use the following commands:
+
+=== "Import an existing key"
+
+    ```bash
+    qkm --qkm-url HTTP_ADDRESS_OF_QKM --store-name STORE_NAME account import PATH_TO_ACCOUNT_FILE_CONTAINING_PRIVATE_KEY
+    ```
+
+=== "Create a new key"
+
+    ```bash
+    qkm --qkm-url HTTP_ADDRESS_OF_QKM --store-name STORE_NAME secret create SECRET_ID SECRET_VALUE
+    ```
+
 Next, create a file containing the operator's Ethereum address and the ID of the operator's encryption key as in the
 following example:
 
