@@ -40,6 +40,7 @@ configuration file as in the following example.
         # Path to the file containing the operator's private key
         operator_key_path = "node-data/test/keys/operator_1.acc"
 
+    # The following section is optional
     [key_management.encryption_key]
         manager_type = "Filesystem"
 
@@ -103,6 +104,7 @@ configuration file as in the following example.
         # Path to the file containing the operator's Ethereum address
         address_path = "../node-data/test/keys/operator_1.acc"
 
+    # The following section is optional
     [key_management.encryption_key]
         manager_type = "Qkm"
 

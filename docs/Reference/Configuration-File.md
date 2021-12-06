@@ -322,7 +322,8 @@ This is required only when using a `Qkm` [manager type](#manager_type).
 
 ### `key_management.encryption_key`
 
-This section contains [key management](../HowTo/Configure/KeyManagement.md) encryption key settings:
+This section contains [key management](../HowTo/Configure/KeyManagement.md) encryption key settings.
+Setting this section is optional.
 
 #### `encryption_key_path`
 
