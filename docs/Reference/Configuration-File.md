@@ -63,6 +63,38 @@ ID of the Kafka consumer group for the invalid operations topic.
 
     We recommend you use a different ID for each operator instance.
 
+### `vertx_config`
+
+This section contains the [Vert.x](https://vertx.io/docs/) settings.
+
+#### `max_event_loop_execution_time_millis`
+
+Value of max [event loop execute time](https://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html#setMaxEventLoopExecuteTime-long-), in milliseconds
+
+#### `max_worker_thread_execution_time_millis`
+
+Value of [max worker execute time](https://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html#setMaxWorkerExecuteTime-long-), in milliseconds
+
+#### `log_stacktrace_threshold_millis`
+
+Threshold time in milliseconds to trigger a warning containing a [stack trace](https://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html#setWarningExceptionTime-long-).
+
+#### `http_verticles`
+
+Number of processing units, for HTTP requests.
+
+!!! important
+
+    Do not set higher than the max number of CPUs in the underlying machine.
+
+#### `websocket_verticles`
+
+Number of processing units for Websockets requests.
+
+!!! important
+
+    Do not set higher than the max number of CPUs in the underlying machine.
+
 ### `api`
 
 The details to access the manager's APIs.
@@ -75,6 +107,46 @@ HTTP JSON-RPC listening port to access the manager's APIs.
 
 WebSocket JSON-RPC listening port to access the manager's APIs.
 
+#### `monitoring_port`
+
+HTTP port for monitoring the following endpoints: `/health`, `/metrics`, and `/live`.
+
+#### `version`
+
+JSON-RPC API version.
+
+### `api.auth`
+
+Details on API authorizations.
+
+#### `rollup_account_max_token_duration`
+
+Max time a Rollup account session can last. Tokens are issued on login and cannot have a duration time longer than this.
+
+#### `api_account_token_duration`
+
+Duration of API accounts tokens.
+
+!!! note
+
+    API accounts are special accounts that can read the state of all Rollup Accounts. Credentials & Permissions for these accounts are specified in a credentials.toml file.
+
+#### `clock_leniency`
+
+Amount time desynchronization tolerated between the users and server for JWT token validation.
+
+### `http_client`
+
+Details of the http client component.
+
+#### `http2_pool_size`
+
+Pool size of HTTPV2 connections from the manager and engine components.
+
+#### `connections_pool_size`
+
+Pool size of HTTPV1 connections from the manager and engine components.
+
 ### `engine`
 
 Details of the operator's engine component.
@@ -82,6 +154,16 @@ Details of the operator's engine component.
 #### `uri`
 
 Address (host and port) of the engine.
+
+#### `type`
+
+Type options are `Real` and `Fake`. The default is `Real`.
+
+!!! warning
+
+    The `Fake` option is used for testing to start the operator without the engine dependency.
+
+    This option must not be used in production.
 
 ### `ha`
 
