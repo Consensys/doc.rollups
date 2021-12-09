@@ -45,6 +45,18 @@
         confirmations = 3
         forced_transaction_timeout = 86400
 
+    [key_management.account_key]
+        manager_type = "Qkm"
+        qkm_url = "http://qkm:8080"
+        store_name = "eth-accounts"
+        address_path = "../node-data/test/keys/operator_1.acc"
+
+    [key_management.encryption_key]
+        manager_type = "Qkm"
+        qkm_url = "http://qkm:8080"
+        store_name = "encryption-keys"
+        key_id_path = "../node-data/test/keys/operator_1.acc"
+
     [kafka]
         kafka_type = "Dummy"
         brokers = "localhost:9092"
