@@ -137,7 +137,7 @@ Amount time desynchronization tolerated between the users and server for JWT tok
 
 ### `http_client`
 
-Details of the http client component.
+Details of the HTTP client component.
 
 #### `http2_pool_size`
 
