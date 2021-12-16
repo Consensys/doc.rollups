@@ -164,7 +164,7 @@ Type options are `Real` and `Fake`. The default is `Real`.
 
     The `Fake` option is used for testing to start the operator without the engine dependency.
 
-    This option must not be used in production.
+    This option must not be used in production. This option will be deprecated in a future release.
 
 ### `ha`
 
