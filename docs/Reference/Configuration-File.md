@@ -70,11 +70,11 @@ This section contains the [Vert.x](https://vertx.io/docs/) settings.
 
 #### `max_event_loop_execution_time_millis`
 
-Value of max [event loop execute time](https://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html#setMaxEventLoopExecuteTime-long-), in milliseconds
+Value of max [event loop execute time](https://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html#setMaxEventLoopExecuteTime-long-), in milliseconds.
 
 #### `max_worker_thread_execution_time_millis`
 
-Value of [max worker execute time](https://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html#setMaxWorkerExecuteTime-long-), in milliseconds
+Value of [max worker execute time](https://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html#setMaxWorkerExecuteTime-long-), in milliseconds.
 
 #### `log_stacktrace_threshold_millis`
 
@@ -82,19 +82,19 @@ Threshold time in milliseconds to trigger a warning containing a [stack trace](h
 
 #### `http_verticles`
 
-Number of processing units, for HTTP requests.
+Number of processing units for HTTP requests.
 
 !!! important
 
-    Do not set higher than the max number of CPUs in the underlying machine.
+    Don't set `http_verticles` higher than the maximum number of CPUs in the underlying machine.
 
 #### `websocket_verticles`
 
-Number of processing units for Websockets requests.
+Number of processing units for WebSocket requests.
 
 !!! important
 
-    Do not set higher than the max number of CPUs in the underlying machine.
+    Don't set `websocket_verticles` higher than the maximum number of CPUs in the underlying machine.
 
 ### `api`
 
@@ -122,7 +122,7 @@ Details on API authorizations.
 
 #### `rollup_account_max_token_duration`
 
-Max time a Rollup account session can last. Tokens are issued on login and cannot have a duration time longer than this.
+Maximum time a Rollups account session can last. Tokens are issued on login and can't have a duration time longer than this.
 
 #### `api_account_token_duration`
 
@@ -130,11 +130,11 @@ Duration of API accounts tokens.
 
 !!! note
 
-    API accounts are special accounts that can read the state of all Rollup Accounts. Credentials & Permissions for these accounts are specified in a credentials.toml file.
+    API accounts are special accounts that can read the state of all Rollups accounts. Credentials and permissions for these accounts are specified in a `credentials.toml` file.
 
 #### `clock_leniency`
 
-Amount time desynchronization tolerated between the users and server for JWT token validation.
+Amount of time desynchronization tolerated between the users and server for JWT token validation.
 
 ### `http_client`
 
