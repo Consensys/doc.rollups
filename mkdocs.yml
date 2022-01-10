@@ -58,6 +58,7 @@ nav:
           - Kafka: HowTo/Configure/Kafka.md
           - Key management: HowTo/Configure/KeyManagement.md
       - Interact with the smart contract: HowTo/Smart-Contracts.md
+      - Monitor Rollups: HowTo/Monitoring.md
   - Concepts:
       - Architecture: Concepts/ArchitectureOverview.md
       - Rollups:
