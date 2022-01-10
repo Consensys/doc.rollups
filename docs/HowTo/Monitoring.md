@@ -18,7 +18,7 @@ ConsenSys Rollups can record the following usage metrics for each request routed
 * Transfer requests received
 * Transfer requests failed
 
-Consensys Rollups also records metrics about the blockchain:
+ConsenSys Rollups also records metrics about the blockchain:
 
 * Time to deserialize call data
 * Time to deserialize inbound transfer data
@@ -40,7 +40,7 @@ The [Prometheus first steps](https://prometheus.io/docs/introduction/first_steps
 A summary of the steps to store ConsenSys Rollups metrics in a Prometheus database is as follows:
 
 1. Install Prometheus.
-2. Create a `prometheus.yml` configuration file to to pull metrics from ConsenSys Rollups.
+2. Create a `prometheus.yml` configuration file to pull metrics from ConsenSys Rollups.
    For example, add the following YAML fragment to the `scrape_configs` block of the `prometheus.yml` file:
 
     !!! example "Example configuration"
@@ -60,7 +60,7 @@ A summary of the steps to store ConsenSys Rollups metrics in a Prometheus databa
             - targets: ["localhost:6012"]
         ```
 
-3. Start Consensys Rollups.
+3. Start ConsenSys Rollups.
 4. Start Prometheus:
 
     ```bash
@@ -73,7 +73,7 @@ A summary of the steps to store ConsenSys Rollups metrics in a Prometheus databa
 ### Grafana
 
 Grafana can be used to create dashboards from data stored in Prometheus databases.
-See the [Grafana documentation](https://grafana.com/docs) and [Grafana Getting Started](https://grafana.com/docs/guides/getting_strated) for details on how to set up a Grafana instance and integrate it with databases.
+See the [Grafana documentation](https://grafana.com/docs) and [Grafana Getting Started](https://grafana.com/docs/guides/getting_started) for details on how to set up a Grafana instance and integrate it with databases.
 A summary of the steps is as follows:
 
 1. [Install and start Grafana](https://grafana.com/docs/grafana/latest/installation) as described for your OS (if using the default configuration, Grafana will start on port 3000 and require login/password admin/admin to access the dashboard).
