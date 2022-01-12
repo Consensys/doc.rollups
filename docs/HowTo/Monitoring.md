@@ -29,7 +29,7 @@ ConsenSys Rollups also records metrics about the blockchain:
 
 You can store these metrics in a Prometheus time-series database for further analysis.
 
-Prometheus integrates well with the open source dashboard editor [Grafana](#grafana) to allow for easy
+Prometheus integrates with the open source dashboard editor [Grafana](#grafana) that allows
 creation of dashboards to visualize the data being captured from ConsenSys Rollups.
 
 ### Prometheus
@@ -67,7 +67,7 @@ A summary of the steps to store ConsenSys Rollups metrics in a Prometheus databa
     prometheus --config.file=prometheus.yml
     ```
 
-5. To view data stored in the database, access the Prometheus UI (by default `localhost:9090`, this address can be
+5. To view data stored in the database, access the Prometheus UI (by default [`localhost:9090`](http://localhost:9090), this address can be
    changed in `prometheus.yml`) and use the [Prometheus Query Language](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 ### Grafana
@@ -76,9 +76,9 @@ Grafana can be used to create dashboards from data stored in Prometheus database
 See the [Grafana documentation](https://grafana.com/docs) and [Grafana Getting Started](https://grafana.com/docs/guides/getting_started) for details on how to set up a Grafana instance and integrate it with databases.
 A summary of the steps is as follows:
 
-1. [Install and start Grafana](https://grafana.com/docs/grafana/latest/installation) as described for your OS (if using the default configuration, Grafana will start on port 3000 and require login/password admin/admin to access the dashboard).
-2. Create a data source to provide the necessary details to connect to the database.
+1. [Install and start Grafana](https://grafana.com/docs/grafana/latest/installation) as described for your OS (if using the default configuration, Grafana will start on port 3000 and require a login and password (defaults are `admin` and `admin`) to access the dashboard).
+2. Create a data source to connect to the database.
 3. Create a new dashboard.
-4. Add panels to the dashboard. Panels are the graphs, tables, and statistics that make up a dashboard. The New Panel wizard allows the components of the panel to be configured:
+4. Add panels to the dashboard. Panels are the graphs, tables, and statistics that make up a dashboard. The "New Panel" wizard allows the components of the panel to be configured:
    * Queries: Details the query to use retrieve data from the data source, see the following links for info on using the Query Editor for InfluxDB and Prometheus.
    * Visualization: How to present the data queried, including panel type, axis headings and more.
