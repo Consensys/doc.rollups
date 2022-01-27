@@ -438,7 +438,7 @@ This section contains settings for the prover. The prover is only applicable for
 
 #### `prover-type`
 
-Type of the prover. Possible values are "Dummy" or "Real".
+Type of the prover. Possible values are `Dummy` or `Real`.
 
 #### `job_address`
 
