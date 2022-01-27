@@ -55,7 +55,7 @@ Creates an account on the rollup.
         }
         ```
 
-## createMoneyOrder
+## `createMoneyOrder`
 
 Create a money order to transfer an amount between two accounts. Both accounts must be in the
 rollup.
@@ -109,7 +109,63 @@ rollup.
         }
         ```
 
-## findAccountId
+## `createOutboundTransfer`
+
+### Parameters
+
+
+### Returns
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"createMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "9",
+            "result": {
+                "moneyOrderHash": "0x301f82f185174801f1d1db9bb3fc971d9039b587d5af40573762bdd5463b40d3",
+                "moneyOrderCreationHash": "0x1a58607ba07124a2e6a431a3dd4ed5c92f9a5c71f0c09a61ca8e3c9c125c58a6"
+            }
+        }
+        ```
+
+## `findAccountByPublicKey`
+
+### Parameters
+
+
+### Returns
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"createMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "9",
+            "result": {
+                "moneyOrderHash": "0x301f82f185174801f1d1db9bb3fc971d9039b587d5af40573762bdd5463b40d3",
+                "moneyOrderCreationHash": "0x1a58607ba07124a2e6a431a3dd4ed5c92f9a5c71f0c09a61ca8e3c9c125c58a6"
+            }
+        }
+        ```
+
+## `findAccountId`
 
 Get the ID assigned to an account. You need to determine the ID of an account to create a money
 order.
@@ -146,7 +202,35 @@ order.
         }
         ```
 
-## getAccountState
+## `findReceivedMoneyOrder`
+
+### Parameters
+
+
+### Returns
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"createMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "9",
+            "result": {
+                "moneyOrderHash": "0x301f82f185174801f1d1db9bb3fc971d9039b587d5af40573762bdd5463b40d3",
+                "moneyOrderCreationHash": "0x1a58607ba07124a2e6a431a3dd4ed5c92f9a5c71f0c09a61ca8e3c9c125c58a6"
+            }
+        }
+        ```
+
+## `getAccountState`
 
 Returns the latest finalized account state on the blockchain.
 
@@ -241,7 +325,7 @@ Returns the latest finalized account state on the blockchain.
         }
         ```
 
-## listMoneyOrderCreations
+## `listMoneyOrderCreations`
 
 List all money orders for which you are the issuer.
 
@@ -311,7 +395,7 @@ List all money orders for which you are the issuer.
         }
         ```
 
-## listMoneyOrdersReceived
+## `listMoneyOrdersReceived`
 
 List money orders available to redeem that are already finalized on the blockchain.
 
@@ -435,7 +519,7 @@ List money orders available to redeem that are already finalized on the blockcha
         }
         ```
 
-## listMoneyOrderRedemptions
+## `listMoneyOrderRedemptions`
 
 List money orders submitted for redemption.
 
@@ -560,7 +644,21 @@ List money orders submitted for redemption.
         }
         ```
 
-## redeemMoneyOrder
+## `listOutboundTransferCreations`
+
+### Parameters
+
+### Returns
+
+
+## `operatorInfo`
+
+### Parameters
+
+### Returns
+
+
+## `redeemMoneyOrder`
 
 Open a money order and claim the funds locked within.
 
