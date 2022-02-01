@@ -111,17 +111,32 @@ rollup.
 
 ## `createOutboundTransfer`
 
+Creates an outbound transfer.
+
 ### Parameters
 
+* `fromAccountId`: *integer* - 32-bit account ID of the sender
+
+* `toEthAccount`:
+
+* `tokenID`: *integer* - token type ID
+
+* `amount`: *integer* - token amount for the transaction
+
+* `nonce`: *integer* - nonce of the most recent account operation
+
+* `signature`: *string* - signature of sender's account
 
 ### Returns
+
+* `outboundTransferHash`: *string* - money order hash
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"createMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
+        curl -X POST --data '{"jsonrpc":"2.0","method":"createOutboundTransfer","params":[32,33,0,10,1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}'
         ```
 
     === "JSON result"
@@ -131,41 +146,12 @@ rollup.
             "jsonrpc": "2.0",
             "id": "9",
             "result": {
-                "moneyOrderHash": "0x301f82f185174801f1d1db9bb3fc971d9039b587d5af40573762bdd5463b40d3",
-                "moneyOrderCreationHash": "0x1a58607ba07124a2e6a431a3dd4ed5c92f9a5c71f0c09a61ca8e3c9c125c58a6"
+                "outboundTransferHash": "0x301f82f185174801f1d1db9bb3fc971d9039b587d5af40573762bdd5463b40d3",
             }
         }
         ```
 
 ## `findAccountByPublicKey`
-
-### Parameters
-
-
-### Returns
-
-!!! example
-
-    === "curl HTTP request"
-
-        ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"createMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
-        ```
-
-    === "JSON result"
-
-        ```json
-        {
-            "jsonrpc": "2.0",
-            "id": "9",
-            "result": {
-                "moneyOrderHash": "0x301f82f185174801f1d1db9bb3fc971d9039b587d5af40573762bdd5463b40d3",
-                "moneyOrderCreationHash": "0x1a58607ba07124a2e6a431a3dd4ed5c92f9a5c71f0c09a61ca8e3c9c125c58a6"
-            }
-        }
-        ```
-
-## `findAccountId`
 
 Get the ID assigned to an account. You need to determine the ID of an account to create a money
 order.
@@ -186,7 +172,7 @@ order.
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"findAccountId","params":["0xd30fcb74638294dce12e113d4aeeba4a4270e3519b85cb2890e6904bde54a72a8289d97215cd827788cde39736ddd9980909d90dbba1a0f7dde5aa758d98951e"],"id":1}' <IP>:<PORT>
+        curl -X POST --data '{"jsonrpc":"2.0","method":"findAccountByPublicKey","params":["0xd30fcb74638294dce12e113d4aeeba4a4270e3519b85cb2890e6904bde54a72a8289d97215cd827788cde39736ddd9980909d90dbba1a0f7dde5aa758d98951e"],"id":1}' <IP>:<PORT>
         ```
 
     === "JSON result"
@@ -204,17 +190,25 @@ order.
 
 ## `findReceivedMoneyOrder`
 
+Finds a received money order record by accountId and moneyOrderTotalIndex
+
 ### Parameters
 
+* `accountID`: *integer* - 32-bit account ID
+
+  * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
+    money order batch, and 2 bytes are for the index of the money order in the batch.
 
 ### Returns
+
+* `moneyOrderReceived`:
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"createMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
+        curl -X POST --data '{"jsonrpc":"2.0","method":"findReceivedMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
         ```
 
     === "JSON result"
