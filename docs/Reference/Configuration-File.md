@@ -486,7 +486,7 @@ Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-
 
 #### `thread_pool_thread_count`
 
-Number of threads to use for signatures validation and root hash calculation.
+Number of threads to use for signature validation and root hash calculation.
 Set this to less than the number of cores available.
 
 ### `transaction_manager`
