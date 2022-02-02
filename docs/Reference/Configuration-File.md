@@ -291,7 +291,7 @@ Maximum number of blocks to fetch in a single query when the operator is catchin
 #### `blocks_to_finalization`
 
 Number of successors a block requires before being considered final.
-Set it to `1` for a private deployment, `3` or more for mainnet.
+Set to `1` for a private deployment, or `3` or more for Mainnet.
 
 #### `smart_contract_abi_path`
 
@@ -349,7 +349,7 @@ Address of the [Kafka brokers]. The default is `localhost:9092`.
 
 #### `invalid_operations_topic`
 
-Topic where information about invalid operations are sent. The default is `operator1_invalid_operations`
+Topic where information about invalid operations are sent. The default is `operator1_invalid_operations`.
 
 #### `kafka_type`
 
@@ -465,23 +465,23 @@ The arity of the rollup. The default is `2`.
 #### `balance_merkle_tree_depth`
 
 Depth of the account's balance tree.
-The rollup's maximum capacity (in number of tokens) is 2^balance_merkle_tree_depth.
+The rollup's maximum capacity (in number of tokens) is $2^\text{balance_merkle_tree_depth}$.
 
 #### `money_order_batch_merkle_tree_depth`
 
 Depth of the money order batch.
-The maximum number of money orders that can be created/redeemed in a single batch is 2^money_order_batch_merkle_tree_depth
+The maximum number of money orders that can be created/redeemed in a single batch is $2^\text{money_order_batch_merkle_tree_depth}$.
 Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 #### `money_order_initial_capacity`
 
-Capacity pre-allocated for money order history call tree
+Capacity pre-allocated for money order history call tree.
 Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 #### `money_order_merkle_tree_depth`
 
 Depth of money orders history call tree, must be greater than 1 and less than or equal to 32.
-The maximum number of money order batches that can be created is 2^money_order_merkle_tree_depth.
+The maximum number of money order batches that can be created is $2^\text{money_order_merkle_tree_depth}$.
 Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 #### `thread_pool_thread_count`
