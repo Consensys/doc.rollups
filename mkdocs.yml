@@ -69,6 +69,7 @@ nav:
   - Reference:
       - JSON-RPC API methods: Reference/JSON-RPC.md
       - Configuration file: Reference/Configuration-File.md
+      - SDK: Reference/SDK.md
 
 markdown_extensions:
   - toc:
