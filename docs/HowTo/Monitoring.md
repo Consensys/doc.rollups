@@ -9,7 +9,7 @@ You can visualize the recorded data using an existing dashboard tool such as [Gr
 
 ## Record API metrics
 
-ConsenSys Rollups can record the following usage metrics for each request routed through its Handlers:
+ConsenSys Rollups can record the following usage metrics for each request routed through its handlers:
 
 * Account creation
 * Requests targeting an account
