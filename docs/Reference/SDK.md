@@ -26,7 +26,7 @@ and the `net.consensys:web3j-sumo:0.4.0` dependency.
 ## Example
 
 [This example](https://github.com/ConsenSys/sumo/blob/main/manager/web3j-sdk-examples/src/main/java/net/consensys/sumo/web3j/sdk/example/Web3jSdkExample.java)
-demonstrates how to use the SDK by performing the following:
+demonstrates how to use the SDK by performing the following actions:
 
 * Create accounts
 * Retrieve account IDs
