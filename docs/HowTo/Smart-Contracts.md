@@ -11,8 +11,6 @@ ConsenSys Rollups provides a smart contract for users to interact with
 The [rollup type specified at configuration](../Reference/Configuration-File.md#rollup_type) determines which contract is used.
 -->
 
-The partially anonymous rollup smart contract is available in the ConsenSys Rollups repository.
-
 Users can interact with the smart contract by [sending inbound transfers to the smart contract](#send-inbound-transfers-to-smart-contract) to have the smart
 contract to manage their tokens, and by [sending tokens between accounts](#send-erc-20-tokens-between-accounts).
 
