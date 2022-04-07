@@ -17,7 +17,7 @@ View the [Rollups SDK documentation](https://consensys.github.io/sumo/) for more
 ## Configuration
 
 Configure Docker to use the ConsenSys [registry](https://help.cloudsmith.io/docs/docker-registry#setup).
-If you need access to the registry, contact us on the [ConsenSys Rollups Discord channel](https://discord.gg/9mCVSY6).
+If you need access to the registry, contact [ConsenSys support](https://consensys.net/contact/).
 
 Ensure the [Gradle build file](https://github.com/ConsenSys/sumo/blob/main/manager/web3j-sdk-examples/build.gradle)
 contains the `https://dl.cloudsmith.io/public/consensys/maven/maven/` repository
