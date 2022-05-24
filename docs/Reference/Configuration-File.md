@@ -220,6 +220,15 @@ The engine supports the following settings.
 
 Rollup's cryptographic schema. Options are `Native` and `Bn`. The default is `Bn`.
 
+### `forced_transaction_batch_size`
+
+Number of forced transactions in a batch.
+The default is `3000`.
+
+### `listen_address`
+
+Operator's API address. The default is `0.0.0.0:5000`.
+
 ### `outbound_transfer_batch_size`
 
 Number of outbound transfers in a batch. The default is `0`.
@@ -230,24 +239,10 @@ Type of rollup to implement. This option cannot be changed after the rollup's cr
 Use `PaZkp` for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 The default is `PaZkp`.
 
-### `server_addr`
-
-Operator's API address. The default is `0.0.0.0:5000`.
-
-### `sig_check_thread_count`
-
-Number of threads to use for verifying signatures. Must be less than the number of cores available.
-The default is `2`.
-
-### `smc_max_offset`
+### `smart_contract_max_offset`
 
 Maximum number of snapshots pending finalization, must be smaller or equal to the `max_offset`
 value in the rollup smart contract. The default is `32`.
-
-### `smc_transaction_batch_size`
-
-Number of smart contract transactions in a batch. Includes inbound and outbound transfers.
-The default is `3000`.
 
 ### `transaction_batch_size`
 
@@ -275,7 +270,7 @@ Number of confirmations for an Ethereum transaction. For example, calls to `subm
 
 Connector type used to connect to the blockchain client. The default is `Web3`.
 
-#### `forced_transaction_timeout`
+#### `forced_transaction_timeout_blocks`
 
 Forced transaction timeout (in Ethereum blocks). The rollup will freeze if there is an unprocessed
 forced transaction exists that is older than the current block number minus the timeout value.
@@ -289,19 +284,16 @@ Gas limit for a call to `submitTransactions` in the rollup smart contract. The d
 
 Gas limit for a call to 'voteFor' in the rollup smart contract. The default is `100000000`.
 
-#### `lookahead`
+#### `lookahead_blocks`
 
 Maximum number of blocks to fetch in a single query when the operator is catching up.
 
-#### `nb_of_blocks_to_finalization`
+#### `blocks_to_finalization`
 
 Number of successors a block requires before being considered final.
+Set to `1` for a private deployment, or `3` or more for Mainnet.
 
-#### `operator_address_path`
-
-Path to the file containing the operator's Ethereum private and public keys.
-
-#### `smc_abi_path`
+#### `smart_contract_abi_path`
 
 Path to the file containing the rollup smart contract ABI.
 
@@ -349,11 +341,15 @@ This section contains the [Kafka](https://kafka.apache.org/) settings:
 
 #### `batch_updates_topic`
 
-Topic used by Kafka. The default is `sumo-state-updates`.
+Topic used by Kafka. The default is `operator1_state_updates`.
 
 #### `brokers`
 
 Address of the [Kafka brokers]. The default is `localhost:9092`.
+
+#### `invalid_operations_topic`
+
+Topic where information about invalid operations are sent. The default is `operator1_invalid_operations`.
 
 #### `kafka_type`
 
@@ -436,34 +432,68 @@ Name of the [store](https://docs.quorum-key-manager.consensys.net/en/stable/Conc
 stored.
 This is required only when using a `Qkm` [manager type](#manager_type).
 
+### `prover`
+
+This section contains settings for the prover. The prover is only applicable for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+
+#### `prover-type`
+
+Type of the prover. Possible values are `Dummy` or `Real`.
+
+#### `job_address`
+
+Address for gRPC interface for managing prover jobs. The default is `https://127.0.0.1:9002`.
+
 ### `state_manager`
 
 This section manages contains settings that manage the state details of the rollup.
+
+#### `account_merkle_tree_capacity`
+
+Targeted capacity of the rollup to ensure memory is immediately allocated correctly. Can be changed
+after the rollup's creation.
+
+#### `account_merkle_tree_depth`
+
+The depth of the rollup's account tree. The rollup's maximum capacity is $2^\text{depth}$.
+The parameter cannot be changed after the rollup's creation.
 
 #### `arity`
 
 The arity of the rollup. The default is `2`.
 
-#### `capacity`
+#### `balance_merkle_tree_depth`
 
-Targeted capacity of the rollup to ensure memory is immediately allocated correctly. Can be changed
-after the rollup's creation.
+Depth of the account's balance tree.
+The rollup's maximum capacity (in number of tokens) is $2^\text{balance_merkle_tree_depth}$.
 
-#### `depth`
+#### `money_order_batch_merkle_tree_depth`
 
-The depth of the rollup's Merkle tree. The rollup's maximum capacity is $2^\text{depth}$.
-The parameter cannot be changed after the rollup's creation.
+Depth of the money order batch.
+The maximum number of money orders that can be created/redeemed in a single batch is $2^\text{money_order_batch_merkle_tree_depth}$.
+Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
-#### `thread_count`
+#### `money_order_initial_capacity`
 
-Number of threads to use when recalculating the hash tree during startup. Set this to the number of
-cores available.
+Capacity pre-allocated for money order history call tree.
+Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+
+#### `money_order_merkle_tree_depth`
+
+Depth of money orders history call tree, must be greater than 1 and less than or equal to 32.
+The maximum number of money order batches that can be created is $2^\text{money_order_merkle_tree_depth}$.
+Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+
+#### `thread_pool_thread_count`
+
+Number of threads to use for signature validation and root hash calculation.
+Set this to less than the number of cores available.
 
 ### `transaction_manager`
 
 This section contains parameters to manage the transaction queue.
 
-#### `completeds_length`
+#### `completed_length`
 
 Number of historical batches kept in memory. The default is `100`.
 
@@ -496,7 +526,7 @@ of the structure with every write. The default is `100`.
 
 Number of batches that can be simultaneously stored in processing. Ensure you set this value
 high enough since exceeding this capacity involves a full copy of the structure with every write.
-The default is `100`
+The default is `100`.
 
 <!-- links -->
 [Kafka brokers]: https://jaceklaskowski.gitbooks.io/apache-kafka/content/kafka-properties-bootstrap-servers.html
