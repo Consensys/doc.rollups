@@ -19,7 +19,7 @@ View the [Rollups SDK documentation](https://consensys.github.io/sumo/) for more
 Configure Docker to use the ConsenSys [registry](https://help.cloudsmith.io/docs/docker-registry#setup).
 If you need access to the registry, contact [ConsenSys support](https://consensys.net/contact/).
 
-Ensure the [Gradle build file](https://github.com/ConsenSys/sumo/blob/main/manager/web3j-sdk-examples/build.gradle)
+Ensure the [Gradle build file](https://github.com/ConsenSys/sumo/blob/58dbe354c66808a0449df8ade9dc217abf4b4825/sdk/web3j-sdk-examples/build.gradle)
 contains the `https://dl.cloudsmith.io/public/consensys/maven/maven/` repository
 and the `net.consensys:web3j-sumo:0.4.0` dependency.
 
