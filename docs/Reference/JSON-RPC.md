@@ -192,7 +192,6 @@ Returns the data of an existing account from the account ID.
         }
         ```
 
-
 ## `findAccountByPublicKey`
 
 Returns the ID assigned to an account from the public key. You need to determine the ID of an account to create a money
@@ -433,7 +432,6 @@ Returns a received money order record by the account ID and money order batch ID
 * `merkleProof`: *array* - merkle proof of the account in the merkle tree
 * `batchHeight`: *integer* - batch height
 
-
 !!! example
 
     === "curl HTTP request"
@@ -481,7 +479,6 @@ Returns the  account nonce for the given account ID.
 * `id`: *string* - account ID
 * `nonce`: *integer* - nonce of the most recent account operation
 * `redemptionIndex`: *string* - redemption index of the most recent redeemed money order
-
 
 !!! example
 
