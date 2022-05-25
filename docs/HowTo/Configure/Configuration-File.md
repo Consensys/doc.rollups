@@ -27,6 +27,7 @@ You can override any manager configuration file options by:
 - Using the `-Dconfig.override` command line option prefix.
   For example, to override the [Kafka brokers](../../Reference/Configuration-File.md#brokers) option with the value
   `localhost:9092`, specify `-Dconfig.override.kafka.brokers=localhost:9092` on the command line.
+  This option overrides values specified in configuration files.
 
 ## Engine configuration file
 
