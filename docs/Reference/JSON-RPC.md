@@ -12,7 +12,7 @@ Creates an account on the rollup.
 
     You need to wait for the account to finalized on the blockchain before creating money orders.
 
-    Use [`findAccountId`](#findaccountid) to obtain the account ID and determine whether the account is ready to use.
+    Use [`findAccountByPublicKey`](#findaccountbypublickey) to obtain the account ID and determine whether the account is ready to use.
 
 ### Parameters
 
@@ -33,7 +33,7 @@ Creates an account on the rollup.
 ### Returns
 
 `result`: *string* - status of the account creation, for example `REGISTERED`; otherwise an error, for example
-`PUBLIC_KEY_ALREADY_EXISTS`.
+`PUBLIC_KEY_ALREADY_EXISTS`
 
 !!! example
 
@@ -57,7 +57,7 @@ Creates an account on the rollup.
 
 ## `createMoneyOrder`
 
-Create a money order to transfer an amount between two accounts. Both accounts must be in the
+Creates a money order to transfer an amount between two accounts. Both accounts must be in the
 rollup.
 
 ### Parameters
@@ -117,7 +117,7 @@ Creates an outbound transfer.
 
 * `fromAccountId`: *integer* - 32-bit account ID of the sender
 
-* `toEthAccount`:
+* `toEthAccount`: *integer* - 32 bit account ID of the receiver
 
 * `tokenID`: *integer* - token type ID
 
@@ -128,6 +128,8 @@ Creates an outbound transfer.
 * `signature`: *string* - signature of sender's account
 
 ### Returns
+
+`result`: *object* - outbound transfer hash details:
 
 * `outboundTransferHash`: *string* - money order hash
 
@@ -151,9 +153,49 @@ Creates an outbound transfer.
         }
         ```
 
+## `findAccountById`
+
+Returns the data of an existing account from the account ID.
+
+### Parameters
+
+* `accountId`: *integer* - 32-bit account ID
+
+### Returns
+
+`result`: *object* - account details with the following fields:
+
+* `id`: *integer* - account ID
+* `publicKey`: *string* - 64-byte account public key
+* `jointEncryptionKey`: *string* - 128-byte encryption key based on the user's public key and
+    operator's public key assembled using the ConsenSys Rollups cryptographic library
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"findAccountById","params":["32"],"id":1}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "1",
+            "result": {
+                "id": "32",
+                "publicKey": "0xd30fcb74638294dce12e113d4aeeba4a4270e3519b85cb2890e6904bde54a72a8289d97215cd827788cde39736ddd9980909d90dbba1a0f7dde5aa758d98951e",
+                "jointEncryptionKey": "0x19b8a46446480f5ec2234bb7a3d50eeed10c002d046bf9000984985bd6d883d86adfe49ffff8756c00ecda4dcbed4838281072b621e1ef6f1770404e9bb8f21170e2b71343da962a1c3970e9fd365304d2a293dbe2aabc61e1c39d3e1f3109cd482991de12b892d91cf79d77b8635541bfbbeb32b20fbd8f8d339d545eb74f76d7145cfce061cf1c66c26385141968bae792f96aaf9d1b5ae645087127c8c3fc43d35029172581ab4610c648392dc136c03d325b2ccc6624d984a7bd9d8ef99d"
+            }
+        }
+        ```
+
+
 ## `findAccountByPublicKey`
 
-Get the ID assigned to an account. You need to determine the ID of an account to create a money
+Returns the ID assigned to an account from the public key. You need to determine the ID of an account to create a money
 order.
 
 ### Parameters
@@ -164,8 +206,8 @@ order.
 
 `result`: *object* - account details with the following fields:
 
-* `status`: *string* - account status. Status types are `PENDING`, `ACTIVE`, or an error (for example: `PUBLIC_KEY_NOT_FOUND`).
-* `id`: *integer* - account ID.
+* `status`: *string* - account status. Status types are `PENDING`, `ACTIVE`, or an error (for example: `PUBLIC_KEY_NOT_FOUND`)
+* `id`: *integer* - account ID
 
 !!! example
 
@@ -188,27 +230,216 @@ order.
         }
         ```
 
-## `findReceivedMoneyOrder`
+## `findMoneyOrderCreation`
 
-Finds a received money order record by accountId and moneyOrderTotalIndex
+Returns the record of a money order creation that matches the account ID and operation hash.
 
 ### Parameters
 
-* `accountID`: *integer* - 32-bit account ID
+* `fromAccountId`: *integer* - 32-bit account ID of the sender
 
-  * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-    money order batch, and 2 bytes are for the index of the money order in the batch.
+* `operationHash`: *integer* - hash of the operation
 
 ### Returns
 
-* `moneyOrderReceived`:
+`result`: *object* - money order details with the following fields:
+
+* `moneyOrder`: *object* - object containing the `fromAccountId`, `toAccountId`, `tokenId`, `amount`, and
+`blindingFactor`
+* `nonce`: *integer* - transaction nonce
+* `status`: *string* - status of the money order, for example `PENDING`, `EXECUTED`, or `REJECTED`
+* `rejectionReason`:*string* - reason if the money order has a status of `REJECTED`
+* `operationHash`: *integer* - hash of the operation
+* `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
+  money order batch, and 2 bytes are for the index of the money order in the batch
+* `batchHeight`: *integer* - batch height
+* `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
+  was included
+* `blockNumber`:*string* - block number of the block containing this operation. `null` when transaction is pending
+* `blockHash`: *string* - hash of the block containing this operation. `null` when transaction is pending
 
 !!! example
 
     === "curl HTTP request"
 
         ```bash
-        curl -X POST --data '{"jsonrpc":"2.0","method":"findReceivedMoneyOrder","params":[32,33,0,10,"0x1aa22d3baa52c393a40428df86a9a4c0b35963db9cc48f31427e962ec9f132f9",1,"0x2bbf79bf681f25fdde712025f4372ddde73727b7d047681054d1c92e5c3424802ee7cffc8212e2dd546184f467f85d5d5b627e6e3c413186b554755fce65c8c6056d635517b6d63c43abf11c67eab476bbf3455a66d64039b26a85e3a0751f1e"],"id":9}' <IP>:<PORT>
+        curl -X POST --data '{"jsonrpc":"2.0","method":"findMoneyOrderCreation","params":["0x0123"],"id":1}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "1",
+            "result": {
+                "moneyOrder": {
+                    "fromAccountId": 10,
+                    "toAccountId": 11,
+                    "tokenId": 12,
+                    "amount": 13,
+                    "blindingFactor": "0xbf"
+                },
+                "nonce": 14,
+                "status": "EXECUTED",
+                "rejectionReason": null,
+                "operationHash": "0x0123",
+                "moneyOrderTotalIndex": 1,
+                "batchHeight": 1,
+                "batchStateRootHash": "0xaa",
+                "blockNumber": 1000,
+                "blockHash": "0xac"
+            }
+        }
+        ```
+
+## `findMoneyOrderRedemption`
+
+Returns the record of a money order redemption that matches the account ID and operation hash.
+
+### Parameters
+
+* `toAccountId`: *integer* - 32-bit account ID of the receiver
+
+* `operationHash`: *integer* - hash of the operation
+
+### Returns
+
+`result`: *object* - money order details with the following fields:
+
+* `moneyOrder`: *object* - object containing the `fromAccountId`, `toAccountId`, `tokenId`, `amount`, and
+  `blindingFactor`
+* `nonce`: *integer* - transaction nonce
+* `operationHash`: *integer* - hash of the operation
+* `merkleProof`: *array* - merkle proof of the account in the merkle tree
+* `status`: *string* - status of the money order, for example `PENDING`, `EXECUTED`, or `REJECTED`
+* `rejectionReason`:*string* - reason if the money order has a status of `REJECTED`
+* `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
+  money order batch, and 2 bytes are for the index of the money order in the batch
+* `batchHeight`: *integer* - batch height
+* `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
+  was included
+* `blockNumber`:*string* - block number of the block containing this operation. `null` when transaction is pending
+* `blockHash`: *string* - hash of the block containing this operation. `null` when transaction is pending
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"findMoneyOrderRedemption","params":["0x0123"],"id":1}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "1",
+            "result": {
+                "moneyOrder": {
+                    "fromAccountId": 2,
+                    "toAccountId": 4,
+                    "tokenId": 5,
+                    "amount": 2,
+                    "blindingFactor": "0xbf"
+                },
+                "nonce": 12,
+                "operationHash": "0x0123",
+                "merkleProof": ["0xd1","0xd2","0xd3","0xd4"],
+                "status": "EXECUTED",
+                "rejectionReason": null,
+                "moneyOrderTotalIndex": 3,
+                "batchHeight": 32,
+                "batchStateRootHash": "0xaa",
+                "blockNumber": 123123,
+                "blockHash": "0xac"
+            }
+        }
+        ```
+
+## `findOutboundTransfer`
+
+Returns the record of an outbound transfer that matches the account ID and operation hash.
+
+### Parameters
+
+* `fromAccountId`: *integer* - 32-bit account ID of the sender
+
+* `operationHash`: *integer* - hash of the operation
+
+### Returns
+
+`result`: *object* - outbound transfer details with the following fields:
+
+* `tokenId`: *integer* - token type ID
+* `amount`: *integer* - token amount for the transaction
+* `nonce`: *integer* - transaction nonce
+* `status`: *string* - status of the money order, for example `PENDING`, `EXECUTED`, or `REJECTED`
+* `operationHash`: *integer* - hash of the operation
+* `batchHeight`: *integer* - batch height
+* `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
+  was included
+* `blockNumber`:*string* - block number of the block containing this operation. `null` when transaction is pending
+* `blockHash`: *string* - hash of the block containing this operation. `null` when transaction is pending
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"findOutboundTransfer","params":["10",0x0123"],"id":1}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "1",
+            "result": {
+                "tokenId": 12,
+                "amount": 13,
+                "nonce": 14,
+                "status": "EXECUTED",
+                "operationHash": "0x0123",
+                "batchHeight": 1,
+                "batchStateRootHash": "0xaa",
+                "blockNumber": 1000,
+                "blockHash": "0xac"
+            }
+        }
+        ```
+
+## `findReceivedMoneyOrder`
+
+Returns a received money order record by the account ID and money order batch ID.
+
+### Parameters
+
+* `toAccountId`: *integer* - 32-bit account ID
+
+* `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
+  money order batch, and 2 bytes are for the index of the money order in the batch
+
+### Returns
+
+`result`: *object* - money order details:
+
+* `moneyOrder`: *object* - object containing the `fromAccountId`, `toAccountId`, `tokenId`, `amount`, and
+  `blindingFactor`
+* `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
+  money order batch, and 2 bytes are for the index of the money order in the batch
+* `merkleProof`: *array* - merkle proof of the account in the merkle tree
+* `batchHeight`: *integer* - batch height
+
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"findReceivedMoneyOrder","params":["11","14"],"id":9}' <IP>:<PORT>
         ```
 
     === "JSON result"
@@ -218,8 +449,58 @@ Finds a received money order record by accountId and moneyOrderTotalIndex
             "jsonrpc": "2.0",
             "id": "9",
             "result": {
-                "moneyOrderHash": "0x301f82f185174801f1d1db9bb3fc971d9039b587d5af40573762bdd5463b40d3",
-                "moneyOrderCreationHash": "0x1a58607ba07124a2e6a431a3dd4ed5c92f9a5c71f0c09a61ca8e3c9c125c58a6"
+                "moneyOrder": {
+                    "fromAccountId": 10,
+                    "toAccountId": 11,
+                    "tokenId": 12,
+                    "amount": 13,
+                    "blindingFactor": "0xbf"
+                },
+                "moneyOrderTotalIndex": 14,
+                "merkleProof": ["0x0000000000000000000000000000000000000000000000000000000000000000",
+                "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "0x0000000000000000000000000000000000000000000000000000000000000000"],
+                "batchHeight": 10
+            }
+        }
+        ```
+
+## `getAccountNonce`
+
+Returns the  account nonce for the given account ID.
+
+### Parameters
+
+* `accountId`: *integer* - account ID
+
+### Returns
+
+`result`: *object* - account nonce details:
+
+* `id`: *string* - account ID
+* `nonce`: *integer* - nonce of the most recent account operation
+* `redemptionIndex`: *string* - redemption index of the most recent redeemed money order
+
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"getAccountNonce","params":[32],"id":7}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "7",
+            "result": {
+                "id": 32,
+                "nonce": 0,
+                "redemptionIndex": 0,
             }
         }
         ```
@@ -321,7 +602,7 @@ Returns the latest finalized account state on the blockchain.
 
 ## `listMoneyOrderCreations`
 
-List all money orders for which you are the issuer.
+Lists all money orders for which you are the issuer.
 
 ### Parameters
 
@@ -391,7 +672,7 @@ List all money orders for which you are the issuer.
 
 ## `listMoneyOrdersReceived`
 
-List money orders available to redeem that are already finalized on the blockchain.
+Lists money orders available to redeem that are already finalized on the blockchain.
 
 ### Parameters
 
@@ -418,7 +699,7 @@ List money orders available to redeem that are already finalized on the blockcha
 
 `result`: *object* - money order details:
 
-* `hasMoreResults`: *boolean* - `true` if more results are available which hasn't been displayed.
+* `hasMoreResults`: *boolean* - `true` if more results are available which haven't been displayed
 
 * `items`: *array of objects* - money orders available to redeem:
 
@@ -426,7 +707,7 @@ List money orders available to redeem that are already finalized on the blockcha
         `blindingFactor`
     * `moneyOrderHash`: *string* - money order hash
     * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-        money order batch, and 2 bytes are for the index of the money order in the batch.
+        money order batch, and 2 bytes are for the index of the money order in the batch
     * `merkleProof`: *array* - merkle proof of the account in the merkle tree
     * `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
         was included
@@ -515,7 +796,7 @@ List money orders available to redeem that are already finalized on the blockcha
 
 ## `listMoneyOrderRedemptions`
 
-List money orders submitted for redemption.
+Lists money orders submitted for redemption.
 
 ### Parameters
 
@@ -541,7 +822,7 @@ List money orders submitted for redemption.
 
 `result`: *object* - money order details:
 
-* `hasMoreResults`: *boolean* - `true` if more results are available which hasn't been displayed.
+* `hasMoreResults`: *boolean* - `true` if more results are available which haven't been displayed.
 
 * `items`: *array of objects* - money orders submitted for redemption:
 
@@ -549,10 +830,11 @@ List money orders submitted for redemption.
         `blindingFactor`
     * `nonce`: *integer* - transaction nonce
     * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-        money order batch, and 2 bytes are for the index of the money order in the batch.
+        money order batch, and 2 bytes are for the index of the money order in the batch
     * `merkleProof`: *array* - merkle proof of the account in the merkle tree
     * `status`: *string* - status of the redemption, for example `EXECUTED` or `PENDING`
-    * `batchStateRootHash`: *string* -
+    * `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
+      was included
 
 !!! example
 
@@ -640,21 +922,138 @@ List money orders submitted for redemption.
 
 ## `listOutboundTransferCreations`
 
+Lists outbound transfers that were issued by the supplied account ID.
+
 ### Parameters
+
+!!! important
+
+    Use `null` if you don't want to specify a value for an optional parameter.
+
+* `accountID`: *integer* - 32-bit account ID
+
+* `fromNonce`: *integer* - (optional) starting nonce
+
+* `softLimit`: *integer* - maximum number of results to return
+
+* `toEthereumAddress`: *string* - Ethereum address of the receiver
+
+* `operationExecutionStatus`: order status filter
+
+* `minAmount`: *integer* - (optional) filter results by the minimum transaction value
+
+* `maxAmount`: *integer* - (optional) filter results by the maximum transaction value
 
 ### Returns
 
+* `hasMoreResults`: *boolean* - `true` if more results are available which haven't been displayed
+
+* `items`: *array of objects* - list of outbound transfers:
+
+    * `fromAccountId`: *integer* - 32-bit account ID of the sender
+    * `toEthereumAddress`: *string* - Ethereum address of the receiver
+    * `tokenId`: *integer* - token type ID
+    * `amount`: *integer* - token amount for the transaction
+    * `nonce`: *integer* - nonce of the most recent account operation
+    * `operationHash`: *integer* - hash of the operation
+    * `status`: *string* - status of the transfer, for example `EXECUTED` or `PENDING`
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"listOutboundTransferCreations","params":[0,10,null,33,null,null,null],"id":93}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "93",
+            "result": {
+                "hasMoreResults": false,
+                "items": [
+                    {
+                        "fromAccountId": 10,
+                        "toEthereumAddress": "0xb1b2",
+                        "tokenId": 12,
+                        "amount": 13,
+                        "nonce": 14,
+                        "operationHash": "0x4501",
+                        "status": "EXECUTED",
+                        "batchHeight": 15
+                    },
+                    {
+                        "fromAccountId": 20,
+                        "toEthereumAddress": "0xb1b2",
+                        "tokenId": 22,
+                        "amount": 23,
+                        "nonce": 24,
+                        "operationHash": "0x4501",
+                        "status": "PENDING"
+                    }
+                ]
+            }
+        }
+        ```
 
 ## `operatorInfo`
 
+Returns the operator information.
+
 ### Parameters
+
+None
 
 ### Returns
 
+`result`: *object* - operator information details:
+
+* `chainId`: *integer* - chain ID
+
+* `rollupSmartContractAddress`: *string* - smart contract Ethereum address For rollup registration
+
+* `operatorAddress`: *string* - operator's address
+
+* `operatorRollupPublicEncryptionKey` *string* - public encryption key for the registered operator
+
+* `operatorApiVersion`: *string* - API version for operator registration
+
+* `balanceMerkleTreeDepth`: *integer* - depth of merkle tree
+
+* `moneyOrderBatchMerkleTreeDepth`: *integer* - money order batch merkle tree depth
+
+!!! example
+
+    === "curl HTTP request"
+
+        ```bash
+        curl -X POST --data '{"jsonrpc":"2.0","method":"operatorInfo","params":[],"id":67}' <IP>:<PORT>
+        ```
+
+    === "JSON result"
+
+        ```json
+        {
+            "jsonrpc": "2.0",
+            "id": "67",
+            "result": {
+                "chainId": 1,
+                "rollupSmartContractAddress": "0xAAaa",
+                "operatorAddress": "0xAAbb",
+                "operatorRollupPublicEncryptionKey": "0x19b8a46446480f5ec2234bb7a3d50eeed10c002d046bf9000984985bd6d883d86adfe49ffff8756c00ecda4dcbed4838281072b621e1ef6f1770404e9bb8f21170e2b71343da962a1c3970e9fd365304d2a293dbe2aabc61e1c39d3e1f3109cd482991de12b892d91cf79d77b8635541bfbbeb32b20fbd8f8d339d545eb74f76d7145cfce061cf1c66c26385141968bae792f96aaf9d1b5ae645087127c8c3fc43d35029172581ab4610c648392dc136c03d325b2ccc6624d984a7bd9d8ef99d",
+                "operatorApiVersion": "v1.2",
+                "balanceMerkleTreeDepth": 1,
+                "moneyOrderBatchMerkleTreeDepth": 1
+            }
+        }
+        ```
 
 ## `redeemMoneyOrder`
 
-Open a money order and claim the funds locked within.
+Opens a money order and claim the funds locked within.
 
 ### Parameters
 
@@ -666,7 +1065,7 @@ Open a money order and claim the funds locked within.
 
 * `amount`: *integer* - token amount for the transaction
 
-* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation.
+* `blindingFactor`: *string* - 32-byte blinding factor for obfuscation
 
 * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
     money order batch, and 2 bytes are for the index of the money order in the batch
@@ -688,6 +1087,8 @@ Open a money order and claim the funds locked within.
 
 * `moneyOrderHash`: *string* - money order hash
 * `moneyOrderRedemptionHash`: *string* - hash of the money order hash and nonce
+
+!!! example
 
     === "curl HTTP request"
 
