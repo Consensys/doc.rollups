@@ -2,7 +2,7 @@
 description: Manager and engine configuration files
 ---
 
-# Configuration files
+# Use configuration files
 
 Configuration files are used to configure the manager and engine components of ConsenSys Rollups. The files are
 TOML formatted, and each component requires its own configuration file.
@@ -13,6 +13,20 @@ The manager receives transactions and communicates with the engine. The [configu
 allow you to specify the address of the engine and manager APIs.
 
 {!global/Manager-Configuration-File.md!}
+
+### Override configuration options
+
+You can override any manager configuration file options by:
+
+- Specifying multiple configuration files on the command line.
+  If the same configuration options are specified across multiple files, the values in the file specified latest on the
+  command line are used.
+  For example, if you specify `config.toml overrides1.toml overrides2.toml` on the command line,
+  the values in `overrides2.toml` override the values in `overrides1.toml`, which override the values in `config.toml`.
+
+- Using the `-Dconfig.override` command line option prefix.
+  For example, to override the [Kafka brokers](../../Reference/Configuration-File.md#brokers) option with the value
+  `localhost:9092`, specify `-Dconfig.override.kafka.brokers=localhost:9092` on the command line.
 
 ## Engine configuration file
 

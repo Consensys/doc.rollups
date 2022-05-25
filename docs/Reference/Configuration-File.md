@@ -2,10 +2,10 @@
 Description: ConsenSys Rollups configuration file options.
 ---
 
-# Configuration file
+# Configuration file options
 
-Configuration uses [TOML files](https://toml.io/) to configure the manager and engine components of ConsenSys Rollups.
-Each component requires its own configuration file.
+[TOML](https://toml.io/) files are used to configure the manager and engine components of ConsenSys Rollups.
+Each component requires its own [configuration file](../HowTo/Configure/Configuration-File.md).
 
 The following section describes the configuration file options for the [manager](#manager-configuration) and
 [engine](#engine-configuration).
