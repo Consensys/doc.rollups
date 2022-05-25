@@ -19,8 +19,8 @@ allow you to specify the address of the engine and manager APIs.
 You can override any manager configuration file options by:
 
 - Specifying multiple configuration files on the command line.
-  If the same configuration options are specified across multiple files, the values in the file specified latest on the
-  command line are used.
+  If the same configuration options are specified across multiple files, the values defined in the latest file are used,
+  overriding the former files' values.
   For example, if you specify `config.toml overrides1.toml overrides2.toml` on the command line,
   the values in `overrides2.toml` override the values in `overrides1.toml`, which override the values in `config.toml`.
 
