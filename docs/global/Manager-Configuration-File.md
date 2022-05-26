@@ -39,7 +39,6 @@
 
     [engine]
         uri = "http://engine-i1:5000"
-        type = "Real"
 
     [ha]
 
