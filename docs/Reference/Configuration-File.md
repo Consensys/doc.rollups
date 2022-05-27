@@ -156,16 +156,6 @@ Details of the operator's engine component.
 
 Address (host and port) of the engine.
 
-#### `type`
-
-Type options are `Real` and `Fake`. The default is `Real`.
-
-!!! warning
-
-    The `Fake` option is used for testing to start the operator without the engine dependency.
-
-    This option must not be used in production. This option will be deprecated in a future release.
-
 ### `ha`
 
 Configure ConsenSys Rollups to be [highly available](../Concepts/High-Availability.md).
