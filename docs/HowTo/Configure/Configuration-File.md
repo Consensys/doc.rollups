@@ -14,7 +14,7 @@ allow you to specify the address of the engine and manager APIs.
 
 {!global/Manager-Configuration-File.md!}
 
-### Override configuration options
+### Override manager configuration options
 
 You can override any manager configuration file options by:
 
@@ -36,3 +36,11 @@ The engine builds a batch of transactions and sends it to the blockchain. The
 and access the blockchain.
 
 {!global/Engine-Configuration-File.md!}
+
+### Override engine configuration options
+
+You can override any engine configuration file options by specifying an additional configuration file using the
+`--override` command line option.
+Values specified in the override file override the values specified in the engine configuration file.
+For example, if you specify `--config engine-config.toml --override engine-overrides.toml`, the values in
+`engine-overrides.toml` override the values in `engine-config.toml`.
