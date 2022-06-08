@@ -34,7 +34,6 @@
         clock_leniency = "PT20S"
 
     [http_client]
-        http2_pool_size = 100
         connections_pool_size = 10
 
     [engine]
