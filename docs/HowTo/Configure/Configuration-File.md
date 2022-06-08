@@ -40,7 +40,8 @@ and access the blockchain.
 ### Override engine configuration options
 
 You can override any engine configuration file options by specifying an additional configuration file using the
-`--override` command line option.
-Values specified in the override file override the values specified in the engine configuration file.
-For example, if you specify `--config engine-config.toml --override engine-overrides.toml`, the values in
-`engine-overrides.toml` override the values in `engine-config.toml`.
+`--override` command line option one or more times.
+If the same configuration options are specified across multiple files, the values defined in the latest file are used,
+overriding the former files' values.
+For example, if you specify `--config config.toml --override overrides1.toml --override overrides2.toml`, the values in
+`overrides2.toml` override the values in `overrides1.toml`, which override the values in `config.toml`.
