@@ -9,8 +9,9 @@ TOML formatted, and each component requires its own configuration file.
 
 ## Manager configuration file
 
-The manager receives transactions and communicates with the engine. The [configuration file options](../../Reference/Configuration-File.md#manager)
-allow you to specify the address of the engine and manager APIs.
+The manager receives transactions and communicates with the engine.
+The [configuration file options](../../Reference/Configuration-File.md#manager-configuration) allow you to specify the
+address of the engine and manager APIs.
 
 {!global/Manager-Configuration-File.md!}
 
@@ -31,9 +32,9 @@ You can override any manager configuration file options by:
 
 ## Engine configuration file
 
-The engine builds a batch of transactions and sends it to the blockchain. The
-[configuration file options](../../Reference/Configuration-File.md#engine) allow you to configure the rollup details,
-and access the blockchain.
+The engine builds a batch of transactions and sends it to the blockchain.
+The [configuration file options](../../Reference/Configuration-File.md#engine-configuration) allow you to configure the
+rollup details, and access the blockchain.
 
 {!global/Engine-Configuration-File.md!}
 

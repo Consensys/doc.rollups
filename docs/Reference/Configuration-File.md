@@ -140,10 +140,6 @@ Amount of time desynchronization tolerated between the users and server for JWT 
 
 Details of the HTTP client component.
 
-#### `http2_pool_size`
-
-Pool size of HTTPV2 connections from the manager and engine components.
-
 #### `connections_pool_size`
 
 Pool size of HTTPV1 connections from the manager and engine components.
