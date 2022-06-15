@@ -154,7 +154,7 @@ Create an outbound transfer to move an amount between a rollup account and an Et
 
 ## pazkp_findAccountById
 
-Get the details of an account.
+Get the public details of an account.
 
 ### Parameters
 
@@ -462,7 +462,7 @@ Find a specific outbound transfer.
 
 ## pazkp_findReceivedMoneyOrder
 
-???
+Find a specific money order that is either available to redeem or has been redeemed.
 
 ### Parameters
 
