@@ -843,19 +843,19 @@ List money orders submitted for redemption.
 
 * `items`: *array of objects* - money orders submitted for redemption:
 
-  * `moneyOrder`: *object* - object containing the `fromAccountId`, `toAccountId`, `tokenId`, `amount`, and
-    `blindingFactor`
+    * `moneyOrder`: *object* - object containing the `fromAccountId`, `toAccountId`, `tokenId`, `amount`, and
+      `blindingFactor`
 
-  * `nonce`: *integer* - transaction nonce
+    * `nonce`: *integer* - transaction nonce
 
-  * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-    money order batch, and 2 bytes are for the index of the money order in the batch.
+    * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
+      money order batch, and 2 bytes are for the index of the money order in the batch.
 
-  * `operationHash`: *string* - hash of the operation
+    * `operationHash`: *string* - hash of the operation
 
-  * `status`: *string* - status of the redemption, for example `EXECUTED` or `PENDING`
+    * `status`: *string* - status of the redemption, for example `EXECUTED` or `PENDING`
 
-  * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+    * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 !!! example
 
@@ -1060,23 +1060,23 @@ List all outbound transfers for which you are the sender.
 
 * `items`: *array of objects* - outbound transfer records:
 
-  * `fromAccountId`: *integer* - 32-bit account ID of the sender
+    * `fromAccountId`: *integer* - 32-bit account ID of the sender
 
-  * `toEthereumAddress`: *integer* - 20-byte Ethereum address of the receiver
+    * `toEthereumAddress`: *integer* - 20-byte Ethereum address of the receiver
 
-  * `tokenId`: *integer* - token type ID
+    * `tokenId`: *integer* - token type ID
 
-  * `amount`: *integer* - token amount for the transaction
+    * `amount`: *integer* - token amount for the transaction
 
-  * `nonce`: *integer* - transaction nonce
+    * `nonce`: *integer* - transaction nonce
 
-  * `operationHash`: *string* - hash of the operation
+    * `operationHash`: *string* - hash of the operation
 
-  * `status`: *string* - status of the outbound transfer, for example `PENDING` or `EXECUTED`
+    * `status`: *string* - status of the outbound transfer, for example `PENDING` or `EXECUTED`
 
-  * `rejectionReason`: *string* - rejection reason details, when status of the outbound transfer is `REJECTED`
+    * `rejectionReason`: *string* - rejection reason details, when status of the outbound transfer is `REJECTED`
 
-  * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+    * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 !!! example
 
@@ -1109,7 +1109,6 @@ List all outbound transfers for which you are the sender.
             }
         }
         ```
-
 
 ## pazkp_redeemMoneyOrder
 
