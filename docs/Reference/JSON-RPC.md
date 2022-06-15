@@ -408,7 +408,7 @@ Find a specific outbound transfer.
 
 * `fromAccountId`: *integer* - 32-bit account ID of the sender
 
-* `toEthereumAddress`: *string* - 20-byte ethereum address of the receiver
+* `toEthereumAddress`: *string* - 20-byte Ethereum address of the receiver
 
 * `tokenId`: *integer* - token type ID
 
