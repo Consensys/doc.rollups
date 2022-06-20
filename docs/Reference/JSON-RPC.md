@@ -4,13 +4,13 @@ Description: JSON-RPC API methods
 
 # ConsenSys Rollups API methods
 
-## pazkp_createAccount
+## `pazkp_createAccount`
 
 Creates an account on the rollup.
 
 !!! tip
 
-    You need to wait for the account to finalized on the blockchain before creating money orders.
+    You need to wait for the account to be finalized on the blockchain before creating money orders.
 
     Use [`pazkp_findAccountByPublicKey`](#pazkp_findAccountByPublicKey) to obtain the account ID and determine whether the account is ready to use.
 
@@ -35,7 +35,7 @@ Creates an account on the rollup.
 `result`: *object* - account creation details
 
 * `status`: *string* - account creation status, for example `REGISTERED`; otherwise an error, for example
-`PUBLIC_KEY_ALREADY_EXISTS`.
+`PUBLIC_KEY_ALREADY_EXISTS`
 
 !!! example
 
@@ -57,9 +57,9 @@ Creates an account on the rollup.
         }
         ```
 
-## pazkp_createMoneyOrder
+## `pazkp_createMoneyOrder`
 
-Create a money order to transfer an amount between two accounts. Both accounts must be in the rollup.
+Creates a money order to transfer an amount between two accounts. Both accounts must be in the rollup.
 
 ### Parameters
 
@@ -108,9 +108,9 @@ Create a money order to transfer an amount between two accounts. Both accounts m
         }
         ```
 
-## pazkp_createOutboundTransfer
+## `pazkp_createOutboundTransfer`
 
-Create an outbound transfer to move an amount between a rollup account and an Ethereum address.
+Creates an outbound transfer to move an amount between a rollup account and an Ethereum address.
 
 ### Parameters
 
@@ -152,9 +152,9 @@ Create an outbound transfer to move an amount between a rollup account and an Et
         }
         ```
 
-## pazkp_findAccountById
+## `pazkp_findAccountById`
 
-Get the public details of an account.
+Returns the public details of an account.
 
 ### Parameters
 
@@ -195,9 +195,9 @@ Get the public details of an account.
         }
         ```
 
-## pazkp_findAccountByPublicKey
+## `pazkp_findAccountByPublicKey`
 
-Get the public details of an account, including the account ID. You need to determine the ID of an account to create a money order.
+Returns the public details of an account, including the account ID. You need the account ID to create a money order.
 
 ### Parameters
 
@@ -238,9 +238,9 @@ Get the public details of an account, including the account ID. You need to dete
         }
         ```
 
-## pazkp_findMoneyOrderCreation
+## `pazkp_findMoneyOrderCreation`
 
-Find a specific money order for which you are the issuer.
+Returns a specific money order for which you are the issuer.
 
 ### Parameters
 
@@ -264,14 +264,14 @@ Find a specific money order for which you are the issuer.
 * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
         money order batch, and 2 bytes are for the index of the money order in the batch.
 
-* `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+* `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 * `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
   was included
 
-* `blockNumber`: *integer* - the Ethereum block number in which the batch was included in the rollup smart contract
+* `blockNumber`: *integer* - Ethereum block number in which the batch was included in the rollup smart contract
 
-* `blockHash`: *string* - the Ethereum block hash in which the batch was included
+* `blockHash`: *string* - Ethereum block hash in which the batch was included
 
 !!! example
 
@@ -308,9 +308,9 @@ Find a specific money order for which you are the issuer.
         }
         ```
 
-## pazkp_findMoneyOrderRedemption
+## `pazkp_findMoneyOrderRedemption`
 
-Find a specific money order submitted for redemption.
+Returns a specific money order submitted for redemption.
 
 ### Parameters
 
@@ -332,18 +332,18 @@ Find a specific money order submitted for redemption.
 * `operationHash`: *string* - hash of the operation
 
 * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-        money order batch, and 2 bytes are for the index of the money order in the batch.
+        money order batch, and 2 bytes are for the index of the money order in the batch
 
 * `merkleProof`: *array* - merkle proof of the account in the merkle tree
 
-* `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+* `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 * `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
   was included
 
-* `blockNumber`: *integer* - the Ethereum block number in which the batch was included in the rollup smart contract
+* `blockNumber`: *integer* - Ethereum block number in which the batch was included in the rollup smart contract
 
-* `blockHash`: *string* - the Ethereum block hash in which the batch was included
+* `blockHash`: *string* - Ethereum block hash in which the batch was included
 
 !!! example
 
@@ -394,9 +394,9 @@ Find a specific money order submitted for redemption.
         }
         ```
 
-## pazkp_findOutboundTransfer
+## `pazkp_findOutboundTransfer`
 
-Find a specific outbound transfer.
+Returns a specific outbound transfer.
 
 ### Parameters
 
@@ -420,14 +420,14 @@ Find a specific outbound transfer.
 
 * `operationHash`: *string* - hash of the operation
 
-* `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+* `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 * `batchStateRootHash`: *string* - rollup `rootHash` that corresponds to the batch in which the money order
   was included
 
-* `blockNumber`: *integer* - the Ethereum block number in which the batch was included in the rollup smart contract
+* `blockNumber`: *integer* - Ethereum block number in which the batch was included in the rollup smart contract
 
-* `blockHash`: *string* - the Ethereum block hash in which the batch was included
+* `blockHash`: *string* - Ethereum block hash in which the batch was included
 
 !!! example
 
@@ -460,16 +460,16 @@ Find a specific outbound transfer.
         }
         ```
 
-## pazkp_findReceivedMoneyOrder
+## `pazkp_findReceivedMoneyOrder`
 
-Find a specific money order that is either available to redeem or has been redeemed.
+Returns a specific money order that is either available to redeem or has been redeemed.
 
 ### Parameters
 
 * `accountId`: *integer* - account ID
 
 * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-        money order batch, and 2 bytes are for the index of the money order in the batch.
+        money order batch, and 2 bytes are for the index of the money order in the batch
 
 ### Returns
 
@@ -479,11 +479,11 @@ Find a specific money order that is either available to redeem or has been redee
   `blindingFactor`
 
 * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-        money order batch, and 2 bytes are for the index of the money order in the batch.
+        money order batch, and 2 bytes are for the index of the money order in the batch
 
 * `merkleProof`: *array* - merkle proof of the account in the merkle tree
 
-* `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+* `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 !!! example
 
@@ -527,7 +527,7 @@ Find a specific money order that is either available to redeem or has been redee
         }
         ```
 
-## pazkp_getAccountNonce
+## `pazkp_getAccountNonce`
 
 Returns the most recent nonce and redemption index for the account.
 
@@ -567,7 +567,7 @@ Returns the most recent nonce and redemption index for the account.
         }
         ```
 
-## pazkp_getAccountState
+## `pazkp_getAccountState`
 
 Returns the latest finalized account state on the blockchain.
 
@@ -592,7 +592,7 @@ Returns the latest finalized account state on the blockchain.
 
 * `redemptionIndex`: *string* - redemption index of the most recent redeemed money order
 
-* `balances`: *object* - a map of the token balance for each token index.
+* `balances`: *object* - map of the token balance for each token index
 
 * `rootHash`: *string* - root hash of the account in the merkle tree
 
@@ -659,9 +659,9 @@ Returns the latest finalized account state on the blockchain.
         }
         ```
 
-## pazkp_listMoneyOrderCreations
+## `pazkp_listMoneyOrderCreations`
 
-List all money orders for which you are the issuer.
+Lists all money orders for which you are the issuer.
 
 ### Parameters
 
@@ -687,7 +687,7 @@ List all money orders for which you are the issuer.
 
 `result`: *object* - money order details:
 
-* `hasMoreResults`: *boolean* - `true` if there are more results available, which haven't been displayed
+* `hasMoreResults`: *boolean* - `true` if there are more results available which haven't been displayed
 
 * `items`: *array of objects* - money order creation records:
 
@@ -703,9 +703,9 @@ List all money orders for which you are the issuer.
     * `operationHash`: *string* - hash of the operation
 
     * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-        money order batch, and 2 bytes are for the index of the money order in the batch.
+        money order batch, and 2 bytes are for the index of the money order in the batch
 
-    * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+    * `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 !!! example
 
@@ -811,9 +811,9 @@ List all money orders for which you are the issuer.
         }
         ```
 
-## pazkp_listMoneyOrderRedemptions
+## `pazkp_listMoneyOrderRedemptions`
 
-List money orders submitted for redemption.
+Lists money orders submitted for redemption.
 
 ### Parameters
 
@@ -839,7 +839,7 @@ List money orders submitted for redemption.
 
 `result`: *object* - money order details:
 
-* `hasMoreResults`: *boolean* - `true` if there are more results available, which haven't been displayed.
+* `hasMoreResults`: *boolean* - `true` if there are more results available which haven't been displayed.
 
 * `items`: *array of objects* - money orders submitted for redemption:
 
@@ -849,13 +849,13 @@ List money orders submitted for redemption.
     * `nonce`: *integer* - transaction nonce
 
     * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-      money order batch, and 2 bytes are for the index of the money order in the batch.
+      money order batch, and 2 bytes are for the index of the money order in the batch
 
     * `operationHash`: *string* - hash of the operation
 
     * `status`: *string* - status of the redemption, for example `EXECUTED` or `PENDING`
 
-    * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+    * `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 !!! example
 
@@ -921,9 +921,9 @@ List money orders submitted for redemption.
         }
         ```
 
-## pazkp_listMoneyOrdersReceived
+## `pazkp_listMoneyOrdersReceived`
 
-List money orders available to redeem that are already finalized on the blockchain.
+Lists money orders available to redeem that are already finalized on the blockchain.
 
 ### Parameters
 
@@ -950,7 +950,7 @@ List money orders available to redeem that are already finalized on the blockcha
 
 `result`: *object* - money order details:
 
-* `hasMoreResults`: *boolean* - `true` if there are more results available, which haven't been displayed.
+* `hasMoreResults`: *boolean* - `true` if there are more results available which haven't been displayed.
 
 * `items`: *array of objects* - money orders available to redeem:
 
@@ -958,9 +958,9 @@ List money orders available to redeem that are already finalized on the blockcha
         `blindingFactor`
 
     * `moneyOrderTotalIndex`: *integer* - 6 byte integer where 4 bytes contain the money order batch ID of the
-        money order batch, and 2 bytes are for the index of the money order in the batch.
+        money order batch, and 2 bytes are for the index of the money order in the batch
 
-    * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+    * `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 !!! example
 
@@ -1028,9 +1028,9 @@ List money orders available to redeem that are already finalized on the blockcha
         }
         ```
 
-## pazkp_listOutboundTransferCreations
+## `pazkp_listOutboundTransferCreations`
 
-List all outbound transfers for which you are the sender.
+Lists all outbound transfers for which you are the sender.
 
 ### Parameters
 
@@ -1056,7 +1056,7 @@ List all outbound transfers for which you are the sender.
 
 `result`: *object* - outbound transfer details:
 
-* `hasMoreResults`: *boolean* - `true` if there are more results available, which haven't been displayed
+* `hasMoreResults`: *boolean* - `true` if there are more results available which haven't been displayed
 
 * `items`: *array of objects* - outbound transfer records:
 
@@ -1076,7 +1076,7 @@ List all outbound transfers for which you are the sender.
 
     * `rejectionReason`: *string* - rejection reason details, when status of the outbound transfer is `REJECTED`
 
-    * `batchHeight`: *integer* - the unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
+    * `batchHeight`: *integer* - unique batch index in the rollup that contains the transaction, following ascending ordinal numbering
 
 !!! example
 
@@ -1110,9 +1110,9 @@ List all outbound transfers for which you are the sender.
         }
         ```
 
-## pazkp_redeemMoneyOrder
+## `pazkp_redeemMoneyOrder`
 
-Open a money order and claim the funds locked within.
+Opens a money order and claim the funds locked within.
 
 ### Parameters
 
