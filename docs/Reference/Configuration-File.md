@@ -234,10 +234,6 @@ value in the rollup smart contract. The default is `32`.
 
 Number of transactions in a batch. The default is `2000`.
 
-### `transaction_fetch_wait_time_in_ms`
-
-Time to wait for new transactions or blocks. The default is `100`.
-
 ### `trust_origin`
 
 Specify whether to trust the origin of the request. If `true`, then the operator skips signature
@@ -474,6 +470,20 @@ Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-
 
 Number of threads to use for signature validation and root hash calculation.
 Set this to less than the number of cores available.
+
+### `transaction_fetch`
+
+This section contains parameters to manage the transaction fetch time.
+
+#### `kind`
+
+The method of fetching transactions. Valid options are `Timer` and `Manual`.
+`Timer` attempts to process user transactions periodically based on an internal timer.
+`Manual` doesn't process user transactions automatically, but waits for an HTTP call to trigger batch processing.
+
+#### `interval_ms`
+
+Time to wait for new transactions or blocks, when `kind` is set to` Timer`. The default is `100`.
 
 ### `transaction_manager`
 

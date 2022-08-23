@@ -11,6 +11,10 @@
     smart_contract_max_offset = 32
     trust_origin = false
 
+    [transaction_fetch_source]
+    kind = "Timer"
+    interval_ms = 100
+
     [state_manager]
     account_merkle_tree_depth = 28
     account_merkle_tree_capacity = 10_000_000
