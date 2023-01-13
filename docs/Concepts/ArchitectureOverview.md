@@ -22,4 +22,4 @@ the nature of interactions with the blockchain:
 1. When the engine receives a "Batch Finalized" event, it sends a message to a Kafka topic, which includes the batch height.
 1. When the manager receives a "Batch Finalized" message from Kafka, it updates its local database.
 
-For more information about the ConsenSys Rollups architecture, contact us on [ConsenSys Rollups Discord channel](https://discord.gg/9mCVSY6).
+For more information about the ConsenSys Rollups architecture, contact us on [ConsenSys Rollups Discord channel](https://discord.com/invite/consensys).
