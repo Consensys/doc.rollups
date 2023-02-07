@@ -6,15 +6,13 @@ sidebar_position: 4
 
 # Key management
 
-Configure ConsenSys Rollups operator keys to be managed in your local filesystem or by
-[Quorum Key Manager (QKM)](https://docs.quorum-key-manager.consensys.net/en/stable/).
+Configure ConsenSys Rollups operator keys to be managed in your local filesystem or by [Quorum Key Manager (QKM)](https://docs.quorum-key-manager.consensys.net/en/stable/).
 
 You can do this by updating the [engine configuration file](Configuration-File.md#engine-configuration-file).
 
 ## Configure filesystem
 
-To configure the filesystem to manage Rollups operator keys, create a file containing the operator's private and
-encryption keys as in the following example:
+To configure the filesystem to manage Rollups operator keys, create a file containing the operator's private and encryption keys as in the following example:
 
 ```JSON title="operator_1.acc"
 {
@@ -27,9 +25,7 @@ encryption keys as in the following example:
 }
 ```
 
-Then, set the
-[key management configuration options](../../Reference/Configuration-File.md#key_managementaccount_key) in the engine
-configuration file as in the following example.
+Then, set the [key management configuration options](../../Reference/Configuration-File.md#key_managementaccount_key) in the engine configuration file as in the following example.
 
 ```toml title="Filesystem key management configuration"
 [key_management.account_key]
@@ -48,12 +44,9 @@ configuration file as in the following example.
 
 ## Configure Quorum Key Manager
 
-To configure QKM to manage Rollups operator keys, first
-[configure QKM key stores](https://docs.quorum-key-manager.consensys.net/en/stable/HowTo/Use-Manifest-File/Store/) to
-store the operator's private and encryption keys.
+To configure QKM to manage Rollups operator keys, first [configure QKM key stores](https://docs.quorum-key-manager.consensys.net/en/stable/HowTo/Use-Manifest-File/Store/) to store the operator's private and encryption keys.
 
-Use the QKM [`/keys`](https://consensys.github.io/quorum-key-manager/#tag/Keys) REST API endpoint to add the operator's
-keys to a QKM key store, or use the following commands:
+Use the QKM [`/keys`](https://consensys.github.io/quorum-key-manager/#tag/Keys) REST API endpoint to add the operator's keys to a QKM key store, or use the following commands:
 
 <!--tabs-->
 
@@ -71,8 +64,7 @@ qkm --qkm-url HTTP_ADDRESS_OF_QKM --store-name STORE_NAME secret create SECRET_I
 
 <!--/tabs-->
 
-Next, create a file containing the operator's Ethereum address and the ID of the operator's encryption key as in the
-following example:
+Next, create a file containing the operator's Ethereum address and the ID of the operator's encryption key as in the following example:
 
 ```JSON title="operator_1.acc"
 {
@@ -85,9 +77,7 @@ following example:
 }
 ```
 
-Then, set the
-[key management configuration options](../../Reference/Configuration-File.md#key_managementaccount_key) in the engine
-configuration file as in the following example.
+Then, set the [key management configuration options](../../Reference/Configuration-File.md#key_managementaccount_key) in the engine configuration file as in the following example.
 
 ```toml title="QKM configuration"
 [key_management.account_key]

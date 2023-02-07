@@ -24,8 +24,8 @@ const CardList: CardItem[] = [
     link: "/category/get-started",
     description: (
       <>
-        Get started with Consensys Rollups by installing as Docker, or Kubernetes.
-        Hit the ground running in less than 5 minutes!
+        Get started with Consensys Rollups by installing as Docker, or
+        Kubernetes. Hit the ground running in less than 5 minutes!
       </>
     ),
     buttonName: "Go to installation",
@@ -36,7 +36,8 @@ const CardList: CardItem[] = [
     link: "/category/configure",
     description: (
       <>
-        Check out how to configure the manager and engine components of Consensys Rollups.
+        Check out how to configure the manager and engine components of
+        Consensys Rollups.
       </>
     ),
     buttonName: "Use Rollups",

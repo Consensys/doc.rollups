@@ -6,15 +6,13 @@ sidebar_position: 2
 
 # Interact with the rollup smart contract
 
-ConsenSys Rollups provides a smart contract for users to interact with
-[partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+ConsenSys Rollups provides a smart contract for users to interact with [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 <!--
 The [rollup type specified at configuration](../Reference/Configuration-File.md#rollup_type) determines which contract is used.
 -->
 
-Users can interact with the smart contract by [sending inbound transfers to the smart contract](#send-inbound-transfers-to-smart-contract) to have the smart
-contract to manage their tokens, and by [sending tokens between accounts](#send-erc-20-tokens-between-accounts).
+Users can interact with the smart contract by [sending inbound transfers to the smart contract](#send-inbound-transfers-to-smart-contract) to have the smart contract to manage their tokens, and by [sending tokens between accounts](#send-erc-20-tokens-between-accounts).
 
 ConsenSys Rollups provides accounts with test ether with which you can test the smart contract.
 
@@ -22,20 +20,17 @@ ConsenSys Rollups provides accounts with test ether with which you can test the 
 
 **Do not use the test accounts on Ethereum mainnet or any production network.**
 
-**The test accounts provided in the ConsenSys Rollups repository are not secure; their private keys are publicly
-visible in the source code.**
+**The test accounts provided in the ConsenSys Rollups repository are not secure; their private keys are publicly visible in the source code.**
 
 Using test accounts on Ethereum mainnet and production networks can lead to loss of funds and identity fraud.
 
-Always secure your Ethereum mainnet and production accounts properly.
-For example, see [MyCrypto "Protecting Yourself and Your Funds" guide](https://support.mycrypto.com/staying-safe/protecting-yourself-and-your-funds).
+Always secure your Ethereum mainnet and production accounts properly. For example, see [MyCrypto "Protecting Yourself and Your Funds" guide](https://support.mycrypto.com/staying-safe/protecting-yourself-and-your-funds).
 
 :::
 
 ## Prerequisites
 
-- ConsenSys Rollups installed and running.
-  Navigate to the `smart_contracts` directory to run the example commands.
+- ConsenSys Rollups installed and running. Navigate to the `smart_contracts` directory to run the example commands.
 - [Node.js](https://nodejs.org/en/) installed.
 - [Truffle](https://www.trufflesuite.com/truffle) installed.
 - Address of the Ethereum RPC set as the following environment variable:

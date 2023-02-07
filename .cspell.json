@@ -35,7 +35,10 @@
     "docs/test-api/",
     "sidebars.js",
     "tsconfig.*.json",
-    ".github/**"
+    ".github/**",
+    "docs/Reference/JSON-RPC.md",
+    "docs/Reference/Configuration-File.md",
+    "docs/HowTo/Configure/Configuration-File.md"
   ],
   "ignoreRegExpList": ["Email", "Urls", "#[\\w-]*"]
 }

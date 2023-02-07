@@ -8,9 +8,7 @@ sidebar_position: 2
 
 ConsenSys Rollups support [PostgreSQL](https://www.postgresql.org/) as the database management system.
 
-Configure access to the database for the [engine](Configuration-File.md#engine-configuration-file) and
-[manager](Configuration-File.md#manager-configuration-file) components separately.
-
+Configure access to the database for the [engine](Configuration-File.md#engine-configuration-file) and [manager](Configuration-File.md#manager-configuration-file) components separately.
 
 ```toml title="Database configuration example"
 [database]

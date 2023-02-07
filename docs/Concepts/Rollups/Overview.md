@@ -8,11 +8,9 @@ sidebar_position: 1
 
 ConsenSys Rollups implements [partially anonymous rollups](Partially-Anonymous-Rollups.md).
 
-A rollup is a *batch* of user transactions.
+A rollup is a _batch_ of user transactions.
 
-In a rollup, users create transactions that [interact with the rollup smart contract](../../HowTo/Smart-Contracts.md).
-Operators create and manage the rollup offchain.
-The batch is published onchain by updating the rollup's state root hash stored in the rollup smart contract.
+In a rollup, users create transactions that [interact with the rollup smart contract](../../HowTo/Smart-Contracts.md). Operators create and manage the rollup offchain. The batch is published onchain by updating the rollup's state root hash stored in the rollup smart contract.
 
 <!--
 When configuring ConsenSys Rollups, you can set the [`rollup_type`](../../Reference/Configuration-File.md#rollup_type)

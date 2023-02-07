@@ -6,11 +6,9 @@ sidebar_position: 2
 
 # Configuration file options
 
-[TOML](https://toml.io/) files are used to configure the manager and engine components of ConsenSys Rollups.
-Each component requires its own [configuration file](../HowTo/Configure/Configuration-File.md).
+[TOML](https://toml.io/) files are used to configure the manager and engine components of ConsenSys Rollups. Each component requires its own [configuration file](../HowTo/Configure/Configuration-File.md).
 
-The following section describes the configuration file options for the [manager](#manager-configuration) and
-[engine](#engine-configuration).
+The following section describes the configuration file options for the [manager](#manager-configuration) and [engine](#engine-configuration).
 
 ## Manager configuration
 
@@ -62,7 +60,6 @@ The following section describes the configuration file options for the [manager]
     consumer_group_name = "operator1_i1_replicatior"
     pending_operations_replication_topics_to_copy = ["operator1_i0_pending_operations"]
 ```
-
 
 The operator's manager supports the following settings.
 
@@ -228,15 +225,14 @@ Topic name used for replication. This instance replicates the operation requests
 
 Each operator instance must write to a different topic, For example:
 
-* Instance 0 writes to `operator1_i0_pending_operations`.
-* Instance 1 writes to `operator1_i1_pending_operations`.
+- Instance 0 writes to `operator1_i0_pending_operations`.
+- Instance 1 writes to `operator1_i1_pending_operations`.
 
 :::
- 
+
 #### `pending_operations_replication_partitions`
 
-Number of partitions used to load balance messages. If the values do not match, then for safety
-reasons the Manager shuts down.
+Number of partitions used to load balance messages. If the values do not match, then for safety reasons the Manager shuts down.
 
 :::caution Important
 
@@ -248,13 +244,12 @@ This number should never change once messages start to be written, otherwise the
 
 Name of the Kafka consumer group for this operator instance. Used for offset tracking. It must:
 
-* Never change during the operator lifetime.
-* Be unique for each operator instance.
+- Never change during the operator lifetime.
+- Be unique for each operator instance.
 
 #### `pending_operations_replication_topics_to_copy`
 
-List of topics where other instances publish pending operations. The operations are replicated to
-the local database and engine.
+List of topics where other instances publish pending operations. The operations are replicated to the local database and engine.
 
 ## Engine configuration
 
@@ -326,6 +321,7 @@ invalid_operations_topic = "operator1_invalid_operations"
 prover_type = "Dummy"
 job_address = "https://prover:9002"
 ```
+
 The engine supports the following settings.
 
 ### `crypto_suite`
@@ -334,8 +330,7 @@ Rollup's cryptographic schema. Options are `Native` and `Bn`. The default is `Bn
 
 ### `forced_transaction_batch_size`
 
-Number of forced transactions in a batch.
-The default is `3000`.
+Number of forced transactions in a batch. The default is `3000`.
 
 ### `listen_address`
 
@@ -347,14 +342,11 @@ Number of outbound transfers in a batch. The default is `0`.
 
 ### `rollup_type`
 
-Type of rollup to implement. This option cannot be changed after the rollup's creation.
-Use `PaZkp` for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
-The default is `PaZkp`.
+Type of rollup to implement. This option cannot be changed after the rollup's creation. Use `PaZkp` for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md). The default is `PaZkp`.
 
 ### `smart_contract_max_offset`
 
-Maximum number of snapshots pending finalization, must be smaller or equal to the `max_offset`
-value in the rollup smart contract. The default is `32`.
+Maximum number of snapshots pending finalization, must be smaller or equal to the `max_offset` value in the rollup smart contract. The default is `32`.
 
 ### `transaction_batch_size`
 
@@ -366,8 +358,7 @@ Time to wait for new transactions or blocks. The default is `100`.
 
 ### `trust_origin`
 
-Specify whether to trust the origin of the request. If `true`, then the operator skips signature
-verification. The default is `false`.
+Specify whether to trust the origin of the request. If `true`, then the operator skips signature verification. The default is `false`.
 
 ### `blockchain_connector`
 
@@ -375,8 +366,7 @@ This section contains accepts the following settings to connect to the blockchai
 
 #### `confirmations`
 
-Number of confirmations for an Ethereum transaction. For example, calls to `submitTransactions` or
-`voteFor` in the rollup smart contract.
+Number of confirmations for an Ethereum transaction. For example, calls to `submitTransactions` or `voteFor` in the rollup smart contract.
 
 #### `connector_type`
 
@@ -384,9 +374,7 @@ Connector type used to connect to the blockchain client. The default is `Web3`.
 
 #### `forced_transaction_timeout_blocks`
 
-Forced transaction timeout (in Ethereum blocks). The rollup will freeze if there is an unprocessed
-forced transaction exists that is older than the current block number minus the timeout value.
-The default is `86400`.
+Forced transaction timeout (in Ethereum blocks). The rollup will freeze if there is an unprocessed forced transaction exists that is older than the current block number minus the timeout value. The default is `86400`.
 
 #### `gas_limit_batch`
 
@@ -402,8 +390,7 @@ Maximum number of blocks to fetch in a single query when the operator is catchin
 
 #### `blocks_to_finalization`
 
-Number of successors a block requires before being considered final.
-Set to `1` for a private deployment, or `3` or more for Mainnet.
+Number of successors a block requires before being considered final. Set to `1` for a private deployment, or `3` or more for Mainnet.
 
 #### `smart_contract_abi_path`
 
@@ -487,66 +474,53 @@ This section contains [key management](../HowTo/Configure/KeyManagement.md) acco
 
 #### `address_path`
 
-Path to the file containing the operator's Ethereum address.
-This is required only when using a `Qkm` [manager type](#manager_type).
+Path to the file containing the operator's Ethereum address. This is required only when using a `Qkm` [manager type](#manager_type).
 
 #### `manager_type`
 
-Key manager type.
-Possible values are:
+Key manager type. Possible values are:
 
-* `Filesystem` - Private keys are kept in the filesystem.
-* `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
+- `Filesystem` - Private keys are kept in the filesystem.
+- `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
 
 #### `operator_key_path`
 
-Path to the file containing the operator's private key.
-This is required only when using a `Filesystem` [manager type](#manager_type).
+Path to the file containing the operator's private key. This is required only when using a `Filesystem` [manager type](#manager_type).
 
 #### `qkm_url`
 
-URL to the Quorum Key Manager service.
-This is required only when using a `Qkm` [manager type](#manager_type).
+URL to the Quorum Key Manager service. This is required only when using a `Qkm` [manager type](#manager_type).
 
 #### `store_name`
 
-Name of the [store](https://docs.quorum-key-manager.consensys.net/en/stable/Concepts/Stores/) where Ethereum private
-keys are stored.
-This is required only when using a `Qkm` [manager type](#manager_type).
+Name of the [store](https://docs.quorum-key-manager.consensys.net/en/stable/Concepts/Stores/) where Ethereum private keys are stored. This is required only when using a `Qkm` [manager type](#manager_type).
 
 ### `key_management.encryption_key`
 
-This section contains [key management](../HowTo/Configure/KeyManagement.md) encryption key settings.
-Setting this section is optional.
+This section contains [key management](../HowTo/Configure/KeyManagement.md) encryption key settings. Setting this section is optional.
 
 #### `encryption_key_path`
 
-Path to the file containing the operator's encryption key.
-This is required only when using a `Filesystem` [manager type](#manager_type).
+Path to the file containing the operator's encryption key. This is required only when using a `Filesystem` [manager type](#manager_type).
 
 #### `key_id_path`
 
-Path to the file containing the ID of the operator's encryption key.
-This is required only when using a `Qkm` [manager type](#manager_type).
+Path to the file containing the ID of the operator's encryption key. This is required only when using a `Qkm` [manager type](#manager_type).
 
 #### `manager_type`
 
-Key manager type.
-Possible values are:
+Key manager type. Possible values are:
 
-* `Filesystem` - Private keys are kept in the filesystem.
-* `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
+- `Filesystem` - Private keys are kept in the filesystem.
+- `Qkm` - Keys are managed by [Quorum Key Manager](https://docs.quorum-key-manager.consensys.net/en/stable/).
 
 #### `qkm_url`
 
-URL to the Quorum Key Manager service.
-This is required only when using a `Qkm` [manager type](#manager_type).
+URL to the Quorum Key Manager service. This is required only when using a `Qkm` [manager type](#manager_type).
 
 #### `store_name`
 
-Name of the [store](https://docs.quorum-key-manager.consensys.net/en/stable/Concepts/Stores/) where encryption keys are
-stored.
-This is required only when using a `Qkm` [manager type](#manager_type).
+Name of the [store](https://docs.quorum-key-manager.consensys.net/en/stable/Concepts/Stores/) where encryption keys are stored. This is required only when using a `Qkm` [manager type](#manager_type).
 
 ### `prover`
 
@@ -566,13 +540,11 @@ This section manages contains settings that manage the state details of the roll
 
 #### `account_merkle_tree_capacity`
 
-Targeted capacity of the rollup to ensure memory is immediately allocated correctly. Can be changed
-after the rollup's creation.
+Targeted capacity of the rollup to ensure memory is immediately allocated correctly. Can be changed after the rollup's creation.
 
 #### `account_merkle_tree_depth`
 
-The depth of the rollup's account tree. The rollup's maximum capacity is $2^\text{depth}$.
-The parameter cannot be changed after the rollup's creation.
+The depth of the rollup's account tree. The rollup's maximum capacity is $2^\text{depth}$. The parameter cannot be changed after the rollup's creation.
 
 #### `arity`
 
@@ -580,30 +552,23 @@ The arity of the rollup. The default is `2`.
 
 #### `balance_merkle_tree_depth`
 
-Depth of the account's balance tree.
-The rollup's maximum capacity (in number of tokens) is $2^\text{balance_merkle_tree_depth}$.
+Depth of the account's balance tree. The rollup's maximum capacity (in number of tokens) is $2^\text{balance_merkle_tree_depth}$.
 
 #### `money_order_batch_merkle_tree_depth`
 
-Depth of the money order batch.
-The maximum number of money orders that can be created/redeemed in a single batch is $2^\text{money_order_batch_merkle_tree_depth}$.
-Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+Depth of the money order batch. The maximum number of money orders that can be created/redeemed in a single batch is $2^\text{money_order_batch_merkle_tree_depth}$. Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 #### `money_order_initial_capacity`
 
-Capacity pre-allocated for money order history call tree.
-Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+Capacity pre-allocated for money order history call tree. Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 #### `money_order_merkle_tree_depth`
 
-Depth of money orders history call tree, must be greater than 1 and less than or equal to 32.
-The maximum number of money order batches that can be created is $2^\text{money_order_merkle_tree_depth}$.
-Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
+Depth of money orders history call tree, must be greater than 1 and less than or equal to 32. The maximum number of money order batches that can be created is $2^\text{money_order_merkle_tree_depth}$. Applicable only for [partially anonymous rollups](../Concepts/Rollups/Partially-Anonymous-Rollups.md).
 
 #### `thread_pool_thread_count`
 
-Number of threads to use for signature validation and root hash calculation.
-Set this to less than the number of cores available.
+Number of threads to use for signature validation and root hash calculation. Set this to less than the number of cores available.
 
 ### `transaction_manager`
 
@@ -615,18 +580,13 @@ Number of historical batches kept in memory. The default is `100`.
 
 #### `dynamic_batch_interval_ms`
 
-During low transaction periods it can take a long time before the operator collects enough
-standard transactions to create a batch. This setting allows you to create partially filled batches.
+During low transaction periods it can take a long time before the operator collects enough standard transactions to create a batch. This setting allows you to create partially filled batches.
 
-The operator attempts to submit the partially filled batch after the specified interval of
-the previous submission. This setting is optional, and if not set, the dynamic batch creation
-functionality is disabled.
+The operator attempts to submit the partially filled batch after the specified interval of the previous submission. This setting is optional, and if not set, the dynamic batch creation functionality is disabled.
 
 #### `incoming_capacity`
 
-Number of transactions that can be processed by the insert poller at once. Setting this parameter to
-`1000` means the limit is 1000 transactions. Exceeding this capacity means the transactions are
-rejected until the poller empties the buffer. The default is `100`.
+Number of transactions that can be processed by the insert poller at once. Setting this parameter to `1000` means the limit is 1000 transactions. Exceeding this capacity means the transactions are rejected until the poller empties the buffer. The default is `100`.
 
 #### `insert_poller_epoch_ms`
 
@@ -634,15 +594,12 @@ Interval at which transactions are moved from incoming to pending state. The def
 
 #### `pending_capacity`
 
-Number of pending transactions that can be stored. Different types of transactions are stored
-separately. Ensure you set this value high enough since exceeding this capacity involves a full copy
-of the structure with every write. The default is `100`.
+Number of pending transactions that can be stored. Different types of transactions are stored separately. Ensure you set this value high enough since exceeding this capacity involves a full copy of the structure with every write. The default is `100`.
 
 #### `processing_capacity`
 
-Number of batches that can be simultaneously stored in processing. Ensure you set this value
-high enough since exceeding this capacity involves a full copy of the structure with every write.
-The default is `100`.
+Number of batches that can be simultaneously stored in processing. Ensure you set this value high enough since exceeding this capacity involves a full copy of the structure with every write. The default is `100`.
 
 <!-- links -->
+
 [Kafka brokers]: https://jaceklaskowski.gitbooks.io/apache-kafka/content/kafka-properties-bootstrap-servers.html

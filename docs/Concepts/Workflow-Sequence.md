@@ -6,8 +6,7 @@ sidebar_position: 4
 
 # Workflow sequence for common operations
 
-This topic illustrates the event sequence for common rollup operations across the network and the interaction
-between the various components of the rollup.
+This topic illustrates the event sequence for common rollup operations across the network and the interaction between the various components of the rollup.
 
 ## Register a token
 
@@ -23,8 +22,7 @@ Create an account with the [`createAccount`](../Reference/JSON-RPC.md#createacco
 
 ## Register an inbound transfer
 
-Inbound transfers are when funds are transferred from an Ethereum address to the rollup. That means funds
-enter the rollup, and existing rollup accounts can later be credited with the external funds.
+Inbound transfers are when funds are transferred from an Ethereum address to the rollup. That means funds enter the rollup, and existing rollup accounts can later be credited with the external funds.
 
 An inbound transfer sends funds directly from an Ethereum address to the rollup smart contract
 
@@ -34,9 +32,9 @@ An inbound transfer sends funds directly from an Ethereum address to the rollup 
 
 You can list money orders by their status with the following JSON RPC APIs:
 
-* [`listMoneyOrderCreations`](../Reference/JSON-RPC.md#listmoneyordercreations)
-* [`listMoneyOrdersReceived`](../Reference/JSON-RPC.md#listmoneyordersreceived)
-* [`listMoneyOrderRedemptions`](../Reference/JSON-RPC.md#listmoneyorderredemptions)
+- [`listMoneyOrderCreations`](../Reference/JSON-RPC.md#listmoneyordercreations)
+- [`listMoneyOrdersReceived`](../Reference/JSON-RPC.md#listmoneyordersreceived)
+- [`listMoneyOrderRedemptions`](../Reference/JSON-RPC.md#listmoneyorderredemptions)
 
 ![List money orders](/img/listMoneyOrdersCreation.png)
 
@@ -46,8 +44,8 @@ Redeem a [money order] with the [`redeemMoneyOrder`](../Reference/JSON-RPC.md#re
 
 Money orders for redemption can be created in the following ways:
 
-* External funds that enter the rollup as an [inbound transfer](#register-an-inbound-transfer).
-* Money orders [created in the rollup](#create-a-money-order).
+- External funds that enter the rollup as an [inbound transfer](#register-an-inbound-transfer).
+- Money orders [created in the rollup](#create-a-money-order).
 
 The following example redeems a money order from an inbound transfer.
 
@@ -63,11 +61,9 @@ The money order is encrypted before being sent to the operator.
 
 ## Create an outbound transfer
 
-An outbound transfer is when funds are transferred from a rollup account to an Ethereum address. You can use
-the `createOutboundTransfer` API to create the transfer.
+An outbound transfer is when funds are transferred from a rollup account to an Ethereum address. You can use the `createOutboundTransfer` API to create the transfer.
 
-Operators receive outbound transfer requests, check them for validity, create batches of them and batch
-proofs.
+Operators receive outbound transfer requests, check them for validity, create batches of them and batch proofs.
 
 ![Create an outbound transfer](/img/OutboundTransfer.png)
 
