@@ -1,5 +1,7 @@
 ---
-Description: Money orders
+title: Money Orders
+description: Money Orders
+sidebar_position: 3
 ---
 
 # Money orders

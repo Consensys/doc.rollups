@@ -1,5 +1,7 @@
 ---
-Description: How to configure Kafka
+title: Kafka
+description: How to configure the Kafka
+sidebar_position: 3
 ---
 
 # Apache Kafka
@@ -13,15 +15,14 @@ submitted and finalized onchain.
 Configure Kafka access for the [engine](Configuration-File.md#engine-configuration-file) and
 [manager](Configuration-File.md#manager-configuration-file) components separately.
 
-!!! example "Kafka configuration example"
 
-    ```toml
-    [kafka]
-        kafka_type = "Real"
-        brokers = "localhost:9092"
-        timeout_ms = 5000
-        batch_updates_topic = "sumo-state-updates"
-    ```
+```toml title="Kafka configuration example"
+[kafka]
+    kafka_type = "Real"
+    brokers = "localhost:9092"
+    timeout_ms = 5000
+    batch_updates_topic = "sumo-state-updates"
+```
 
 If using [high availability (HA)](../../Concepts/High-Availability.md), configure the additional Kafka HA settings in the
 [`[ha.kafka]`](../../Reference/Configuration-File.md#hakafka) section of the configuration file.

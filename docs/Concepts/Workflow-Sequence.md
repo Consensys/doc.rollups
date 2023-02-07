@@ -1,5 +1,7 @@
 ---
+title: Common workflow sequences
 Description: Describe the workflow sequence for common rollup operations
+sidebar_position: 4
 ---
 
 # Workflow sequence for common operations
@@ -11,13 +13,13 @@ between the various components of the rollup.
 
 A rollup administrator can call the rollup smart contract to register an ERC20 token.
 
-![Register a token](../Images/registerToken.png)
+![Register a token](/img/registerToken.png)
 
 ## Create an account
 
 Create an account with the [`createAccount`](../Reference/JSON-RPC.md#createaccount) JSON RPC API.
 
-![Create an account](../Images/createAccount.png)
+![Create an account](/img/createAccount.png)
 
 ## Register an inbound transfer
 
@@ -26,7 +28,7 @@ enter the rollup, and existing rollup accounts can later be credited with the ex
 
 An inbound transfer sends funds directly from an Ethereum address to the rollup smart contract
 
-![Inbound transfers](../Images/InboundTransfer.png)
+![Inbound transfers](/img/InboundTransfer.png)
 
 ## List money orders
 
@@ -36,7 +38,7 @@ You can list money orders by their status with the following JSON RPC APIs:
 * [`listMoneyOrdersReceived`](../Reference/JSON-RPC.md#listmoneyordersreceived)
 * [`listMoneyOrderRedemptions`](../Reference/JSON-RPC.md#listmoneyorderredemptions)
 
-![List money orders](../Images/listMoneyOrdersCreation.png)
+![List money orders](/img/listMoneyOrdersCreation.png)
 
 ## Redeem a money order
 
@@ -49,7 +51,7 @@ Money orders for redemption can be created in the following ways:
 
 The following example redeems a money order from an inbound transfer.
 
-![Redeem a money order](../Images/RedeemMoneyOrder.png)
+![Redeem a money order](/img/RedeemMoneyOrder.png)
 
 ## Create a money order
 
@@ -57,7 +59,7 @@ Create a money order with the [`createMoneyOrder`](../Reference/JSON-RPC.md#crea
 
 The money order is encrypted before being sent to the operator.
 
-![Create a money order](../Images/CreateMoneyOrder.png)
+![Create a money order](/img/CreateMoneyOrder.png)
 
 ## Create an outbound transfer
 
@@ -67,12 +69,12 @@ the `createOutboundTransfer` API to create the transfer.
 Operators receive outbound transfer requests, check them for validity, create batches of them and batch
 proofs.
 
-![Create an outbound transfer](../Images/OutboundTransfer.png)
+![Create an outbound transfer](/img/OutboundTransfer.png)
 
 ## Submit a forced outbound transfer
 
 A forced outbound transfer has to be processed before it expires.
 
-![Forced outbound transfer](../Images/ForcedOutboundTransfer.png)
+![Forced outbound transfer](/img/ForcedOutboundTransfer.png)
 
 [money order]: Money-Order.md

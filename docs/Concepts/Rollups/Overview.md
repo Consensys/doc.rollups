@@ -1,5 +1,7 @@
 ---
+title: Overview
 description: ConsenSys Rollups overview
+sidebar_position: 1
 ---
 
 # ConsenSys Rollups

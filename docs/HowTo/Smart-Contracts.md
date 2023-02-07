@@ -1,5 +1,7 @@
 ---
+title: Interact with the smart contract
 description: How to interact with the ConsenSys Rollup smart contract.
+sidebar_position: 2
 ---
 
 # Interact with the rollup smart contract
@@ -16,17 +18,19 @@ contract to manage their tokens, and by [sending tokens between accounts](#send-
 
 ConsenSys Rollups provides accounts with test ether with which you can test the smart contract.
 
-!!! critical "Security warning"
+:::danger "Security warning"
 
-    **Do not use the test accounts on Ethereum mainnet or any production network.**
+**Do not use the test accounts on Ethereum mainnet or any production network.**
 
-    **The test accounts provided in the ConsenSys Rollups repository are not secure; their private keys are publicly
-    visible in the source code.**
+**The test accounts provided in the ConsenSys Rollups repository are not secure; their private keys are publicly
+visible in the source code.**
 
-    Using test accounts on Ethereum mainnet and production networks can lead to loss of funds and identity fraud.
+Using test accounts on Ethereum mainnet and production networks can lead to loss of funds and identity fraud.
 
-    Always secure your Ethereum mainnet and production accounts properly.
-    For example, see [MyCrypto "Protecting Yourself and Your Funds" guide](https://support.mycrypto.com/staying-safe/protecting-yourself-and-your-funds).
+Always secure your Ethereum mainnet and production accounts properly.
+For example, see [MyCrypto "Protecting Yourself and Your Funds" guide](https://support.mycrypto.com/staying-safe/protecting-yourself-and-your-funds).
+
+:::
 
 ## Prerequisites
 
@@ -36,17 +40,21 @@ ConsenSys Rollups provides accounts with test ether with which you can test the 
 - [Truffle](https://www.trufflesuite.com/truffle) installed.
 - Address of the Ethereum RPC set as the following environment variable:
 
-    === "Environment variable"
+<!--tabs-->
 
-        ```bash
-        export BLOCKCHAIN_NODE=<RPC-address>
-        ```
+# Environment variable
 
-    === "Example"
+```bash
+export BLOCKCHAIN_NODE=<RPC-address>
+```
 
-        ```bash
-        export BLOCKCHAIN_NODE=http://localhost:8545
-        ```
+# Example
+
+```bash
+export BLOCKCHAIN_NODE=http://localhost:8545
+```
+
+<!--\tabs-->
 
 ## Send inbound transfers to smart contract
 
@@ -54,33 +62,41 @@ You can send inbound transfers in [ETH](#in-eth) or [ERC-20 token](#in-erc-20) t
 
 ### In ETH
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    node scripts/registerInboundEth.js data/rollup.json <path-to-Ethereum-account> <account-id-in-rollup> <amount-in-ETH>
-    ```
+# Syntax
 
-=== "Example using test account"
+```bash
+node scripts/registerInboundEth.js data/rollup.json <path-to-Ethereum-account> <account-id-in-rollup> <amount-in-ETH>
+```
 
-    ```bash
-    node scripts/registerInboundEth.js data/rollup.json ../node-data/test/keys/eth_account_3.acc 0 100.3333
-    ```
+# Example using test account
+
+```bash
+node scripts/registerInboundEth.js data/rollup.json ../node-data/test/keys/eth_account_3.acc 0 100.3333
+```
+
+<!--\tabs-->
 
 The transfer amount is in ETH, not Wei.
 
 ### In ERC-20
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    node scripts/registerInboundErc20.js data/rollup.json <path-to-Ethereum-account> <account-id-in-rollup> <token-id> <transfer-value>
-    ```
+# Syntax
 
-=== "Example using test account"
+```bash
+node scripts/registerInboundErc20.js data/rollup.json <path-to-Ethereum-account> <account-id-in-rollup> <token-id> <transfer-value>
+```
 
-    ```bash
-    node scripts/registerInboundErc20.js data/rollup.json ../node-data/test/keys/eth_account_3.acc 0 0 10000000
-    ```
+# Example using test account
+
+```bash
+node scripts/registerInboundErc20.js data/rollup.json ../node-data/test/keys/eth_account_3.acc 0 0 10000000
+```
+
+<!--\tabs-->
 
 The transfer amount is in the smallest unit of the ERC-20 token.
 
@@ -88,16 +104,20 @@ The transfer amount is in the smallest unit of the ERC-20 token.
 
 You can send ERC-20 tokens between accounts using the following command.
 
-=== "Syntax"
+<!--tabs-->
 
-    ```bash
-    truffle exec scripts/truffle/transferErc20To.js <erc20-address> <priv-key> <to> <amount>
-    ```
+# Syntax
 
-=== "Example using test account"
+```bash
+truffle exec scripts/truffle/transferErc20To.js <erc20-address> <priv-key> <to> <amount>
+```
 
-    ```bash
-    truffle exec scripts/truffle/transferErc20To.js $(cat data/erc20_addr.addr) $(jq -r .priv_key ../node-data/test/keys/eth_account_10.acc) $(jq -r .address data/rollup.json) 3000
-    ```
+# Example using test account
+
+```bash
+truffle exec scripts/truffle/transferErc20To.js $(cat data/erc20_addr.addr) $(jq -r .priv_key ../node-data/test/keys/eth_account_10.acc) $(jq -r .address data/rollup.json) 3000
+```
+
+<!--\tabs-->
 
 The transfer amount is in the smallest unit of the ERC-20 token.

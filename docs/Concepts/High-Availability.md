@@ -1,5 +1,7 @@
 ---
+title: High availability
 Description: Describe high availability for ConsenSys Rollups
+sidebar_position: 5
 ---
 
 # High availability
@@ -8,17 +10,19 @@ You can configure ConsenSys Rollups to be highly available by having multiple in
 operator. If one operator goes down, then the other instance continues to process batches and
 operations from the accounts managed by the operator.
 
-!!! note
+:::note
 
-    Multiple operators in a rollup do not offer high availability because operators can manage different
-    accounts.
+Multiple operators in a rollup do not offer high availability because operators can manage different
+accounts.
+
+:::
 
 ## Overview
 
 In the following high availability example, an operator has multiple instances, with each
 instance in a separate data center.
 
-![High availability](../Images/HighAvailability.png)
+![High availability](/img/HighAvailability.png)
 
 Incoming operations such as creating money orders, and redeeming money orders and accounts are replicated
 to all operator instances. Operations are replicated using Kafka streams. The
@@ -46,10 +50,12 @@ The active-passive mode may be more efficient due to:
 * Not wasting CPU cycles keeping multiple provers running.
 * Not spending gas fees by submitting concurrent batches when only one batch will succeed.
 
-!!! note
+:::note 
 
-    A blockchain is asynchronous, meaning active-passive can still lead to multiple batch creations
-    at the same time.
+A blockchain is asynchronous, meaning active-passive can still lead to multiple batch creations
+at the same time.
+
+:::
 
 ## Multi-site configuration
 
@@ -64,7 +70,9 @@ another site.
 Kafka must be replicated with a strategy that ensures that a single site failure does not block the
 system.
 
-!!! note
+:::note
 
-    Synchronous writes ensure that there is no data loss, but are usually very expensive, both in terms
-    of the hardware and network requirements, and system latency.
+Synchronous writes ensure that there is no data loss, but are usually very expensive, both in terms
+of the hardware and network requirements, and system latency.
+
+:::

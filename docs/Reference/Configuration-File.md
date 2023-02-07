@@ -1,5 +1,7 @@
 ---
-Description: ConsenSys Rollups configuration file options.
+title: Configuration file
+description: ConsenSys Rollups configuration file options.
+sidebar_position: 2
 ---
 
 # Configuration file options
@@ -12,7 +14,55 @@ The following section describes the configuration file options for the [manager]
 
 ## Manager configuration
 
-{!global/Manager-Configuration-File.md!}
+```toml title="Sample Manager configuration file"
+[database]
+    username = "postgres"
+    password = "postgres"
+    host = "postgres"
+    port = "5432"
+    schema = "operator1_i1_manager"
+    pool_size = 10
+
+[kafka]
+    brokers = "kafka-broker:29092"
+    batch_updates_topic = "operator1_i1_batch_updates"
+    invalid_operations_topic = "operator1_i1_invalid_operations"
+    invalid_operations_consumer_group_id = "operator1-i1-invalid-operations-manager-consumer"
+
+[vertx_config]
+    max_event_loop_execution_time_millis = 200
+    max_worker_thread_execution_time_millis = 200
+    log_stacktrace_threshold_millis = 500
+    http_verticles = 2
+    websocket_verticles = 2
+
+[api]
+    http_port = 6010
+    websocket_port = 6011
+    monitoring_port = 6012
+    version = "0"
+
+[api.auth]
+    rollup_account_max_token_duration = "PT3H"
+    api_account_token_duration = "PT4H"
+    clock_leniency = "PT20S"
+
+[http_client]
+    connections_pool_size = 10
+
+[engine]
+    uri = "http://engine-i1:5000"
+
+[ha]
+
+[ha.kafka]
+    brokers = "kafka-broker:29092"
+    pending_operations_replication_topic = "operator1_i1_pending_operations"
+    pending_operations_replication_partitions = 3
+    consumer_group_name = "operator1_i1_replicatior"
+    pending_operations_replication_topics_to_copy = ["operator1_i0_pending_operations"]
+```
+
 
 The operator's manager supports the following settings.
 
@@ -84,17 +134,21 @@ Threshold time in milliseconds to trigger a warning containing a [stack trace](h
 
 Number of processing units for HTTP requests.
 
-!!! important
+:::caution Important
 
-    Don't set `http_verticles` higher than the maximum number of CPUs in the underlying machine.
+Don't set `http_verticles` higher than the maximum number of CPUs in the underlying machine.
+
+:::
 
 #### `websocket_verticles`
 
 Number of processing units for WebSocket requests.
 
-!!! important
+:::caution Important
 
-    Don't set `websocket_verticles` higher than the maximum number of CPUs in the underlying machine.
+Don't set `websocket_verticles` higher than the maximum number of CPUs in the underlying machine.
+
+:::
 
 ### `api`
 
@@ -128,9 +182,11 @@ Maximum time a Rollups account session can last. Tokens are issued on login and 
 
 Duration of API accounts tokens.
 
-!!! note
+:::info
 
-    API accounts are special accounts that can read the state of all Rollups accounts. Credentials and permissions for these accounts are specified in a `credentials.toml` file.
+API accounts are special accounts that can read the state of all Rollups accounts. Credentials and permissions for these accounts are specified in a `credentials.toml` file.
+
+:::
 
 #### `clock_leniency`
 
@@ -168,21 +224,25 @@ Address of the highly available [Kafka brokers].
 
 Topic name used for replication. This instance replicates the operation requests served by the JSON-RPC APIs.
 
-!!! important
+:::caution Important
 
-    Each operator instance must write to a different topic, For example:
+Each operator instance must write to a different topic, For example:
 
-    * Instance 0 writes to `operator1_i0_pending_operations`.
-    * Instance 1 writes to `operator1_i1_pending_operations`.
+* Instance 0 writes to `operator1_i0_pending_operations`.
+* Instance 1 writes to `operator1_i1_pending_operations`.
 
+:::
+ 
 #### `pending_operations_replication_partitions`
 
 Number of partitions used to load balance messages. If the values do not match, then for safety
 reasons the Manager shuts down.
 
-!!! important
+:::caution Important
 
-    This number should never change once messages start to be written, otherwise the correct order won't be preserved.
+This number should never change once messages start to be written, otherwise the correct order won't be preserved.
+
+:::
 
 #### `consumer_group_name`
 
@@ -198,8 +258,74 @@ the local database and engine.
 
 ## Engine configuration
 
-{!global/Engine-Configuration-File.md!}
+```toml title="Sample Engine configuration file"
+transaction_batch_sizes = [1]
+forced_transaction_batch_sizes = [1]
+outbound_transfer_batch_sizes = [1]
 
+listen_address= "0.0.0.0:5000"
+rollup_type = "PaZkp"
+crypto_suite = "Bn"
+smart_contract_max_offset = 32
+trust_origin = false
+
+[state_manager]
+account_merkle_tree_depth = 28
+account_merkle_tree_capacity = 10_000_000
+balance_merkle_tree_depth = 8
+money_order_merkle_tree_depth = 32
+money_order_initial_capacity = 4
+money_order_batch_merkle_tree_depth = 12
+
+[transaction_manager]
+incoming_capacity = 100000
+pending_capacity = 1000000
+processing_capacity = 100000
+completed_length = 200
+insert_poller_epoch_ms = 50
+
+[database]
+database_type = "Postgres"
+username = "postgres"
+password = "postgres"
+host = "postgres"
+port = "5432"
+database = "operator1_engine"
+
+[blockchain_connector]
+connector_type = "Web3"
+url = "http://blockchain-node:8545"
+smart_contract_abi_path = "/smart_contract/data/rollup.json"
+lookahead_blocks = 50
+blocks_to_finalization = 1
+gas_limit_batch = 100000000
+gas_limit_vote = 100000000
+confirmations = 1
+forced_transaction_timeout_blocks = 86400
+
+[key_management.account_key]
+manager_type = "Qkm"
+qkm_url = "http://qkm:8080"
+store_name = "eth-accounts"
+address_path = "../node-data/test/keys/operator_1.acc"
+
+[key_management.encryption_key]
+manager_type = "Qkm"
+qkm_url = "http://qkm:8080"
+store_name = "encryption-keys"
+key_id_path = "../node-data/test/keys/operator_1.acc"
+
+[kafka]
+kafka_type = "Real"
+brokers = "kafka-broker:29092"
+timeout_ms = 60000
+batch_updates_topic = "operator1_batch_updates"
+invalid_operations_topic = "operator1_invalid_operations"
+
+[prover]
+prover_type = "Dummy"
+job_address = "https://prover:9002"
+```
 The engine supports the following settings.
 
 ### `crypto_suite`
@@ -299,11 +425,13 @@ Database name.
 
 Database type. Valid options are `Postgres` and `Dummy`. The default is `Postgres`.
 
-!!! warning
+:::caution Important
 
-    The `Dummy` option is used for testing to start the operator without the database dependency.
+The `Dummy` option is used for testing to start the operator without the database dependency.
 
-    This option must not be used in production.
+This option must not be used in production.
+
+:::
 
 #### `host`
 
@@ -341,11 +469,13 @@ Topic where information about invalid operations are sent. The default is `opera
 
 Kafka type options are `Real` and `Dummy`. The default is `Real`.
 
-!!! warning
+:::caution Important
 
-    The `Dummy` option is used for testing to start the operator without the Kafka dependency.
+The `Dummy` option is used for testing to start the operator without the Kafka dependency.
 
-    This option must not be used in production.
+This option must not be used in production.
+
+:::
 
 #### `timeout_ms`
 

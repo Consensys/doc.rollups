@@ -1,5 +1,7 @@
 ---
-Description: How to configure the database
+title: Database
+description: How to configure the database
+sidebar_position: 2
 ---
 
 # Database
@@ -9,14 +11,13 @@ ConsenSys Rollups support [PostgreSQL](https://www.postgresql.org/) as the datab
 Configure access to the database for the [engine](Configuration-File.md#engine-configuration-file) and
 [manager](Configuration-File.md#manager-configuration-file) components separately.
 
-!!! example "Database configuration example"
 
-    ```toml
-    [database]
-        database_type = "Postgres"
-        username = "postgres"
-        password = "postgres"
-        host = "localhost"
-        port = "5432"
-        database = "engine_operator_1"
-    ```
+```toml title="Database configuration example"
+[database]
+    database_type = "Postgres"
+    username = "postgres"
+    password = "postgres"
+    host = "localhost"
+    port = "5432"
+    database = "engine_operator_1"
+```
