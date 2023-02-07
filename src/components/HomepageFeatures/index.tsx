@@ -39,7 +39,7 @@ const CardList: CardItem[] = [
         Check out how to configure the manager and engine components of Consensys Rollups.
       </>
     ),
-    buttonName: "Use Tessera",
+    buttonName: "Use Rollups",
     buttonType: "secondary",
   },
   {
