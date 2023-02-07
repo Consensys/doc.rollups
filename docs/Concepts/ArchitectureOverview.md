@@ -1,12 +1,14 @@
 ---
+title: Architecture
 description: ConsenSys Rollups architecture
+sidebar_position: 1
 ---
 
 # ConsenSys Rollups architecture
 
 The following diagram outlines the ConsenSys Rollups high-level architecture.
 
-![Architecture](../Images/Architecture.png)
+![Architecture](/img/Architecture.png)
 
 The following steps describe the communication between the manager and engine components, which is asynchronous due to
 the nature of interactions with the blockchain:

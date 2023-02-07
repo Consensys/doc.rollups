@@ -1,13 +1,13 @@
 # Pull request checklist
 
-Use the following template to make sure your PR fits the ConsenSys Rollups documentation standard.
+Use the following template to make sure your PR fits the ConsenSys documentation standard.
 
 ## Before creating the PR
 
 Make sure that:
 
-- [ ] You've read the [contribution guidelines](https://consensys.net/docs/doctools/).
-- [ ] You've [previewed your changes locally](https://consensys.net/docs/doctools/en/latest/preview/old-system/#preview-locally).
+- [ ] You've read the [contribution guidelines](https://github.com/ConsenSys/docs-template).
+- [ ] You've [previewed your changes locally](https://consensys.github.io/docs-template/getting-started#running-locally).
 
 ## Describe the change
 
@@ -33,27 +33,13 @@ For content changes:
 
 For tool changes:
 
-- [ ] CircleCI workflow
-- [ ] Build and QA tools (for example, lint or vale)
-- [ ] MkDocs templates
-- [ ] MkDocs configuration
-- [ ] Python dependencies
+- [ ] Build and QA tools
 - [ ] Node dependencies and JavaScript
-- [ ] Read the Docs configuration
 - [ ] GitHub integration
 
 ## After creating your PR and tests have finished
 
 Make sure that:
 
-- [ ] You've [fixed any issues](https://consensys.net/docs/doctools/en/latest/contribute/fix-cicd-errors/) raised by the tests.
-- [ ] You've [previewed your changes on Read the Docs](https://consensys.net/docs/doctools/en/latest/preview/old-system/#preview-on-read-the-docs)
-  and added a [preview link](#preview).
-
-## Preview
-
-<!-- Add the link to preview your changes on Read the Docs.
-
-The link format is "https://pegasys-sumo--{your PR number}.org.readthedocs.build/en/{your PR number}/",
-where {your PR number} is replaced by the number of this PR.
--->
+- [ ] You've fixed any issues raised by the tests.
+- [ ] You've previewed the build which is auto-deployed by Vercel below.

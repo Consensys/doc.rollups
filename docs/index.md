@@ -1,5 +1,8 @@
 ---
 title: ConsenSys Rollups
+description: ConsenSys Rollups is a framework for implementing rollups layer 2 scaling solutions for the Ethereum blockchain.
+sidebar_position: 1
+slug: overview
 ---
 
 # ConsenSys Rollups
@@ -14,13 +17,13 @@ ConsenSys Rollups supports any EVM-based protocol, including proof of work (PoW)
 ConsenSys Rollups currently implements [partially anonymous rollups](Concepts/Rollups/Partially-Anonymous-Rollups.md),
 with plans to add support for other types of rollups (consensus-rollups and optimistic-rollups).
 
-![Architecture](Images/ConsenSys-Rollups-Overview.png)
+![Architecture](/img/ConsenSys-Rollups-Overview.png)
 
 ConsenSys Rollups introduces a centralized actor called an operator which consists of a manager and engine.
 The operator receives and executes transactions, manages the state, and submits batch transactions
 to the Ethereum network. The blockchain nodes do not re-execute the transactions.
 
-![ConsenSys Rollups workflow](Images/Operator_Flow.png)
+![ConsenSys Rollups workflow](/img/Operator_Flow.png)
 
 ## Why use ConsenSys Rollups?
 

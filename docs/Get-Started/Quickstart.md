@@ -1,5 +1,7 @@
 ---
+title: Deploy Consensys Rollups
 Description: Get started with ConsenSys Rollups
+sidebar_position: 1
 ---
 
 # Getting started

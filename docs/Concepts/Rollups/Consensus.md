@@ -1,3 +1,9 @@
+---
+title: Consensus
+description: Consensus
+sidebar_position: 3
+---
+
 # Consensus-rollups (PoA)
 
 A consensus-rollup, or proof of authority (PoA) rollup, is a type of [rollup](Overview.md) that relies on the assumption

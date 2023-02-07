@@ -1,5 +1,7 @@
 ---
-Description: Describe partially anonymous rollups.
+title: Partially anonymous rollups
+description: Describe partially anonymous rollups.
+sidebar_position: 2
 ---
 
 # Partially anonymous rollups
@@ -44,9 +46,11 @@ Disadvantages over anonymous rollups are:
 * The operator performing a transaction can view the full transaction details.
 * Participants in a transaction learn their counterparty ID.
 
-!!! information
+:::info
 
-    [The specification about partially anonymous rollups] contains in-depth information about the ZK-rollup type.
+[The specification about partially anonymous rollups] contains in-depth information about the ZK-rollup type.
+
+:::
 
 ## Finality
 
@@ -56,4 +60,4 @@ once the block that includes it becomes final.
 
 [zero knowledge rollup (ZK-rollup)]: https://ethresear.ch/t/on-chain-scaling-to-potentially-500-tx-sec-through-mass-tx-validation/3477
 [fully anonymous ZK-rollups (anonymous rollups)]: https://ethresear.ch/t/account-based-anonymous-rollup/6657
-[The specification about partially anonymous rollups]: ../../Assets/partially_anonymous_rollups_with_encryption-v1.4-June.pdf
+[The specification about partially anonymous rollups]: /partially_anonymous_rollups_with_encryption-v1.4-June.pdf
